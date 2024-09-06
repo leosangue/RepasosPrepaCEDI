@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materias de Repaso</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para el botón de regreso */
+        .btn-regreso {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .btn-regreso:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Materias de Repaso</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="materias.html">Materias</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
+        <section>
+            <h2>Selecciona una Materia</h2>
+            <ul>
+                <li><a href="materias/espanol.html">Español</a></li>
+                <li><a href="matematicas.html">Matemáticas</a></li>
+                <li><a href="frances.html">Francés</a></li>
+                <li><a href="humanidades.html">Humanidades</a></li>
+                <li><a href="geografia.html">Geografía</a></li>
+                <li><a href="computacion.html">Computación</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Página de Repasos para Exámenes para Alumnos de Primer Semestre por Leo Sandoval</p>
+    </footer>
+</body>
+</html>
