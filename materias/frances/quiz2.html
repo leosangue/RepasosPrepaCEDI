@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Repaso</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* Estilos para el cronómetro */
+        #cronometro {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+    <style>
+        /* Estilos para el botón de regreso */
+        .btn-regreso {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .btn-regreso:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        let tiempoInicio;
+        let intervalo;
+    
+        function iniciarCronometro() {
+            tiempoInicio = new Date();
+            intervalo = setInterval(actualizarCronometro, 1000);
+        }
+    
+        function actualizarCronometro() {
+            const ahora = new Date();
+            const tiempoTranscurrido = Math.floor((ahora - tiempoInicio) / 1000); // Tiempo en segundos
+            const minutos = Math.floor(tiempoTranscurrido / 60);
+            const segundos = tiempoTranscurrido % 60;
+            document.getElementById('cronometro').textContent = `${minutos}m ${segundos}s`;
+        }
+    
+        function detenerCronometro() {
+            clearInterval(intervalo);
+        }
+    
+        function verificarRespuestas(event) {
+            event.preventDefault(); // Evitar que la página se recargue al enviar el formulario
+            detenerCronometro(); // Detener el cronómetro al enviar
+    
+            // Respuestas correctas
+            const respuestasCorrectas = {
+                q1: "plus",
+                q2: "Paris est moins polluée que Pékin.",
+                q3: "Marie est aussi compétente en français que Paul.",
+                q4: "plus",
+                q5: "Ce restaurant est plus cher que celui-là.",
+                q6: "Ce film est autant intéressant que celui-ci.",
+                q7: "Ce smartphone a moins d'autonomie que celui-là.",
+                q8: "Cette maison est plus grande que l'autre.",
+                q9: "Cette école est moins bonne que celle-ci.",
+                q10: "Cette équipe joue aussi bien que celle-là.",
+                q11: "a",
+                q12: "b",
+                q13: "c",
+                q14: "c",
+                q15: "a",
+                q16: "a",
+                q17: "a",
+                q18: "c",
+                q19: "b",
+                q20: "c"
+            };
+    
+            let puntaje = 0;
+            let respuestasIncorrectas = [];
+    
+            // Comprobar las respuestas abiertas (q1 a q10)
+            for (let i = 1; i <= 10; i++) {
+                const respuesta = document.getElementById(`q${i}`).value.trim();
+                if (respuesta.toLowerCase() === respuestasCorrectas[`q${i}`]?.toLowerCase()) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Comprobar las respuestas de opción múltiple (q11 a q20)
+            for (let i = 11; i <= 20; i++) {
+                const respuesta = document.querySelector(`input[name="q${i}"]:checked`)?.value;
+                if (respuesta === respuestasCorrectas[`q${i}`]) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta opción múltiple ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Mostrar el puntaje y respuestas incorrectas al usuario
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = `<p>Tu puntaje es: ${puntaje} de 20</p>`;
+            
+            if (respuestasIncorrectas.length > 0) {
+                resultado.innerHTML += '<h3>Respuestas incorrectas:</h3><ul>';
+                respuestasIncorrectas.forEach(incorrecta => {
+                    resultado.innerHTML += `<li>${incorrecta}</li>`;
+                });
+                resultado.innerHTML += '</ul>';
+            }
+        }
+    
+        // Iniciar cronómetro al cargar la página
+        window.onload = iniciarCronometro;
+    </script>
+    
+</head>
+<body>
+    <header>
+        <h1>Cuestionario de Repaso</h1>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../materias.html">Materias</a></li>
+            </ul>
+        </nav>
+        <div id="cronometro">0m 0s</div> <!-- Cronómetro -->
+    </header>
+
+    <main>
+        <section>
+            <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
+            <h2>Responde las siguientes preguntas</h2>
+            <form id="quizForm" onsubmit="verificarRespuestas(event)">
+                <!-- 10 preguntas abiertas -->
+                <div>
+                    <label for="q1">1. Complétez la phrase avec le comparatif approprié : "Cette voiture est ___ rapide que l'autre."</label><br>
+                    <input type="text" id="q1" name="q1" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q2">2. Formulez une phrase en utilisant "moins" pour comparer deux villes en termes de pollution.</label><br>
+                    <input type="text" id="q2" name="q2" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q3">3. Utilisez "aussi...que" pour comparer deux personnes en termes de compétence en français.</label><br>
+                    <input type="text" id="q3" name="q3" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q4">4. Complétez avec le comparatif de supériorité : "Mon appartement est ___ grand que le tien."</label><br>
+                    <input type="text" id="q4" name="q4" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q5">5. Exprimez une comparaison d'inégalité entre deux restaurants en termes de prix.</label><br>
+                    <input type="text" id="q5" name="q5" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q6">6. Rédigez une phrase avec "autant...que" pour comparer deux films en termes d'intérêt.</label><br>
+                    <input type="text" id="q6" name="q6" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q7">7. Formulez une comparaison en utilisant "moins...que" pour comparer deux smartphones en termes de batterie.</label><br>
+                    <input type="text" id="q7" name="q7" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q8">8. Utilisez "plus...que" pour comparer la taille de deux maisons.</label><br>
+                    <input type="text" id="q8" name="q8" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q9">9. Exprimez une comparaison d'inégalité entre deux écoles en termes de qualité d'enseignement.</label><br>
+                    <input type="text" id="q9" name="q9" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q10">10. Formulez une phrase en utilisant "aussi bien que" pour comparer deux équipes sportives.</label><br>
+                    <input type="text" id="q10" name="q10" placeholder="Tu respuesta">
+                </div>
+                <!-- 10 preguntas de opción múltiple -->
+                <div>
+                    <label>11. Complétez la phrase : "Cette montre est ___ chère que l'autre."</label><br>
+                    <input type="radio" id="q11a" name="q11" value="a">
+                    <label for="q11a">a) Plus</label><br>
+                    <input type="radio" id="q11b" name="q11" value="b">
+                    <label for="q11b">b) Moins</label><br>
+                    <input type="radio" id="q11c" name="q11" value="c">
+                    <label for="q11c">c) Aussi</label><br>
+                </div>
+                <div>
+                    <label>12. Choisissez le bon comparatif : "Ce café est ___ fort que le thé."</label><br>
+                    <input type="radio" id="q12a" name="q12" value="a">
+                    <label for="q12a">a) Aussi</label><br>
+                    <input type="radio" id="q12b" name="q12" value="b">
+                    <label for="q12b">b) Plus</label><br>
+                    <input type="radio" id="q12c" name="q12" value="c">
+                    <label for="q12c">c) Moins</label><br>
+                </div>
+                <div>
+                    <label>13. Complétez la phrase : "Mon frère est ___ intelligent que moi."</label><br>
+                    <input type="radio" id="q13a" name="q13" value="a">
+                    <label for="q13a">a) Moins</label><br>
+                    <input type="radio" id="q13b" name="q13" value="b">
+                    <label for="q13b">b) Aussi</label><br>
+                    <input type="radio" id="q13c" name="q13" value="c">
+                    <label for="q13c">c) Plus</label><br>
+                </div>
+                <div>
+                    <label>14. Quelle est la phrase correcte ? "Cette voiture est ___ économique que l'autre."</label><br>
+                    <input type="radio" id="q14a" name="q14" value="a">
+                    <label for="q14a">a) Aussi</label><br>
+                    <input type="radio" id="q14b" name="q14" value="b">
+                    <label for="q14b">b) Plus</label><br>
+                    <input type="radio" id="q14c" name="q14" value="c">
+                    <label for="q14c">c) Moins</label><br>
+                </div>
+                <div>
+                    <label>15. Complétez avec le comparatif approprié : "Cet exercice est ___ difficile que le précédent."</label><br>
+                    <input type="radio" id="q15a" name="q15" value="a">
+                    <label for="q15a">a) Plus</label><br>
+                    <input type="radio" id="q15b" name="q15" value="b">
+                    <label for="q15b">b) Aussi</label><br>
+                    <input type="radio" id="q15c" name="q15" value="c">
+                    <label for="q15c">c) Moins</label><br>
+                </div>
+                <div>
+                    <label>16. Choisissez la bonne phrase : "Ce livre est ___ intéressant que l'autre."</label><br>
+                    <input type="radio" id="q16a" name="q16" value="a">
+                    <label for="q16a">a) Moins</label><br>
+                    <input type="radio" id="q16b" name="q16" value="b">
+                    <label for="q16b">b) Aussi</label><br>
+                    <input type="radio" id="q16c" name="q16" value="c">
+                    <label for="q16c">c) Plus</label><br>
+                </div>
+                <div>
+                    <label>17. Complétez la phrase : "Cette robe est ___ belle que celle-ci."</label><br>
+                    <input type="radio" id="q17a" name="q17" value="a">
+                    <label for="q17a">a) Moins</label><br>
+                    <input type="radio" id="q17b" name="q17" value="b">
+                    <label for="q17b">b) Aussi</label><br>
+                    <input type="radio" id="q17c" name="q17" value="c">
+                    <label for="q17c">c) Plus</label><br>
+                </div>
+                <div>
+                    <label>18. Quelle est la bonne réponse ? "Cette solution est ___ efficace que la précédente."</label><br>
+                    <input type="radio" id="q18a" name="q18" value="a">
+                    <label for="q18a">a) Moins</label><br>
+                    <input type="radio" id="q18b" name="q18" value="b">
+                    <label for="q18b">b) Aussi</label><br>
+                    <input type="radio" id="q18c" name="q18" value="c">
+                    <label for="q18c">c) Plus</label><br>
+                </div>
+                <div>
+                    <label>19. Choisissez le bon comparatif : "Cet étudiant est ___ motivé que les autres."</label><br>
+                    <input type="radio" id="q19a" name="q19" value="a">
+                    <label for="q19a">a) Moins</label><br>
+                    <input type="radio" id="q19b" name="q19" value="b">
+                    <label for="q19b">b) Aussi</label><br>
+                    <input type="radio" id="q19c" name="q19" value="c">
+                    <label for="q19c">c) Plus</label><br>
+                </div>
+                <div>
+                    <label>20. Complétez la phrase : "Cet endroit est ___ calme que la ville."</label><br>
+                    <input type="radio" id="q20a" name="q20" value="a">
+                    <label for="q20a">a) Moins</label><br>
+                    <input type="radio" id="q20b" name="q20" value="b">
+                    <label for="q20b">b) Aussi</label><br>
+                    <input type="radio" id="q20c" name="q20" value="c">
+                    <label for="q20c">c) Plus</label><br>
+                </div>
+            
+                <div>
+                    <button type="submit">Enviar respuestas</button>
+                </div>
+                <p id="resultado"></p>
+            </form>
+                        
+        </section>
+    </main>
+</body>
+</html>
