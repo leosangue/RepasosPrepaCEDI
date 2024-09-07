@@ -36,12 +36,12 @@
     <script>
         let tiempoInicio;
         let intervalo;
-
+    
         function iniciarCronometro() {
             tiempoInicio = new Date();
             intervalo = setInterval(actualizarCronometro, 1000);
         }
-
+    
         function actualizarCronometro() {
             const ahora = new Date();
             const tiempoTranscurrido = Math.floor((ahora - tiempoInicio) / 1000); // Tiempo en segundos
@@ -49,15 +49,15 @@
             const segundos = tiempoTranscurrido % 60;
             document.getElementById('cronometro').textContent = `${minutos}m ${segundos}s`;
         }
-
+    
         function detenerCronometro() {
             clearInterval(intervalo);
         }
-
+    
         function verificarRespuestas(event) {
             event.preventDefault(); // Evitar que la página se recargue al enviar el formulario
             detenerCronometro(); // Detener el cronómetro al enviar
-
+    
             // Respuestas correctas
             const respuestasCorrectas = {
                 q1: "Une chambre est une pièce où l'on dort, généralement équipée d'un lit, d'une armoire et parfois d'une table de chevet.",
@@ -81,30 +81,30 @@
                 q19: "b",
                 q20: "b"
             };
-
+    
             let puntaje = 0;
             let respuestasIncorrectas = [];
-
+    
             // Comprobar las respuestas abiertas (q1 a q10)
             for (let i = 1; i <= 10; i++) {
                 const respuesta = document.getElementById(`q${i}`).value.trim();
                 if (respuesta.toLowerCase() === respuestasCorrectas[`q${i}`]?.toLowerCase()) {
                     puntaje++;
                 } else {
-                    respuestasIncorrectas.push(`${i}. Pregunta abierta ${i} incorrecta.`);
+                    respuestasIncorrectas.push(`${i}. Pregunta ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
                 }
             }
-
+    
             // Comprobar las respuestas de opción múltiple (q11 a q20)
             for (let i = 11; i <= 20; i++) {
                 const respuesta = document.querySelector(`input[name="q${i}"]:checked`)?.value;
                 if (respuesta === respuestasCorrectas[`q${i}`]) {
                     puntaje++;
                 } else {
-                    respuestasIncorrectas.push(`${i}. Pregunta opción múltiple ${i} incorrecta.`);
+                    respuestasIncorrectas.push(`${i}. Pregunta opción múltiple ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
                 }
             }
-
+    
             // Mostrar el puntaje y respuestas incorrectas al usuario
             const resultado = document.getElementById("resultado");
             resultado.innerHTML = `<p>Tu puntaje es: ${puntaje} de 20</p>`;
@@ -117,10 +117,11 @@
                 resultado.innerHTML += '</ul>';
             }
         }
-
+    
         // Iniciar cronómetro al cargar la página
         window.onload = iniciarCronometro;
     </script>
+    
 </head>
 <body>
     <header>
