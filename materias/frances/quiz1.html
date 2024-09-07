@@ -60,19 +60,25 @@
 
             // Respuestas correctas
             const respuestasCorrectas = {
-                q1: "París",
-                q2: "Proceso por el cual las plantas producen su alimento",
-                q3: "Miguel de Cervantes",
-                // Preguntas de opción múltiple (q11 a q20)
-                q11: "a",
+                q1: "Une chambre est une pièce où l'on dort, généralement équipée d'un lit, d'une armoire et parfois d'une table de chevet.",
+                q2: "Un appartement est un logement situé dans un immeuble partagé avec d'autres appartements, tandis qu'une maison est un logement individuel, souvent indépendant.",
+                q3: "Une maison typique comporte généralement une cuisine, un salon, une ou plusieurs chambres, une salle de bain et parfois un garage ou un jardin.",
+                q4: "En ville, on peut trouver des appartements, des studios, des lofts, des maisons de ville et des résidences collectives.",
+                q5: "Un studio est un petit appartement constitué d'une seule pièce principale qui sert à la fois de salon, de chambre et parfois de cuisine, avec une salle de bain séparée.",
+                q6: "Un logement moderne a souvent des espaces ouverts, une décoration minimaliste, des meubles fonctionnels, et utilise des matériaux contemporains comme le verre et le métal.",
+                q7: "'Meublé' signifie que le logement est équipé de meubles nécessaires, comme un lit, des chaises, une table et parfois des appareils électroménagers.",
+                q8: "Vivre en colocation permet de partager les frais du logement, de rencontrer de nouvelles personnes et de vivre dans un espace plus grand à moindre coût.",
+                q9: "Les principales dépenses incluent le loyer, les factures d'électricité, d'eau, de chauffage, d'internet, ainsi que les éventuelles charges de copropriété.",
+                q10: "Un bon quartier doit être sûr, proche des commodités comme les écoles, les magasins, les transports publics, et offrir un bon cadre de vie en fonction des besoins.",
+                q11: "b",
                 q12: "b",
-                q13: "c",
-                q14: "d",
-                q15: "a",
+                q13: "a",
+                q14: "b",
+                q15: "b",
                 q16: "b",
-                q17: "c",
-                q18: "d",
-                q19: "a",
+                q17: "a",
+                q18: "a",
+                q19: "b",
                 q20: "b"
             };
 
@@ -135,34 +141,136 @@
             <form id="quizForm" onsubmit="verificarRespuestas(event)">
                 <!-- 10 preguntas abiertas -->
                 <div>
-                    <label for="q1">1. ¿Cuál es la capital de Francia?</label><br>
+                    <label for="q1">1. Qu'est-ce qu'une chambre?</label><br>
                     <input type="text" id="q1" name="q1" placeholder="Tu respuesta">
                 </div>
                 <div>
-                    <label for="q2">2. ¿Qué es la fotosíntesis?</label><br>
+                    <label for="q2">2. Quelle est la différence entre un appartement et une maison?</label><br>
                     <input type="text" id="q2" name="q2" placeholder="Tu respuesta">
                 </div>
-                <!-- Agrega más preguntas abiertas aquí (q3 a q10) -->
                 <div>
-                    <label for="q3">3. ¿Quién escribió "Don Quijote de la Mancha"?</label><br>
+                    <label for="q3">3. Décris les principales pièces d'une maison typique.</label><br>
                     <input type="text" id="q3" name="q3" placeholder="Tu respuesta">
                 </div>
                 <div>
-                    <label for="q4">4. ¿Qué es la gravedad?</label><br>
+                    <label for="q4">4. Quels types de logements peut-on trouver en ville?</label><br>
                     <input type="text" id="q4" name="q4" placeholder="Tu respuesta">
                 </div>
-                <!-- ...continúa hasta la pregunta 10... -->
-                
-                <!-- 10 preguntas de opción múltiple -->
                 <div>
-                    <label>11. ¿Cuál es la capital de Alemania?</label><br>
-                    <input type="radio" id="q11a" name="q11" value="a">
-                    <label for="q11a">a) Berlín</label><br>
-                    <input type="radio" id="q11b" name="q11" value="b">
-                    <label for="q11b">b) París</label><br>
-                    <!-- Más opciones aquí -->
+                    <label for="q5">5. Qu'est-ce qu'un studio?</label><br>
+                    <input type="text" id="q5" name="q5" placeholder="Tu respuesta">
                 </div>
-                <!-- Repite para las preguntas de opción múltiple (q12 a q20) -->
+                <div>
+                    <label for="q6">6. Comment décrirais-tu l'aménagement intérieur d'un logement moderne?</label><br>
+                    <input type="text" id="q6" name="q6" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q7">7. Que signifie le terme "meublé"?</label><br>
+                    <input type="text" id="q7" name="q7" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q8">8. Quels sont les avantages de vivre dans une colocation?</label><br>
+                    <input type="text" id="q8" name="q8" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q9">9. Quelles sont les principales dépenses liées à un logement?</label><br>
+                    <input type="text" id="q9" name="q9" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q10">10. Comment choisir un bon quartier pour habiter?</label><br>
+                    <input type="text" id="q10" name="q10" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label>11. Qu'est-ce qu'un "loyer"?</label><br>
+                    <input type="radio" id="q11a" name="q11" value="a">
+                    <label for="q11a">a) Une taxe gouvernementale</label><br>
+                    <input type="radio" id="q11b" name="q11" value="b">
+                    <label for="q11b">b) Le montant que l'on paie chaque mois pour un logement</label><br>
+                    <input type="radio" id="q11c" name="q11" value="c">
+                    <label for="q11c">c) Un type de contrat</label><br>
+                </div>
+                <div>
+                    <label>12. Que signifie "salle de bains"?</label><br>
+                    <input type="radio" id="q12a" name="q12" value="a">
+                    <label for="q12a">a) Une pièce pour dormir</label><br>
+                    <input type="radio" id="q12b" name="q12" value="b">
+                    <label for="q12b">b) Une pièce pour prendre une douche ou un bain</label><br>
+                    <input type="radio" id="q12c" name="q12" value="c">
+                    <label for="q12c">c) Un salon</label><br>
+                </div>
+                <div>
+                    <label>13. Quel est le rôle d'un "concierge"?</label><br>
+                    <input type="radio" id="q13a" name="q13" value="a">
+                    <label for="q13a">a) Gérer les réparations dans un immeuble</label><br>
+                    <input type="radio" id="q13b" name="q13" value="b">
+                    <label for="q13b">b) Louer les appartements</label><br>
+                    <input type="radio" id="q13c" name="q13" value="c">
+                    <label for="q13c">c) Accueillir les visiteurs</label><br>
+                </div>
+                <div>
+                    <label>14. Que fait-on dans une "cuisine"?</label><br>
+                    <input type="radio" id="q14a" name="q14" value="a">
+                    <label for="q14a">a) On se lave</label><br>
+                    <input type="radio" id="q14b" name="q14" value="b">
+                    <label for="q14b">b) On prépare des repas</label><br>
+                    <input type="radio" id="q14c" name="q14" value="c">
+                    <label for="q14c">c) On dort</label><br>
+                </div>
+                <div>
+                    <label>15. Qu'est-ce qu'un "balcon"?</label><br>
+                    <input type="radio" id="q15a" name="q15" value="a">
+                    <label for="q15a">a) Une pièce intérieure</label><br>
+                    <input type="radio" id="q15b" name="q15" value="b">
+                    <label for="q15b">b) Un espace extérieur attaché à un appartement</label><br>
+                    <input type="radio" id="q15c" name="q15" value="c">
+                    <label for="q15c">c) Un garage</label><br>
+                </div>
+                <div>
+                    <label>16. Que veut dire "emménager"?</label><br>
+                    <input type="radio" id="q16a" name="q16" value="a">
+                    <label for="q16a">a) Quitter un logement</label><br>
+                    <input type="radio" id="q16b" name="q16" value="b">
+                    <label for="q16b">b) Entrer dans un nouveau logement</label><br>
+                    <input type="radio" id="q16c" name="q16" value="c">
+                    <label for="q16c">c) Peindre les murs</label><br>
+                </div>
+                <div>
+                    <label>17. Qu'est-ce qu'un "bail"?</label><br>
+                    <input type="radio" id="q17a" name="q17" value="a">
+                    <label for="q17a">a) Un contrat de location</label><br>
+                    <input type="radio" id="q17b" name="q17" value="b">
+                    <label for="q17b">b) Une pièce de la maison</label><br>
+                    <input type="radio" id="q17c" name="q17" value="c">
+                    <label for="q17c">c) Un meuble</label><br>
+                </div>
+                <div>
+                    <label>18. Que signifie "loyer charges comprises"?</label><br>
+                    <input type="radio" id="q18a" name="q18" value="a">
+                    <label for="q18a">a) Le loyer inclut l'électricité et l'eau</label><br>
+                    <input type="radio" id="q18b" name="q18" value="b">
+                    <label for="q18b">b) Le loyer est sans frais supplémentaires</label><br>
+                    <input type="radio" id="q18c" name="q18" value="c">
+                    <label for="q18c">c) Le loyer est payé d'avance</label><br>
+                </div>
+                <div>
+                    <label>19. Que veut dire "rez-de-chaussée"?</label><br>
+                    <input type="radio" id="q19a" name="q19" value="a">
+                    <label for="q19a">a) Le dernier étage d'un immeuble</label><br>
+                    <input type="radio" id="q19b" name="q19" value="b">
+                    <label for="q19b">b) L'étage au niveau de la rue</label><br>
+                    <input type="radio" id="q19c" name="q19" value="c">
+                    <label for="q19c">c) Un sous-sol</label><br>
+                </div>
+                <div>
+                    <label>20. Qu'est-ce qu'un "immeuble"?</label><br>
+                    <input type="radio" id="q20a" name="q20" value="a">
+                    <label for="q20a">a) Une maison individuelle</label><br>
+                    <input type="radio" id="q20b" name="q20" value="b">
+                    <label for="q20b">b) Un bâtiment avec plusieurs appartements</label><br>
+                    <input type="radio" id="q20c" name="q20" value="c">
+                    <label for="q20c">c) Un type de meuble</label><br>
+                </div>
+                
 
                 <div>
                     <button type="submit">Enviar respuestas</button>
