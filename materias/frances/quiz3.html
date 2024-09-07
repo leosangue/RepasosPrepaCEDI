@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Repaso</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* Estilos para el cronómetro */
+        #cronometro {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+    <style>
+        /* Estilos para el botón de regreso */
+        .btn-regreso {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .btn-regreso:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        let tiempoInicio;
+        let intervalo;
+    
+        function iniciarCronometro() {
+            tiempoInicio = new Date();
+            intervalo = setInterval(actualizarCronometro, 1000);
+        }
+    
+        function actualizarCronometro() {
+            const ahora = new Date();
+            const tiempoTranscurrido = Math.floor((ahora - tiempoInicio) / 1000); // Tiempo en segundos
+            const minutos = Math.floor(tiempoTranscurrido / 60);
+            const segundos = tiempoTranscurrido % 60;
+            document.getElementById('cronometro').textContent = `${minutos}m ${segundos}s`;
+        }
+    
+        function detenerCronometro() {
+            clearInterval(intervalo);
+        }
+    
+        function verificarRespuestas(event) {
+            event.preventDefault(); // Evitar que la página se recargue al enviar el formulario
+            detenerCronometro(); // Detener el cronómetro al enviar
+    
+            // Respuestas correctas
+            const respuestasCorrectas = {
+                q1: "chaud",
+                q2: "L'adjectif s'accorde en genre et en nombre avec le nom, donc il prend la forme féminine singulière.",
+                q3: "Rouge vif",
+                q4: "ancien",
+                q5: "brillant, précieux",
+                q6: "« Minuscule » indique une taille encore plus petite que « petit ».",
+                q7: "cuir",
+                q8: "confortable",
+                q9: "métal, moderne",
+                q10: "Vert",
+                q11: "b",
+                q12: "b",
+                q13: "b",
+                q14: "b",
+                q15: "b",
+                q16: "a",
+                q17: "b",
+                q18: "b",
+                q19: "b",
+                q20: "c"
+            };
+    
+            let puntaje = 0;
+            let respuestasIncorrectas = [];
+    
+            // Comprobar las respuestas abiertas (q1 a q10)
+            for (let i = 1; i <= 10; i++) {
+                const respuesta = document.getElementById(`q${i}`).value.trim();
+                if (respuesta.toLowerCase() === respuestasCorrectas[`q${i}`]?.toLowerCase()) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Comprobar las respuestas de opción múltiple (q11 a q20)
+            for (let i = 11; i <= 20; i++) {
+                const respuesta = document.querySelector(`input[name="q${i}"]:checked`)?.value;
+                if (respuesta === respuestasCorrectas[`q${i}`]) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta opción múltiple ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Mostrar el puntaje y respuestas incorrectas al usuario
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = `<p>Tu puntaje es: ${puntaje} de 20</p>`;
+            
+            if (respuestasIncorrectas.length > 0) {
+                resultado.innerHTML += '<h3>Respuestas incorrectas:</h3><ul>';
+                respuestasIncorrectas.forEach(incorrecta => {
+                    resultado.innerHTML += `<li>${incorrecta}</li>`;
+                });
+                resultado.innerHTML += '</ul>';
+            }
+        }
+    
+        // Iniciar cronómetro al cargar la página
+        window.onload = iniciarCronometro;
+    </script>
+    
+</head>
+<body>
+    <header>
+        <h1>Cuestionario de Repaso</h1>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../materias.html">Materias</a></li>
+            </ul>
+        </nav>
+        <div id="cronometro">0m 0s</div> <!-- Cronómetro -->
+    </header>
+
+    <main>
+        <section>
+            <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
+            <h2>Responde las siguientes preguntas</h2>
+            <form id="quizForm" onsubmit="verificarRespuestas(event)">
+                <!-- 10 preguntas abiertas -->
+                <div>
+                    <label for="q1">1. Donne un exemple d'adjectif qualificatif utilisé pour décrire un tissu en laine.</label><br>
+                    <input type="text" id="q1" name="q1" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q2">2. Comment l'accord de l'adjectif se fait-il avec un nom féminin singulier ?</label><br>
+                    <input type="text" id="q2" name="q2" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q3">3. Quelle couleur est associée au terme « écarlate » ?</label><br>
+                    <input type="text" id="q3" name="q3" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q4">4. Mentionne un adjectif qualificatif pour décrire un meuble en bois ancien.</label><br>
+                    <input type="text" id="q4" name="q4" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q5">5. Quels sont les adjectifs qualificatifs que tu utiliserais pour décrire un diamant ?</label><br>
+                    <input type="text" id="q5" name="q5" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q6">6. Quelle est la différence entre « petit » et « minuscule » en termes de taille ?</label><br>
+                    <input type="text" id="q6" name="q6" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q7">7. Donne un exemple d'adjectif qui décrit un vêtement en cuir.</label><br>
+                    <input type="text" id="q7" name="q7" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q8">8. Comment l’adjectif « confortable » s’accorde-t-il avec un fauteuil masculin singulier ?</label><br>
+                    <input type="text" id="q8" name="q8" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q9">9. Nomme un matériau et un adjectif pour décrire une sculpture moderne.</label><br>
+                    <input type="text" id="q9" name="q9" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q10">10. Quelle couleur est décrite par l'adjectif « émeraude » ?</label><br>
+                    <input type="text" id="q10" name="q10" placeholder="Tu réponse">
+                </div>
+                <!-- 10 preguntas de opción múltiple -->
+                <div>
+                    <label>11. Quel adjectif qualificatif décrit un objet très grand ?</label><br>
+                    <input type="radio" id="q11a" name="q11" value="a">
+                    <label for="q11a">a) Minuscule</label><br>
+                    <input type="radio" id="q11b" name="q11" value="b">
+                    <label for="q11b">b) Enorme</label><br>
+                    <input type="radio" id="q11c" name="q11" value="c">
+                    <label for="q11c">c) Petit</label><br>
+                </div>
+                <div>
+                    <label>12. Comment s'accorde l'adjectif « heureux » avec un nom féminin pluriel ?</label><br>
+                    <input type="radio" id="q12a" name="q12" value="a">
+                    <label for="q12a">a) Heureux</label><br>
+                    <input type="radio" id="q12b" name="q12" value="b">
+                    <label for="q12b">b) Heureuses</label><br>
+                    <input type="radio" id="q12c" name="q12" value="c">
+                    <label for="q12c">c) Heureuse</label><br>
+                </div>
+                <div>
+                    <label>13. Quel adjectif utiliserais-tu pour décrire une pièce lumineuse ?</label><br>
+                    <input type="radio" id="q13a" name="q13" value="a">
+                    <label for="q13a">a) Sombre</label><br>
+                    <input type="radio" id="q13b" name="q13" value="b">
+                    <label for="q13b">b) Lumineux</label><br>
+                    <input type="radio" id="q13c" name="q13" value="c">
+                    <label for="q13c">c) Obscur</label><br>
+                </div>
+                <div>
+                    <label>14. Quel adjectif qualificatif est approprié pour décrire un textile soyeux ?</label><br>
+                    <input type="radio" id="q14a" name="q14" value="a">
+                    <label for="q14a">a) Rugueux</label><br>
+                    <input type="radio" id="q14b" name="q14" value="b">
+                    <label for="q14b">b) Doux</label><br>
+                    <input type="radio" id="q14c" name="q14" value="c">
+                    <label for="q14c">c) Épais</label><br>
+                </div>
+                <div>
+                    <label>15. Quel adjectif est le plus approprié pour un matériau transparent ?</label><br>
+                    <input type="radio" id="q15a" name="q15" value="a">
+                    <label for="q15a">a) Opacité</label><br>
+                    <input type="radio" id="q15b" name="q15" value="b">
+                    <label for="q15b">b) Transparent</label><br>
+                    <input type="radio" id="q15c" name="q15" value="c">
+                    <label for="q15c">c) Flou</label><br>
+                </div>
+                <div>
+                    <label>16. Quelle couleur est décrite par l’adjectif « azur » ?</label><br>
+                    <input type="radio" id="q16a" name="q16" value="a">
+                    <label for="q16a">a) Bleu</label><br>
+                    <input type="radio" id="q16b" name="q16" value="b">
+                    <label for="q16b">b) Rouge</label><br>
+                    <input type="radio" id="q16c" name="q16" value="c">
+                    <label for="q16c">c) Jaune</label><br>
+                </div>
+                <div>
+                    <label>17. Comment décrire une petite table avec l'adjectif approprié ?</label><br>
+                    <input type="radio" id="q17a" name="q17" value="a">
+                    <label for="q17a">a) Immense</label><br>
+                    <input type="radio" id="q17b" name="q17" value="b">
+                    <label for="q17b">b) Minuscule</label><br>
+                    <input type="radio" id="q17c" name="q17" value="c">
+                    <label for="q17c">c) Grande</label><br>
+                </div>
+                <div>
+                    <label>18. Quel adjectif qualificatif décrirait le mieux un style de décoration moderne ?</label><br>
+                    <input type="radio" id="q18a" name="q18" value="a">
+                    <label for="q18a">a) Ancien</label><br>
+                    <input type="radio" id="q18b" name="q18" value="b">
+                    <label for="q18b">b) Contemporain</label><br>
+                    <input type="radio" id="q18c" name="q18" value="c">
+                    <label for="q18c">c) Traditionnel</label><br>
+                </div>
+                <div>
+                    <label>19. Quelle couleur est décrite par l’adjectif « pourpre » ?</label><br>
+                    <input type="radio" id="q19a" name="q19" value="a">
+                    <label for="q19a">a) Rouge</label><br>
+                    <input type="radio" id="q19b" name="q19" value="b">
+                    <label for="q19b">b) Violet</label><br>
+                    <input type="radio" id="q19c" name="q19" value="c">
+                    <label for="q19c">c) Orange</label><br>
+                </div>
+                <div>
+                    <label>20. Quel adjectif qualificatif convient pour un meuble qui est à la fois moderne et pratique ?</label><br>
+                    <input type="radio" id="q20a" name="q20" value="a">
+                    <label for="q20a">a) Pratique</label><br>
+                    <input type="radio" id="q20b" name="q20" value="b">
+                    <label for="q20b">b) Dépassé</label><br>
+                    <input type="radio" id="q20c" name="q20" value="c">
+                    <label for="q20c">c) Élégant</label><br>
+                </div>
+                
+                <div>
+                    <button type="submit">Enviar respuestas</button>
+                </div>
+                <p id="resultado"></p>
+            </form>            
+                        
+        </section>
+    </main>
+</body>
+</html>
