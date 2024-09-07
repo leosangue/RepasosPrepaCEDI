@@ -60,26 +60,26 @@
     
             // Respuestas correctas
             const respuestasCorrectas = {
-                q1: "plus",
-                q2: "Paris est moins polluée que Pékin.",
-                q3: "Marie est aussi compétente en français que Paul.",
-                q4: "plus",
-                q5: "Ce restaurant est plus cher que celui-là.",
-                q6: "Ce film est autant intéressant que celui-ci.",
-                q7: "Ce smartphone a moins d'autonomie que celui-là.",
-                q8: "Cette maison est plus grande que l'autre.",
-                q9: "Cette école est moins bonne que celle-ci.",
-                q10: "Cette équipe joue aussi bien que celle-là.",
+                q1: "plus grand",
+                q2: "Marie est la plus intelligente de ses amis.",
+                q3: "plus rapide",
+                q4: "Ce plat est excellent.",
+                q5: "plus grande",
+                q6: "C’est le film le plus intéressant que j’ai vu.",
+                q7: "plus difficile",
+                q8: "Ce livre est meilleur que l’autre.",
+                q9: "Cette chaise est très confortable.",
+                q10: "plus cher",
                 q11: "a",
-                q12: "b",
-                q13: "c",
-                q14: "c",
-                q15: "a",
+                q12: "a",
+                q13: "a",
+                q14: "a",
+                q15: "b",
                 q16: "a",
                 q17: "a",
-                q18: "c",
-                q19: "b",
-                q20: "c"
+                q18: "a",
+                q19: "a",
+                q20: "a"
             };
     
             let puntaje = 0;
@@ -142,142 +142,142 @@
             <form id="quizForm" onsubmit="verificarRespuestas(event)">
                 <!-- 10 preguntas abiertas -->
                 <div>
-                    <label for="q1">1. Complétez la phrase avec le comparatif approprié : "Cette voiture est ___ rapide que l'autre."</label><br>
-                    <input type="text" id="q1" name="q1" placeholder="Tu respuesta">
+                    <label for="q1">1. Complétez la phrase avec le comparatif approprié : “Paul est ____ (grand) que Pierre.”</label><br>
+                    <input type="text" id="q1" name="q1" placeholder="Tu réponse">
                 </div>
                 <div>
-                    <label for="q2">2. Formulez une phrase en utilisant "moins" pour comparer deux villes en termes de pollution.</label><br>
-                    <input type="text" id="q2" name="q2" placeholder="Tu respuesta">
+                    <label for="q2">2. Formulez une phrase en utilisant le superlatif relatif de "intelligent" pour décrire Marie parmi ses amis.</label><br>
+                    <input type="text" id="q2" name="q2" placeholder="Tu réponse">
                 </div>
                 <div>
-                    <label for="q3">3. Utilisez "aussi...que" pour comparer deux personnes en termes de compétence en français.</label><br>
-                    <input type="text" id="q3" name="q3" placeholder="Tu respuesta">
+                    <label for="q3">3. Utilisez le comparatif pour comparer la vitesse de deux voitures : “La voiture A est ____ (rapide) que la voiture B.”</label><br>
+                    <input type="text" id="q3" name="q3" placeholder="Tu réponse">
                 </div>
                 <div>
-                    <label for="q4">4. Complétez avec le comparatif de supériorité : "Mon appartement est ___ grand que le tien."</label><br>
-                    <input type="text" id="q4" name="q4" placeholder="Tu respuesta">
+                    <label for="q4">4. Donnez une phrase utilisant le superlatif absolu de “bon” pour décrire un plat.</label><br>
+                    <input type="text" id="q4" name="q4" placeholder="Tu réponse">
                 </div>
                 <div>
-                    <label for="q5">5. Exprimez une comparaison d'inégalité entre deux restaurants en termes de prix.</label><br>
-                    <input type="text" id="q5" name="q5" placeholder="Tu respuesta">
+                    <label for="q5">5. Créez une phrase en comparant deux villes en termes de taille : “Paris est ____ (grand) que Lyon.”"</label><br>
+                    <input type="text" id="q5" name="q5" placeholder="Tu réponse">
                 </div>
                 <div>
-                    <label for="q6">6. Rédigez une phrase avec "autant...que" pour comparer deux films en termes d'intérêt.</label><br>
-                    <input type="text" id="q6" name="q6" placeholder="Tu respuesta">
+                    <label for="q6">6. Décrivez un film en utilisant le superlatif relatif de “intéressant” parmi tous les films que vous avez vus.</label><br>
+                    <input type="text" id="q6" name="q6" placeholder="Tu réponse">
                 </div>
                 <div>
-                    <label for="q7">7. Formulez une comparaison en utilisant "moins...que" pour comparer deux smartphones en termes de batterie.</label><br>
-                    <input type="text" id="q7" name="q7" placeholder="Tu respuesta">
+                    <label for="q7">7. Utilisez le comparatif pour comparer le niveau de difficulté de deux cours : “Le cours de mathématiques est ____ (difficile) que le cours de français.”</label><br>
+                    <input type="text" id="q7" name="q7" placeholder="Tu réponse">
                 </div>
                 <div>
-                    <label for="q8">8. Utilisez "plus...que" pour comparer la taille de deux maisons.</label><br>
-                    <input type="text" id="q8" name="q8" placeholder="Tu respuesta">
+                    <label for="q8">8. Écrivez une phrase comparant deux livres en utilisant le comparatif de “bon.”</label><br>
+                    <input type="text" id="q8" name="q8" placeholder="Tu réponse">
                 </div>
                 <div>
-                    <label for="q9">9. Exprimez une comparaison d'inégalité entre deux écoles en termes de qualité d'enseignement.</label><br>
-                    <input type="text" id="q9" name="q9" placeholder="Tu respuesta">
+                    <label for="q9">9. Exprimez une comparaison avec le superlatif absolu pour le confort d’une chaise.</label><br>
+                    <input type="text" id="q9" name="q9" placeholder="Tu réponse">
                 </div>
                 <div>
-                    <label for="q10">10. Formulez une phrase en utilisant "aussi bien que" pour comparer deux équipes sportives.</label><br>
-                    <input type="text" id="q10" name="q10" placeholder="Tu respuesta">
+                    <label for="q10">10. Utilisez le comparatif pour parler du coût de deux restaurants : “Le restaurant A est ____ (cher) que le restaurant B.”</label><br>
+                    <input type="text" id="q10" name="q10" placeholder="Tu réponse">
                 </div>
                 <!-- 10 preguntas de opción múltiple -->
                 <div>
-                    <label>11. Complétez la phrase : "Cette montre est ___ chère que l'autre."</label><br>
-                    <input type="radio" id="q11a" name="q11" value="a">
-                    <label for="q11a">a) Plus</label><br>
-                    <input type="radio" id="q11b" name="q11" value="b">
-                    <label for="q11b">b) Moins</label><br>
+                    <label>11. Quelle est la forme correcte du comparatif pour “gentil” ?</label><br>
+                    <input type="radio" id="q11a" name="q11" value="b">
+                    <label for="q11a">a) plus gentil</label><br>
+                    <input type="radio" id="q11b" name="q11" value="a">
+                    <label for="q11b">b) le plus gentil</label><br>
                     <input type="radio" id="q11c" name="q11" value="c">
-                    <label for="q11c">c) Aussi</label><br>
+                    <label for="q11c">c) aussi gentil</label><br>
                 </div>
                 <div>
-                    <label>12. Choisissez le bon comparatif : "Ce café est ___ fort que le thé."</label><br>
-                    <input type="radio" id="q12a" name="q12" value="a">
-                    <label for="q12a">a) Aussi</label><br>
-                    <input type="radio" id="q12b" name="q12" value="b">
-                    <label for="q12b">b) Plus</label><br>
-                    <input type="radio" id="q12c" name="q12" value="c">
-                    <label for="q12c">c) Moins</label><br>
+                    <label>12. Quel est le superlatif relatif de “beau” ?</label><br>
+                    <input type="radio" id="q12a" name="q12" value="b">
+                    <label for="q12a">a) le plus beau</label><br>
+                    <input type="radio" id="q12b" name="q12" value="c">
+                    <label for="q12b">b) plus beau</label><br>
+                    <input type="radio" id="q12c" name="q12" value="a">
+                    <label for="q12c">c) aussi beau</label><br>
                 </div>
                 <div>
-                    <label>13. Complétez la phrase : "Mon frère est ___ intelligent que moi."</label><br>
-                    <input type="radio" id="q13a" name="q13" value="a">
-                    <label for="q13a">a) Moins</label><br>
+                    <label>13. Complétez la phrase : “Ce gâteau est ____ que celui de Marie.”</label><br>
+                    <input type="radio" id="q13a" name="q13" value="c">
+                    <label for="q13a">a) meilleur</label><br>
                     <input type="radio" id="q13b" name="q13" value="b">
-                    <label for="q13b">b) Aussi</label><br>
-                    <input type="radio" id="q13c" name="q13" value="c">
-                    <label for="q13c">c) Plus</label><br>
+                    <label for="q13b">b) le meilleur</label><br>
+                    <input type="radio" id="q13c" name="q13" value="a">
+                    <label for="q13c">c) bien</label><br>
                 </div>
                 <div>
-                    <label>14. Quelle est la phrase correcte ? "Cette voiture est ___ économique que l'autre."</label><br>
+                    <label>14. Quelle est la forme du superlatif absolu pour “mauvais” ?</label><br>
                     <input type="radio" id="q14a" name="q14" value="a">
-                    <label for="q14a">a) Aussi</label><br>
+                    <label for="q14a">a) le plus mauvais</label><br>
                     <input type="radio" id="q14b" name="q14" value="b">
-                    <label for="q14b">b) Plus</label><br>
+                    <label for="q14b">b) pire</label><br>
                     <input type="radio" id="q14c" name="q14" value="c">
-                    <label for="q14c">c) Moins</label><br>
+                    <label for="q14c">c) très mauvais</label><br>
                 </div>
                 <div>
-                    <label>15. Complétez avec le comparatif approprié : "Cet exercice est ___ difficile que le précédent."</label><br>
+                    <label>15. Quel est le comparatif de “jeune” ?</label><br>
                     <input type="radio" id="q15a" name="q15" value="a">
-                    <label for="q15a">a) Plus</label><br>
-                    <input type="radio" id="q15b" name="q15" value="b">
-                    <label for="q15b">b) Aussi</label><br>
-                    <input type="radio" id="q15c" name="q15" value="c">
-                    <label for="q15c">c) Moins</label><br>
+                    <label for="q15a">a) le plus jeune</label><br>
+                    <input type="radio" id="q15b" name="q15" value="c">
+                    <label for="q15b">b) plus jeune</label><br>
+                    <input type="radio" id="q15c" name="q15" value="b">
+                    <label for="q15c">c) aussi jeune</label><br>
                 </div>
                 <div>
-                    <label>16. Choisissez la bonne phrase : "Ce livre est ___ intéressant que l'autre."</label><br>
+                    <label>16. Quel est le superlatif relatif de “rapide” ?</label><br>
                     <input type="radio" id="q16a" name="q16" value="a">
-                    <label for="q16a">a) Moins</label><br>
-                    <input type="radio" id="q16b" name="q16" value="b">
-                    <label for="q16b">b) Aussi</label><br>
-                    <input type="radio" id="q16c" name="q16" value="c">
-                    <label for="q16c">c) Plus</label><br>
+                    <label for="q16a">a) le plus rapide</label><br>
+                    <input type="radio" id="q16b" name="q16" value="c">
+                    <label for="q16b">b) plus rapide</label><br>
+                    <input type="radio" id="q16c" name="q16" value="b">
+                    <label for="q16c">c) aussi rapide</label><br>
                 </div>
                 <div>
-                    <label>17. Complétez la phrase : "Cette robe est ___ belle que celle-ci."</label><br>
-                    <input type="radio" id="q17a" name="q17" value="a">
-                    <label for="q17a">a) Moins</label><br>
-                    <input type="radio" id="q17b" name="q17" value="b">
-                    <label for="q17b">b) Aussi</label><br>
-                    <input type="radio" id="q17c" name="q17" value="c">
-                    <label for="q17c">c) Plus</label><br>
+                    <label>17. Quelle est la forme correcte pour le comparatif de “ancien” ?</label><br>
+                    <input type="radio" id="q17a" name="q17" value="c">
+                    <label for="q17a">a) plus ancien</label><br>
+                    <input type="radio" id="q17b" name="q17" value="a">
+                    <label for="q17b">b) le plus ancien</label><br>
+                    <input type="radio" id="q17c" name="q17" value="b">
+                    <label for="q17c">c) ancien</label><br>
                 </div>
                 <div>
-                    <label>18. Quelle est la bonne réponse ? "Cette solution est ___ efficace que la précédente."</label><br>
+                    <label>18. Quelle est la forme correcte pour le superlatif de “petit” ?</label><br>
                     <input type="radio" id="q18a" name="q18" value="a">
-                    <label for="q18a">a) Moins</label><br>
+                    <label for="q18a">a) le plus petit</label><br>
                     <input type="radio" id="q18b" name="q18" value="b">
-                    <label for="q18b">b) Aussi</label><br>
+                    <label for="q18b">b) plus petit</label><br>
                     <input type="radio" id="q18c" name="q18" value="c">
-                    <label for="q18c">c) Plus</label><br>
+                    <label for="q18c">c) aussi petit</label><br>
                 </div>
                 <div>
-                    <label>19. Choisissez le bon comparatif : "Cet étudiant est ___ motivé que les autres."</label><br>
-                    <input type="radio" id="q19a" name="q19" value="a">
-                    <label for="q19a">a) Moins</label><br>
-                    <input type="radio" id="q19b" name="q19" value="b">
-                    <label for="q19b">b) Aussi</label><br>
-                    <input type="radio" id="q19c" name="q19" value="c">
-                    <label for="q19c">c) Plus</label><br>
+                    <label>19. Complétez la phrase avec “aussi ____” : “Marie est ____ gentille que Sophie.”</label><br>
+                    <input type="radio" id="q19a" name="q19" value="b">
+                    <label for="q19a">a) aussi</label><br>
+                    <input type="radio" id="q19b" name="q19" value="c">
+                    <label for="q19b">b) plus</label><br>
+                    <input type="radio" id="q19c" name="q19" value="a">
+                    <label for="q19c">c) le plus</label><br>
                 </div>
                 <div>
-                    <label>20. Complétez la phrase : "Cet endroit est ___ calme que la ville."</label><br>
+                    <label>20. Complétez la phrase avec “autant de ____” : “Elle a ____ livres que moi.”</label><br>
                     <input type="radio" id="q20a" name="q20" value="a">
-                    <label for="q20a">a) Moins</label><br>
+                    <label for="q20a">a) autant de</label><br>
                     <input type="radio" id="q20b" name="q20" value="b">
-                    <label for="q20b">b) Aussi</label><br>
+                    <label for="q20b">b) plus de</label><br>
                     <input type="radio" id="q20c" name="q20" value="c">
-                    <label for="q20c">c) Plus</label><br>
+                    <label for="q20c">c) moins de</label><br>
                 </div>
-            
+                
                 <div>
                     <button type="submit">Enviar respuestas</button>
                 </div>
                 <p id="resultado"></p>
-            </form>
+            </form>            
                         
         </section>
     </main>
