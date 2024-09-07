@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuestionario de Repaso</title>
+    <title>Cuestionario de Repaso - Lexique du Logement</title>
     <link rel="stylesheet" href="../../style.css">
     <style>
         /* Estilos para el cronómetro */
@@ -60,49 +60,67 @@
 
             // Respuestas correctas
             const respuestasCorrectas = {
-                q1: "París",
-                q2: "Proceso por el cual las plantas producen su alimento",
-                q3: "Miguel de Cervantes",
-                q4: "c"  // Respuesta correcta para la opción múltiple
+                q1: "Une pièce pour dormir",
+                q2: "L'appartement a des logements multiples dans un bâtiment",
+                q3: "Cuisine, salon, chambre et salle de bain",
+                q4: "c",  // Opción múltiple correcta
+                q5: "Un petit appartement",
+                q6: "Modern et ouvert",
+                q7: "Meublé signifie qu'il y a des meubles dans la maison",
+                q8: "Partager un logement avec d'autres personnes",
+                q9: "Loyer, électricité, eau et internet",
+                q10: "Il doit être sûr et proche des services",
+                q11: "b", // Opción múltiple correcta
+                q12: "b", // Opción múltiple correcta
+                q13: "a", // Opción múltiple correcta
+                q14: "b", // Opción múltiple correcta
+                q15: "b", // Opción múltiple correcta
+                q16: "b", // Opción múltiple correcta
+                q17: "a", // Opción múltiple correcta
+                q18: "a", // Opción múltiple correcta
+                q19: "b", // Opción múltiple correcta
+                q20: "b"  // Opción múltiple correcta
             };
 
             // Obtener las respuestas del usuario
-            const respuesta1 = document.getElementById("q1").value.trim();
-            const respuesta2 = document.getElementById("q2").value.trim();
-            const respuesta3 = document.getElementById("q3").value.trim();
-            const respuesta4 = document.querySelector('input[name="q4"]:checked')?.value;
+            const respuestasUsuario = {
+                q1: document.getElementById("q1").value.trim(),
+                q2: document.getElementById("q2").value.trim(),
+                q3: document.getElementById("q3").value.trim(),
+                q4: document.querySelector('input[name="q4"]:checked')?.value,
+                q5: document.getElementById("q5").value.trim(),
+                q6: document.getElementById("q6").value.trim(),
+                q7: document.getElementById("q7").value.trim(),
+                q8: document.getElementById("q8").value.trim(),
+                q9: document.getElementById("q9").value.trim(),
+                q10: document.getElementById("q10").value.trim(),
+                q11: document.querySelector('input[name="q11"]:checked')?.value,
+                q12: document.querySelector('input[name="q12"]:checked')?.value,
+                q13: document.querySelector('input[name="q13"]:checked')?.value,
+                q14: document.querySelector('input[name="q14"]:checked')?.value,
+                q15: document.querySelector('input[name="q15"]:checked')?.value,
+                q16: document.querySelector('input[name="q16"]:checked')?.value,
+                q17: document.querySelector('input[name="q17"]:checked')?.value,
+                q18: document.querySelector('input[name="q18"]:checked')?.value,
+                q19: document.querySelector('input[name="q19"]:checked')?.value,
+                q20: document.querySelector('input[name="q20"]:checked')?.value
+            };
 
             let puntaje = 0;
             let respuestasIncorrectas = [];
 
             // Comprobar las respuestas
-            if (respuesta1.toLowerCase() === respuestasCorrectas.q1.toLowerCase()) {
-                puntaje++;
-            } else {
-                respuestasIncorrectas.push(`1. ¿Cuál es la capital de Francia? Respuesta correcta: ${respuestasCorrectas.q1}`);
-            }
-
-            if (respuesta2.toLowerCase() === respuestasCorrectas.q2.toLowerCase()) {
-                puntaje++;
-            } else {
-                respuestasIncorrectas.push(`2. ¿Qué es la fotosíntesis? Respuesta correcta: ${respuestasCorrectas.q2}`);
-            }
-
-            if (respuesta3.toLowerCase() === respuestasCorrectas.q3.toLowerCase()) {
-                puntaje++;
-            } else {
-                respuestasIncorrectas.push(`3. ¿Quién escribió "Don Quijote de la Mancha"? Respuesta correcta: ${respuestasCorrectas.q3}`);
-            }
-
-            if (respuesta4 === respuestasCorrectas.q4) {
-                puntaje++;
-            } else {
-                respuestasIncorrectas.push(`4. ¿Cuál es la principal función del sistema respiratorio? Respuesta correcta: c) Intercambio de oxígeno y dióxido de carbono`);
+            for (const [pregunta, respuestaCorrecta] of Object.entries(respuestasCorrectas)) {
+                if (respuestasUsuario[pregunta]?.toLowerCase() === respuestaCorrecta.toLowerCase()) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`Pregunta ${pregunta.replace("q", "")}: Respuesta correcta: ${respuestaCorrecta}`);
+                }
             }
 
             // Mostrar el puntaje y respuestas incorrectas al usuario
             const resultado = document.getElementById("resultado");
-            resultado.innerHTML = `<p>Tu puntaje es: ${puntaje} de 4</p>`;
+            resultado.innerHTML = `<p>Tu puntaje es: ${puntaje} de 20</p>`;
             
             if (respuestasIncorrectas.length > 0) {
                 resultado.innerHTML += '<h3>Respuestas incorrectas:</h3><ul>';
@@ -119,7 +137,7 @@
 </head>
 <body>
     <header>
-        <h1>Cuestionario de Repaso</h1>
+        <h1>Cuestionario de Repaso - Lexique du Logement</h1>
         <nav>
             <ul>
                 <li><a href="../../index.html">Inicio</a></li>
@@ -135,27 +153,41 @@
             <h2>Responde las siguientes preguntas</h2>
             <form id="quizForm" onsubmit="verificarRespuestas(event)">
                 <div>
-                    <label for="q1">1. ¿Cuál es la capital de Francia?</label><br>
+                    <label for="q1">1. Qu'est-ce qu'une chambre?</label><br>
                     <input type="text" id="q1" name="q1" placeholder="Tu respuesta">
                 </div>
                 <div>
-                    <label for="q2">2. ¿Qué es la fotosíntesis?</label><br>
+                    <label for="q2">2. Quelle est la différence entre un appartement et une maison?</label><br>
                     <input type="text" id="q2" name="q2" placeholder="Tu respuesta">
                 </div>
                 <div>
-                    <label for="q3">3. ¿Quién escribió "Don Quijote de la Mancha"?</label><br>
+                    <label for="q3">3. Décris les principales pièces d'une maison typique.</label><br>
                     <input type="text" id="q3" name="q3" placeholder="Tu respuesta">
                 </div>
                 <div>
-                    <label>4. ¿Cuál es la principal función del sistema respiratorio?</label><br>
-                    <input type="radio" id="q4a" name="q4" value="a">
-                    <label for="q4a">a) Producción de hormonas</label><br>
-                    <input type="radio" id="q4b" name="q4" value="b">
-                    <label for="q4b">b) Digestión de alimentos</label><br>
-                    <input type="radio" id="q4c" name="q4" value="c">
-                    <label for="q4c">c) Intercambio de oxígeno y dióxido de carbono</label><br>
-                    <input type="radio" id="q4d" name="q4" value="d">
-                    <label for="q4d">d) Regulación de temperatura corporal</label>
+                    <label for="q4">4. Qu'est-ce qu'un studio?</label><br>
+                    <input type="text" id="q4" name="q4" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q5">5. Que signifie le terme "meublé"?</label><br>
+                    <input type="text" id="q5" name="q5" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q6">6. Comment décrirais-tu l'aménagement intérieur d'un logement moderne?</label><br>
+                    <input type="text" id="q6" name="q6" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q7">7. Que signifie "emménager"?</label><br>
+                    <input type="text" id="q7" name="q7" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label>11. Qu'est-ce qu'un loyer?</label><br>
+                    <input type="radio" id="q11a" name="q11" value="a">
+                    <label for="q11a">a) Une taxe gouvernementale</label><br>
+                    <input type="radio" id="q11b" name="q11" value="b">
+                    <label for="q11b">b) Le montant que l'on paie chaque mois pour un logement</label><br>
+                    <input type="radio" id="q11c" name="q11" value="c">
+                    <label for="q11c">c) Un type de contrat</label>
                 </div>
                 <div>
                     <button type="submit">Enviar respuestas</button>
@@ -164,7 +196,6 @@
             </form>
         </section>
     </main>
-
     
 </body>
 </html>
