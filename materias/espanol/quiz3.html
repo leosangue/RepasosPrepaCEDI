@@ -60,26 +60,26 @@
     
             // Respuestas correctas
             const respuestasCorrectas = {
-                q1: "El tema principal de un texto se identifica observando las ideas más repetidas y las que abordan el propósito central del autor.",
-                q2: "La idea principal resume el mensaje central del párrafo, mientras que las ideas secundarias ofrecen detalles y ejemplos que la apoyan.",
-                q3: "El propósito comunicativo se determina observando si el autor busca informar, persuadir, entretener o explicar.",
-                q4: "La función apelativa o conativa es la que se utiliza cuando se busca convencer o persuadir a la audiencia.",
-                q5: "Se pueden usar pistas contextuales, como palabras o frases cercanas, para inferir el significado de la palabra.",
-                q6: "El propósito sería explicar y contrastar las diferencias entre las teorías.",
-                q7: "Porque ayudan a ampliar y apoyar la comprensión de la idea principal.",
-                q8: "El contexto puede aclarar o cambiar el significado de una palabra dependiendo de cómo se usa en una oración o párrafo.",
-                q9: "Identificar la función del lenguaje ayuda a comprender la intención del autor y cómo quiere que reaccione el lector.",
-                q10: "Se puede inferir el significado observando las explicaciones que rodean la palabra o comparando con términos conocidos.",
+                q1: "Las ideas principales se encuentran en las oraciones clave de los párrafos o resúmenes del autor.",
+                q2: "Suprimir contenido irrelevante permite que el resumen sea más claro y directo, centrándose en lo esencial.",
+                q3: "Un resumen condensa el contenido de un texto, mientras que un relato simple narra hechos de manera secuencial.",
+                q4: "El cuadro sinóptico ayuda a visualizar las relaciones entre las ideas principales y secundarias, facilitando la organización del contenido.",
+                q5: "La idea principal expresa el tema central del texto, mientras que las ideas secundarias lo desarrollan o apoyan con detalles.",
+                q6: "Leer el texto, identificar las ideas principales, suprimir detalles irrelevantes, y condensar el contenido de manera clara y precisa.",
+                q7: "Un relato simple debe tener una estructura lógica, una secuencia temporal clara y evitar detalles innecesarios.",
+                q8: "Identificar la composición interna ayuda a entender cómo se organizan las ideas, facilitando la síntesis y organización del resumen.",
+                q9: "La tipología textual determina el enfoque y el estilo de redacción, adaptando el resumen o relato a las características del texto original.",
+                q10: "Puedo organizar las ideas principales en la parte superior y las secundarias como subniveles que desarrollan o amplían esas ideas.",
                 q11: "b",
                 q12: "a",
-                q13: "c",
+                q13: "b",
                 q14: "b",
-                q15: "a",
+                q15: "b",
                 q16: "b",
                 q17: "b",
-                q18: "b",
+                q18: "a",
                 q19: "b",
-                q20: "c"
+                q20: "a"
             };
     
             let puntaje = 0;
@@ -138,138 +138,138 @@
     <main>
         <section>
             <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
-            <h2>Identificación y enunciación</h2>
+            <h2>Resumen y relato simple</h2>
             <form id="quizForm" onsubmit="verificarRespuestas(event)">
                 <!-- 10 preguntas abiertas -->
                 <div>
-                    <label for="q1">1. ¿Cómo puedes identificar el tema principal de un texto?</label><br>
+                    <label for="q1">1. ¿Cómo puedes identificar las ideas principales en un texto extenso?</label><br>
                     <input type="text" id="q1" name="q1" placeholder="Tu respuesta">
                 </div>
                 <div>
-                    <label for="q2">2. ¿Qué diferencia existe entre una idea principal y una secundaria en un párrafo?</label><br>
+                    <label for="q2">2. ¿Por qué es importante suprimir contenido irrelevante al escribir un resumen?</label><br>
                     <input type="text" id="q2" name="q2" placeholder="Tu respuesta">
                 </div>
                 <div>
-                    <label for="q3">3. ¿Cómo puedes determinar el propósito comunicativo de un autor al leer un texto?</label><br>
+                    <label for="q3">3. ¿Qué diferencia existe entre un resumen y un relato simple?</label><br>
                     <input type="text" id="q3" name="q3" placeholder="Tu respuesta">
                 </div>
                 <div>
-                    <label for="q4">4. ¿Qué función del lenguaje se utiliza cuando el autor quiere convencer a su audiencia?</label><br>
+                    <label for="q4">4. ¿Qué función cumple un cuadro sinóptico al organizar un resumen?</label><br>
                     <input type="text" id="q4" name="q4" placeholder="Tu respuesta">
                 </div>
                 <div>
-                    <label for="q5">5. ¿Qué estrategias puedes utilizar para identificar el significado de una palabra desconocida en un texto?</label><br>
+                    <label for="q5">5. ¿Cómo puedes diferenciar una idea secundaria de una idea principal?</label><br>
                     <input type="text" id="q5" name="q5" placeholder="Tu respuesta">
                 </div>
                 <div>
-                    <label for="q6">6. ¿Cómo puedes reconocer el propósito comunicativo de un texto que compara dos teorías científicas?</label><br>
+                    <label for="q6">6. ¿Cuáles son los pasos clave para redactar un resumen efectivo?</label><br>
                     <input type="text" id="q6" name="q6" placeholder="Tu respuesta">
                 </div>
                 <div>
-                    <label for="q7">7. ¿Por qué es importante identificar las ideas secundarias en un texto?</label><br>
+                    <label for="q7">7. ¿Qué elementos debe contener un relato simple para ser claro y coherente?</label><br>
                     <input type="text" id="q7" name="q7" placeholder="Tu respuesta">
                 </div>
                 <div>
-                    <label for="q8">8. ¿Cómo influye el contexto en el significado de una palabra?</label><br>
+                    <label for="q8">8. ¿Por qué es útil identificar la composición interna de un texto antes de escribir un resumen?</label><br>
                     <input type="text" id="q8" name="q8" placeholder="Tu respuesta">
                 </div>
                 <div>
-                    <label for="q9">9. ¿Cuál es la importancia de identificar la función del lenguaje en un texto?</label><br>
+                    <label for="q9">9. ¿Cómo influye la tipología textual en la estructura de un resumen o relato simple?</label><br>
                     <input type="text" id="q9" name="q9" placeholder="Tu respuesta">
                 </div>
                 <div>
-                    <label for="q10">10. ¿Cómo puedes inferir el significado de una palabra técnica desconocida en un texto especializado?</label><br>
+                    <label for="q10">10. ¿Cómo puedes organizar mejor las ideas principales y secundarias de un texto en un cuadro sinóptico?</label><br>
                     <input type="text" id="q10" name="q10" placeholder="Tu respuesta">
                 </div>
                 <div>
-                    <label>11. ¿Cuál es una estrategia para identificar el tema de un texto?</label><br>
+                    <label>11. ¿Qué es lo primero que debes hacer al escribir un resumen?</label><br>
                     <input type="radio" id="q11a" name="q11" value="a">
-                    <label for="q11a">a) Leer solo las palabras en negritas</label><br>
+                    <label for="q11a">a) Leer todo el texto</label><br>
                     <input type="radio" id="q11b" name="q11" value="b">
-                    <label for="q11b">b) Resumir el contenido general</label><br>
+                    <label for="q11b">b) Subrayar las ideas principales y secundarias</label><br>
                     <input type="radio" id="q11c" name="q11" value="c">
-                    <label for="q11c">c) Leer los pies de página</label><br>
+                    <label for="q11c">c) Escribir una introducción creativa</label><br>
                 </div>
                 <div>
-                    <label>12. ¿Qué tipo de idea es la que apoya y explica la principal en un párrafo?</label><br>
+                    <label>12. ¿Qué características definen a un relato simple?</label><br>
                     <input type="radio" id="q12a" name="q12" value="a">
-                    <label for="q12a">a) Idea secundaria</label><br>
+                    <label for="q12a">a) Narración de hechos de manera secuencial</label><br>
                     <input type="radio" id="q12b" name="q12" value="b">
-                    <label for="q12b">b) Idea complementaria</label><br>
+                    <label for="q12b">b) Explicación detallada de los conceptos del texto</label><br>
                     <input type="radio" id="q12c" name="q12" value="c">
-                    <label for="q12c">c) Idea introductoria</label><br>
+                    <label for="q12c">c) Análisis profundo del tema</label><br>
                 </div>
                 <div>
-                    <label>13. ¿Cuál es la función del lenguaje cuando un texto describe detalladamente un evento histórico?</label><br>
+                    <label>13. ¿Cuál es el propósito de un cuadro sinóptico en la redacción de un resumen?</label><br>
                     <input type="radio" id="q13a" name="q13" value="a">
-                    <label for="q13a">a) Función apelativa</label><br>
+                    <label for="q13a">a) Decorar el resumen con gráficos</label><br>
                     <input type="radio" id="q13b" name="q13" value="b">
-                    <label for="q13b">b) Función expresiva</label><br>
+                    <label for="q13b">b) Organizar visualmente las ideas principales y secundarias</label><br>
                     <input type="radio" id="q13c" name="q13" value="c">
-                    <label for="q13c">c) Función referencial</label><br>
+                    <label for="q13c">c) Elaborar una lista de preguntas sobre el texto</label><br>
                 </div>
                 <div>
-                    <label>14. ¿Qué indicaría el uso de palabras como “deberías” o “tienes que” en un texto?</label><br>
+                    <label>14. ¿Qué se debe suprimir al redactar un resumen?</label><br>
                     <input type="radio" id="q14a" name="q14" value="a">
-                    <label for="q14a">a) El texto tiene un propósito informativo</label><br>
+                    <label for="q14a">a) Las ideas principales</label><br>
                     <input type="radio" id="q14b" name="q14" value="b">
-                    <label for="q14b">b) El texto tiene un propósito persuasivo</label><br>
+                    <label for="q14b">b) El contenido irrelevante</label><br>
                     <input type="radio" id="q14c" name="q14" value="c">
-                    <label for="q14c">c) El texto es narrativo</label><br>
+                    <label for="q14c">c) Las opiniones personales del lector</label><br>
                 </div>
                 <div>
-                    <label>15. ¿Qué función del lenguaje predomina en un texto literario que expresa emociones?</label><br>
+                    <label>15. ¿Qué tipo de texto requiere mayor precisión al suprimir detalles irrelevantes?</label><br>
                     <input type="radio" id="q15a" name="q15" value="a">
-                    <label for="q15a">a) Función expresiva</label><br>
+                    <label for="q15a">a) Una novela de ficción</label><br>
                     <input type="radio" id="q15b" name="q15" value="b">
-                    <label for="q15b">b) Función referencial</label><br>
+                    <label for="q15b">b) Un informe científico</label><br>
                     <input type="radio" id="q15c" name="q15" value="c">
-                    <label for="q15c">c) Función fática</label><br>
+                    <label for="q15c">c) Un poema</label><br>
                 </div>
                 <div>
-                    <label>16. ¿Cuál es el propósito comunicativo de un anuncio publicitario?</label><br>
+                    <label>16. ¿Qué elementos deben incluirse siempre en un resumen?</label><br>
                     <input type="radio" id="q16a" name="q16" value="a">
-                    <label for="q16a">a) Informar sobre un tema</label><br>
+                    <label for="q16a">a) Detalles secundarios y ejemplos</label><br>
                     <input type="radio" id="q16b" name="q16" value="b">
-                    <label for="q16b">b) Persuadir al lector a comprar un producto</label><br>
+                    <label for="q16b">b) Ideas principales y estructura clara</label><br>
                     <input type="radio" id="q16c" name="q16" value="c">
-                    <label for="q16c">c) Narrar una historia de fondo</label><br>
+                    <label for="q16c">c) Opiniones personales del autor</label><br>
                 </div>
                 <div>
-                    <label>17. Si una palabra es desconocida, ¿qué puedes hacer para inferir su significado?</label><br>
+                    <label>17. ¿Qué debe evitarse al redactar un relato simple?</label><br>
                     <input type="radio" id="q17a" name="q17" value="a">
-                    <label for="q17a">a) Ignorarla y seguir leyendo</label><br>
+                    <label for="q17a">a) El uso de descripciones detalladas</label><br>
                     <input type="radio" id="q17b" name="q17" value="b">
-                    <label for="q17b">b) Buscar pistas en las oraciones circundantes</label><br>
+                    <label for="q17b">b) Saltar entre tiempos y eventos de forma desordenada</label><br>
                     <input type="radio" id="q17c" name="q17" value="c">
-                    <label for="q17c">c) Detenerse y leer el diccionario</label><br>
+                    <label for="q17c">c) Seguir una secuencia lógica de los hechos</label><br>
                 </div>
                 <div>
-                    <label>18. ¿Cómo se llama la idea más importante de un párrafo?</label><br>
+                    <label>18. ¿Cuál es la función de las ideas secundarias en un texto?</label><br>
                     <input type="radio" id="q18a" name="q18" value="a">
-                    <label for="q18a">a) Idea secundaria</label><br>
+                    <label for="q18a">a) Desarrollar y explicar las ideas principales</label><br>
                     <input type="radio" id="q18b" name="q18" value="b">
-                    <label for="q18b">b) Idea principal</label><br>
+                    <label for="q18b">b) Introducir nuevos temas no relacionados</label><br>
                     <input type="radio" id="q18c" name="q18" value="c">
-                    <label for="q18c">c) Idea de apoyo</label><br>
+                    <label for="q18c">c) Completar el resumen con detalles irrelevantes</label><br>
                 </div>
                 <div>
-                    <label>19. ¿Cuál de estas funciones del lenguaje se utiliza para transmitir información objetiva?</label><br>
+                    <label>19. ¿Qué debes considerar al escribir un relato simple?</label><br>
                     <input type="radio" id="q19a" name="q19" value="a">
-                    <label for="q19a">a) Función metalingüística</label><br>
+                    <label for="q19a">a) La extensión del texto</label><br>
                     <input type="radio" id="q19b" name="q19" value="b">
-                    <label for="q19b">b) Función referencial</label><br>
+                    <label for="q19b">b) La secuencia y claridad de los eventos</label><br>
                     <input type="radio" id="q19c" name="q19" value="c">
-                    <label for="q19c">c) Función poética</label><br>
+                    <label for="q19c">c) La cantidad de ejemplos</label><br>
                 </div>
                 <div>
-                    <label>20. ¿Qué función cumple un texto que utiliza la palabra "¡Hola!" repetidamente?</label><br>
+                    <label>20. ¿Qué distingue a un resumen de una paráfrasis?</label><br>
                     <input type="radio" id="q20a" name="q20" value="a">
-                    <label for="q20a">a) Función apelativa</label><br>
+                    <label for="q20a">a) Un resumen condensa el contenido, mientras que la paráfrasis explica en tus propias palabras</label><br>
                     <input type="radio" id="q20b" name="q20" value="b">
-                    <label for="q20b">b) Función expresiva</label><br>
+                    <label for="q20b">b) Ambos incluyen ideas secundarias detalladas</label><br>
                     <input type="radio" id="q20c" name="q20" value="c">
-                    <label for="q20c">c) Función fática</label><br>
+                    <label for="q20c">c) El resumen analiza los hechos en profundidad</label><br>
                 </div>
             
                 <div>
