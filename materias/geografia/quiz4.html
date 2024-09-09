@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Repaso</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* Estilos para el cronómetro */
+        #cronometro {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+    <style>
+        /* Estilos para el botón de regreso */
+        .btn-regreso {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .btn-regreso:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        let tiempoInicio;
+        let intervalo;
+    
+        function iniciarCronometro() {
+            tiempoInicio = new Date();
+            intervalo = setInterval(actualizarCronometro, 1000);
+        }
+    
+        function actualizarCronometro() {
+            const ahora = new Date();
+            const tiempoTranscurrido = Math.floor((ahora - tiempoInicio) / 1000); // Tiempo en segundos
+            const minutos = Math.floor(tiempoTranscurrido / 60);
+            const segundos = tiempoTranscurrido % 60;
+            document.getElementById('cronometro').textContent = `${minutos}m ${segundos}s`;
+        }
+    
+        function detenerCronometro() {
+            clearInterval(intervalo);
+        }
+    
+        function verificarRespuestas(event) {
+            event.preventDefault(); // Evitar que la página se recargue al enviar el formulario
+            detenerCronometro(); // Detener el cronómetro al enviar
+    
+            // Respuestas correctas
+            const respuestasCorrectas = {
+                q1: "Las etapas principales incluyen la expansión imperialista, la consolidación de colonias, y el período de descolonización.",
+                q2: "Las causas incluyen la búsqueda de recursos naturales, la expansión de mercados, el poder militar, y la ideología de superioridad racial.",
+                q3: "El colonialismo desarticuló las estructuras políticas existentes, imponiendo sistemas administrativos europeos y debilitando las instituciones locales.",
+                q4: "Las consecuencias económicas incluyeron la explotación de recursos naturales, la creación de economías dependientes, y el desmantelamiento de las economías locales.",
+                q5: "El colonialismo promovió la asimilación cultural, la imposición de lenguas y costumbres europeas, y la alteración de las estructuras sociales tradicionales.",
+                q6: "Ambos imperios dividieron el continente en territorios coloniales, explotaron recursos naturales y llevaron a cabo políticas de control político y cultural.",
+                q7: "El imperio español, aunque menos expansivo en el siglo XIX comparado con otros imperios, mantuvo colonias en América Latina y el Pacífico, y enfrentó desafíos de independencia en sus territorios.",
+                q8: "El colonialismo portugués resultó en la explotación económica, la imposición de estructuras administrativas y el conflicto con las comunidades locales por el control de recursos.",
+                q9: "Los conflictos significativos incluyen las rebeliones indígenas, las guerras de independencia y los movimientos de resistencia organizados contra las potencias coloniales.",
+                q10: "La descolonización buscó reparar los daños del colonialismo, restaurar la soberanía nacional y abordar las desigualdades económicas y sociales impuestas durante el período colonial.",
+                q11: "b",
+                q12: "b",
+                q13: "b",
+                q14: "c",
+                q15: "c",
+                q16: "b",
+                q17: "a",
+                q18: "b",
+                q19: "a",
+                q20: "b"
+            };
+    
+            let puntaje = 0;
+            let respuestasIncorrectas = [];
+    
+            // Comprobar las respuestas abiertas (q1 a q10)
+            for (let i = 1; i <= 10; i++) {
+                const respuesta = document.getElementById(`q${i}`).value.trim();
+                if (respuesta.toLowerCase() === respuestasCorrectas[`q${i}`]?.toLowerCase()) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Comprobar las respuestas de opción múltiple (q11 a q20)
+            for (let i = 11; i <= 20; i++) {
+                const respuesta = document.querySelector(`input[name="q${i}"]:checked`)?.value;
+                if (respuesta === respuestasCorrectas[`q${i}`]) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta opción múltiple ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Mostrar el puntaje y respuestas incorrectas al usuario
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = `<p>Tu puntaje es: ${puntaje} de 20</p>`;
+            
+            if (respuestasIncorrectas.length > 0) {
+                resultado.innerHTML += '<h3>Respuestas incorrectas:</h3><ul>';
+                respuestasIncorrectas.forEach(incorrecta => {
+                    resultado.innerHTML += `<li>${incorrecta}</li>`;
+                });
+                resultado.innerHTML += '</ul>';
+            }
+        }
+    
+        // Iniciar cronómetro al cargar la página
+        window.onload = iniciarCronometro;
+    </script>
+    
+</head>
+<body>
+    <header>
+        <h1>Cuestionario de Repaso</h1>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../materias.html">Materias</a></li>
+            </ul>
+        </nav>
+        <div id="cronometro">0m 0s</div> <!-- Cronómetro -->
+    </header>
+
+    <main>
+        <section>
+            <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
+            <h2>Colonialismo: etapas, causas y consecuencias. Imperios: británico, francés, español y portugués</h2>
+            <form id="quizForm" onsubmit="verificarRespuestas(event)">
+                <!-- 10 preguntas abiertas -->
+                <div>
+                    <label for="q1">1. ¿Cuáles fueron las principales etapas del colonialismo a partir de la segunda mitad del siglo XIX?</label><br>
+                    <input type="text" id="q1" name="q1" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q2">2. ¿Qué causas llevaron al auge del colonialismo en la segunda mitad del siglo XIX?</label><br>
+                    <input type="text" id="q2" name="q2" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q3">3. ¿Cómo impactó el colonialismo en la estructura política de los países colonizados?</label><br>
+                    <input type="text" id="q3" name="q3" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q4">4. ¿Cuáles fueron las consecuencias económicas del colonialismo para los países colonizados?</label><br>
+                    <input type="text" id="q4" name="q4" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q5">5. ¿Cómo influyó el colonialismo en la cultura y sociedad de las regiones colonizadas?</label><br>
+                    <input type="text" id="q5" name="q5" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q6">6. ¿Qué impacto tuvieron los imperios británico y francés en el continente africano durante el colonialismo?</label><br>
+                    <input type="text" id="q6" name="q6" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q7">7. ¿Cuál fue el papel del imperio español en el proceso de colonización durante el siglo XIX?</label><br>
+                    <input type="text" id="q7" name="q7" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q8">8. ¿Cómo afectó el colonialismo portugués a las regiones de África y Asia bajo su control?</label><br>
+                    <input type="text" id="q8" name="q8" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q9">9. ¿Qué fueron los conflictos y resistencias locales más significativos contra el colonialismo?</label><br>
+                    <input type="text" id="q9" name="q9" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q10">10. ¿Cómo se relaciona la descolonización con el impacto del colonialismo en el siglo XX?</label><br>
+                    <input type="text" id="q10" name="q10" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label>11. ¿Cuál fue una de las principales causas del auge del colonialismo en la segunda mitad del siglo XIX?</label><br>
+                    <input type="radio" id="q11a" name="q11" value="a">
+                    <label for="q11a">a) El aumento de la población en Europa.</label><br>
+                    <input type="radio" id="q11b" name="q11" value="b">
+                    <label for="q11b">b) La búsqueda de recursos naturales.</label><br>
+                    <input type="radio" id="q11c" name="q11" value="c">
+                    <label for="q11c">c) La disminución del comercio global.</label><br>
+                </div>
+                <div>
+                    <label>12. ¿Qué imperio fue conocido por su expansión en África y Asia durante el colonialismo?</label><br>
+                    <input type="radio" id="q12a" name="q12" value="a">
+                    <label for="q12a">a) El imperio alemán.</label><br>
+                    <input type="radio" id="q12b" name="q12" value="b">
+                    <label for="q12b">b) El imperio británico.</label><br>
+                    <input type="radio" id="q12c" name="q12" value="c">
+                    <label for="q12c">c) El imperio otomano.</label><br>
+                </div>
+                <div>
+                    <label>13. ¿Cuál de los siguientes imperios tenía una presencia colonial significativa en América Latina?</label><br>
+                    <input type="radio" id="q13a" name="q13" value="a">
+                    <label for="q13a">a) El imperio francés.</label><br>
+                    <input type="radio" id="q13b" name="q13" value="b">
+                    <label for="q13b">b) El imperio español.</label><br>
+                    <input type="radio" id="q13c" name="q13" value="c">
+                    <label for="q13c">c) El imperio portugués.</label><br>
+                </div>
+                <div>
+                    <label>14. ¿Cómo afectó el colonialismo a las economías locales de los territorios colonizados?</label><br>
+                    <input type="radio" id="q14a" name="q14" value="a">
+                    <label for="q14a">a) Incrementó la autosuficiencia económica.</label><br>
+                    <input type="radio" id="q14b" name="q14" value="b">
+                    <label for="q14b">b) Desarrolló industrias locales.</label><br>
+                    <input type="radio" id="q14c" name="q14" value="c">
+                    <label for="q14c">c) Explotó recursos naturales y debilitó economías locales.</label><br>
+                </div>
+                <div>
+                    <label>15. ¿Qué región fue principalmente afectada por la colonización portuguesa durante el siglo XIX?</label><br>
+                    <input type="radio" id="q15a" name="q15" value="a">
+                    <label for="q15a">a) El Pacífico Sur.</label><br>
+                    <input type="radio" id="q15b" name="q15" value="b">
+                    <label for="q15b">b) El sureste asiático.</label><br>
+                    <input type="radio" id="q15c" name="q15" value="c">
+                    <label for="q15c">c) El continente africano.</label><br>
+                </div>
+                <div>
+                    <label>16. ¿Cuál fue un efecto común del colonialismo en la estructura política de los países colonizados?</label><br>
+                    <input type="radio" id="q16a" name="q16" value="a">
+                    <label for="q16a">a) Establecimiento de gobiernos locales autónomos.</label><br>
+                    <input type="radio" id="q16b" name="q16" value="b">
+                    <label for="q16b">b) Imposición de sistemas administrativos europeos.</label><br>
+                    <input type="radio" id="q16c" name="q16" value="c">
+                    <label for="q16c">c) Promoción de la independencia local.</label><br>
+                </div>
+                <div>
+                    <label>17. ¿Qué tipo de resistencia enfrentaron los imperios coloniales durante su expansión?</label><br>
+                    <input type="radio" id="q17a" name="q17" value="a">
+                    <label for="q17a">a) Resistencia militar y cultural de las comunidades locales.</label><br>
+                    <input type="radio" id="q17b" name="q17" value="b">
+                    <label for="q17b">b) Resistencia diplomática de otras potencias coloniales.</label><br>
+                    <input type="radio" id="q17c" name="q17" value="c">
+                    <label for="q17c">c) Resistencia económica de los mercados internacionales.</label><br>
+                </div>
+                <div>
+                    <label>18. ¿Cuál fue una consecuencia cultural del colonialismo en las regiones colonizadas?</label><br>
+                    <input type="radio" id="q18a" name="q18" value="a">
+                    <label for="q18a">a) Preservación de las culturas locales sin alteraciones.</label><br>
+                    <input type="radio" id="q18b" name="q18" value="b">
+                    <label for="q18b">b) Imposición de lenguas y costumbres europeas.</label><br>
+                    <input type="radio" id="q18c" name="q18" value="c">
+                    <label for="q18c">c) Promoción de la diversidad cultural local.</label><br>
+                </div>
+                <div>
+                    <label>19. ¿Qué evento marcó el inicio del proceso de descolonización en el siglo XX?</label><br>
+                    <input type="radio" id="q19a" name="q19" value="a">
+                    <label for="q19a">a) La Segunda Guerra Mundial.</label><br>
+                    <input type="radio" id="q19b" name="q19" value="b">
+                    <label for="q19b">b) La Conferencia de Berlín.</label><br>
+                    <input type="radio" id="q19c" name="q19" value="c">
+                    <label for="q19c">c) La Guerra de los Siete Años.</label><br>
+                </div>
+                <div>
+                    <label>20. ¿Qué tipo de impacto tuvo el colonialismo sobre las estructuras sociales en los países colonizados?</label><br>
+                    <input type="radio" id="q20a" name="q20" value="a">
+                    <label for="q20a">a) Reforzó las estructuras sociales tradicionales.</label><br>
+                    <input type="radio" id="q20b" name="q20" value="b">
+                    <label for="q20b">b) Alteró las estructuras sociales y causó desintegración social.</label><br>
+                    <input type="radio" id="q20c" name="q20" value="c">
+                    <label for="q20c">c) Promovió la igualdad social entre colonizadores y colonizados.</label><br>
+                </div>
+                
+
+                <div>
+                    <button type="submit">Enviar respuestas</button>
+                </div>
+                <p id="resultado"></p>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

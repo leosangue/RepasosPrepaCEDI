@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Repaso</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* Estilos para el cronómetro */
+        #cronometro {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+    <style>
+        /* Estilos para el botón de regreso */
+        .btn-regreso {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .btn-regreso:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        let tiempoInicio;
+        let intervalo;
+    
+        function iniciarCronometro() {
+            tiempoInicio = new Date();
+            intervalo = setInterval(actualizarCronometro, 1000);
+        }
+    
+        function actualizarCronometro() {
+            const ahora = new Date();
+            const tiempoTranscurrido = Math.floor((ahora - tiempoInicio) / 1000); // Tiempo en segundos
+            const minutos = Math.floor(tiempoTranscurrido / 60);
+            const segundos = tiempoTranscurrido % 60;
+            document.getElementById('cronometro').textContent = `${minutos}m ${segundos}s`;
+        }
+    
+        function detenerCronometro() {
+            clearInterval(intervalo);
+        }
+    
+        function verificarRespuestas(event) {
+            event.preventDefault(); // Evitar que la página se recargue al enviar el formulario
+            detenerCronometro(); // Detener el cronómetro al enviar
+    
+            // Respuestas correctas
+            const respuestasCorrectas = {
+                q1: "Los elementos fundamentales de un Estado son el territorio, la población, el gobierno y la soberanía.",
+                q2: "Un Estado moderno se define por su territorio delimitado, un gobierno centralizado, un sistema legal, y la capacidad de ejercer soberanía y controlar sus asuntos internos y externos.",
+                q3: "Las causas históricas incluyen la formación de identidades nacionales, la necesidad de seguridad, la búsqueda de recursos, y las influencias coloniales y imperialistas.",
+                q4: "Los tipos de fronteras incluyen fronteras naturales (formadas por características físicas como ríos o montañas), fronteras artificiales (definidas por acuerdos políticos o tratados), y fronteras culturales (basadas en diferencias étnicas o lingüísticas).",
+                q5: "Las fronteras naturales pueden actuar como barreras defensivas, pero también pueden limitar la expansión territorial y crear desafíos para el comercio y la comunicación.",
+                q6: "Una frontera artificial es una línea fronteriza definida por acuerdos políticos, sin considerar características geográficas. Puede causar tensiones si divide comunidades étnicas o culturales.",
+                q7: "Las fronteras en México, como la frontera con Estados Unidos, juegan un papel crucial en el comercio, la seguridad nacional y las relaciones diplomáticas.",
+                q8: "Los cambios en las fronteras pueden afectar la cohesión política, la economía regional y las relaciones diplomáticas, al alterar la distribución de recursos y la administración del territorio.",
+                q9: "Las fronteras sirven para proteger a un país de amenazas externas, controlar la inmigración y el comercio, y mantener la soberanía nacional.",
+                q10: "Las fronteras culturales pueden generar conflictos o cooperación según cómo se gestionen las diferencias étnicas, lingüísticas o religiosas entre los países vecinos.",
+                q11: "b",
+                q12: "c",
+                q13: "b",
+                q14: "c",
+                q15: "b",
+                q16: "b",
+                q17: "b",
+                q18: "b",
+                q19: "c",
+                q20: "b"
+            };
+    
+            let puntaje = 0;
+            let respuestasIncorrectas = [];
+    
+            // Comprobar las respuestas abiertas (q1 a q10)
+            for (let i = 1; i <= 10; i++) {
+                const respuesta = document.getElementById(`q${i}`).value.trim();
+                if (respuesta.toLowerCase() === respuestasCorrectas[`q${i}`]?.toLowerCase()) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Comprobar las respuestas de opción múltiple (q11 a q20)
+            for (let i = 11; i <= 20; i++) {
+                const respuesta = document.querySelector(`input[name="q${i}"]:checked`)?.value;
+                if (respuesta === respuestasCorrectas[`q${i}`]) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta opción múltiple ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Mostrar el puntaje y respuestas incorrectas al usuario
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = `<p>Tu puntaje es: ${puntaje} de 20</p>`;
+            
+            if (respuestasIncorrectas.length > 0) {
+                resultado.innerHTML += '<h3>Respuestas incorrectas:</h3><ul>';
+                respuestasIncorrectas.forEach(incorrecta => {
+                    resultado.innerHTML += `<li>${incorrecta}</li>`;
+                });
+                resultado.innerHTML += '</ul>';
+            }
+        }
+    
+        // Iniciar cronómetro al cargar la página
+        window.onload = iniciarCronometro;
+    </script>
+    
+</head>
+<body>
+    <header>
+        <h1>Cuestionario de Repaso</h1>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../materias.html">Materias</a></li>
+            </ul>
+        </nav>
+        <div id="cronometro">0m 0s</div> <!-- Cronómetro -->
+    </header>
+
+    <main>
+        <section>
+            <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
+            <h2>El Estado: elementos e integración, Estado-nación Estado-región, Fronteras y soberanía</h2>
+            <form id="quizForm" onsubmit="verificarRespuestas(event)">
+                <!-- 10 preguntas abiertas -->
+                <div>
+                    <label for="q1">1. ¿Cuáles son los elementos fundamentales que constituyen un Estado?</label><br>
+                    <input type="text" id="q1" name="q1" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q2">2. ¿Qué características definen a un Estado moderno?</label><br>
+                    <input type="text" id="q2" name="q2" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q3">3. ¿Cuáles son las causas históricas que han llevado a la integración de los Estados?</label><br>
+                    <input type="text" id="q3" name="q3" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q4">4. ¿Qué tipos de fronteras existen y cómo se diferencian entre sí?</label><br>
+                    <input type="text" id="q4" name="q4" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q5">5. ¿Cómo afecta la frontera natural a las relaciones geopolíticas de un país?</label><br>
+                    <input type="text" id="q5" name="q5" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q6">6. ¿Qué es una frontera artificial y qué impacto tiene en la geopolítica de un país?</label><br>
+                    <input type="text" id="q6" name="q6" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q7">7. ¿Cuál es el papel de las fronteras en la geopolítica de México?</label><br>
+                    <input type="text" id="q7" name="q7" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q8">8. ¿Cómo influyen los cambios en las fronteras en la integración política y económica de los Estados?</label><br>
+                    <input type="text" id="q8" name="q8" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q9">9. ¿Qué función tienen las fronteras en la protección y seguridad nacional de un país?</label><br>
+                    <input type="text" id="q9" name="q9" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q10">10. ¿Cómo pueden las fronteras culturales influir en las relaciones entre países?</label><br>
+                    <input type="text" id="q10" name="q10" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label>11. ¿Cuál es uno de los elementos esenciales para la formación de un Estado?</label><br>
+                    <input type="radio" id="q11a" name="q11" value="a">
+                    <label for="q11a">a) El sistema educativo.</label><br>
+                    <input type="radio" id="q11b" name="q11" value="b">
+                    <label for="q11b">b) El territorio.</label><br>
+                    <input type="radio" id="q11c" name="q11" value="c">
+                    <label for="q11c">c) La ubicación geográfica.</label><br>
+                </div>
+                <div>
+                    <label>12. ¿Qué característica no es propia de un Estado moderno?</label><br>
+                    <input type="radio" id="q12a" name="q12" value="a">
+                    <label for="q12a">a) Un gobierno centralizado.</label><br>
+                    <input type="radio" id="q12b" name="q12" value="b">
+                    <label for="q12b">b) Un sistema legal.</label><br>
+                    <input type="radio" id="q12c" name="q12" value="c">
+                    <label for="q12c">c) Una administración tribal.</label><br>
+                </div>
+                <div>
+                    <label>13. ¿Qué tipo de frontera se forma a partir de características naturales como montañas o ríos?</label><br>
+                    <input type="radio" id="q13a" name="q13" value="a">
+                    <label for="q13a">a) Frontera artificial.</label><br>
+                    <input type="radio" id="q13b" name="q13" value="b">
+                    <label for="q13b">b) Frontera natural.</label><br>
+                    <input type="radio" id="q13c" name="q13" value="c">
+                    <label for="q13c">c) Frontera cultural.</label><br>
+                </div>
+                <div>
+                    <label>14. ¿Cuál de los siguientes factores no contribuye a la integración de un Estado?</label><br>
+                    <input type="radio" id="q14a" name="q14" value="a">
+                    <label for="q14a">a) La formación de una identidad nacional.</label><br>
+                    <input type="radio" id="q14b" name="q14" value="b">
+                    <label for="q14b">b) La influencia de potencias extranjeras.</label><br>
+                    <input type="radio" id="q14c" name="q14" value="c">
+                    <label for="q14c">c) La diversificación cultural.</label><br>
+                </div>
+                <div>
+                    <label>15. ¿Qué tipo de frontera se define por acuerdos políticos y tratados internacionales?</label><br>
+                    <input type="radio" id="q15a" name="q15" value="a">
+                    <label for="q15a">a) Frontera natural.</label><br>
+                    <input type="radio" id="q15b" name="q15" value="b">
+                    <label for="q15b">b) Frontera artificial.</label><br>
+                    <input type="radio" id="q15c" name="q15" value="c">
+                    <label for="q15c">c) Frontera administrativa.</label><br>
+                </div>
+                <div>
+                    <label>16. ¿Qué papel tiene la frontera con Estados Unidos en la geopolítica de México?</label><br>
+                    <input type="radio" id="q16a" name="q16" value="a">
+                    <label for="q16a">a) Es una barrera cultural.</label><br>
+                    <input type="radio" id="q16b" name="q16" value="b">
+                    <label for="q16b">b) Influye en el comercio y la seguridad nacional.</label><br>
+                    <input type="radio" id="q16c" name="q16" value="c">
+                    <label for="q16c">c) Define la administración local.</label><br>
+                </div>
+                <div>
+                    <label>17. ¿Cómo pueden los cambios en las fronteras afectar la integración económica de los Estados?</label><br>
+                    <input type="radio" id="q17a" name="q17" value="a">
+                    <label for="q17a">a) Reducen la seguridad nacional.</label><br>
+                    <input type="radio" id="q17b" name="q17" value="b">
+                    <label for="q17b">b) Alteran la distribución de recursos y comercio.</label><br>
+                    <input type="radio" id="q17c" name="q17" value="c">
+                    <label for="q17c">c) Aumentan la diversidad cultural.</label><br>
+                </div>
+                <div>
+                    <label>18. ¿Cuál es la función principal de las fronteras en la protección nacional?</label><br>
+                    <input type="radio" id="q18a" name="q18" value="a">
+                    <label for="q18a">a) Facilitar el comercio internacional.</label><br>
+                    <input type="radio" id="q18b" name="q18" value="b">
+                    <label for="q18b">b) Controlar la inmigración y mantener la seguridad.</label><br>
+                    <input type="radio" id="q18c" name="q18" value="c">
+                    <label for="q18c">c) Promover la cooperación cultural.</label><br>
+                </div>
+                <div>
+                    <label>19. ¿Qué tipo de frontera puede causar tensiones si divide comunidades étnicas?</label><br>
+                    <input type="radio" id="q19a" name="q19" value="a">
+                    <label for="q19a">a) Frontera natural.</label><br>
+                    <input type="radio" id="q19b" name="q19" value="b">
+                    <label for="q19b">b) Frontera administrativa.</label><br>
+                    <input type="radio" id="q19c" name="q19" value="c">
+                    <label for="q19c">c) Frontera artificial.</label><br>
+                </div>
+                <div>
+                    <label>20. ¿Cómo afectan las fronteras culturales las relaciones entre países?</label><br>
+                    <input type="radio" id="q20a" name="q20" value="a">
+                    <label for="q20a">a) Aumentan la cooperación económica.</label><br>
+                    <input type="radio" id="q20b" name="q20" value="b">
+                    <label for="q20b">b) Generan conflictos o cooperación según cómo se gestionen las diferencias.</label><br>
+                    <input type="radio" id="q20c" name="q20" value="c">
+                    <label for="q20c">c) Reducen la influencia política.</label><br>
+                </div>
+                
+
+                <div>
+                    <button type="submit">Enviar respuestas</button>
+                </div>
+                <p id="resultado"></p>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

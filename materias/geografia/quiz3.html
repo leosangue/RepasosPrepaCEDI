@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Repaso</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* Estilos para el cronómetro */
+        #cronometro {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+    <style>
+        /* Estilos para el botón de regreso */
+        .btn-regreso {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .btn-regreso:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        let tiempoInicio;
+        let intervalo;
+    
+        function iniciarCronometro() {
+            tiempoInicio = new Date();
+            intervalo = setInterval(actualizarCronometro, 1000);
+        }
+    
+        function actualizarCronometro() {
+            const ahora = new Date();
+            const tiempoTranscurrido = Math.floor((ahora - tiempoInicio) / 1000); // Tiempo en segundos
+            const minutos = Math.floor(tiempoTranscurrido / 60);
+            const segundos = tiempoTranscurrido % 60;
+            document.getElementById('cronometro').textContent = `${minutos}m ${segundos}s`;
+        }
+    
+        function detenerCronometro() {
+            clearInterval(intervalo);
+        }
+    
+        function verificarRespuestas(event) {
+            event.preventDefault(); // Evitar que la página se recargue al enviar el formulario
+            detenerCronometro(); // Detener el cronómetro al enviar
+    
+            // Respuestas correctas
+            const respuestasCorrectas = {
+                q1: "Los elementos fundamentales de un Estado son el territorio, la población, el gobierno y la soberanía.",
+                q2: "Un Estado moderno se define por su territorio delimitado, un gobierno centralizado, un sistema legal, y la capacidad de ejercer soberanía y controlar sus asuntos internos y externos.",
+                q3: "Las causas históricas incluyen la formación de identidades nacionales, la necesidad de seguridad, la búsqueda de recursos, y las influencias coloniales y imperialistas.",
+                q4: "Los tipos de fronteras incluyen fronteras naturales (formadas por características físicas como ríos o montañas), fronteras artificiales (definidas por acuerdos políticos o tratados), y fronteras culturales (basadas en diferencias étnicas o lingüísticas).",
+                q5: "Las fronteras naturales pueden actuar como barreras defensivas, pero también pueden limitar la expansión territorial y crear desafíos para el comercio y la comunicación.",
+                q6: "Una frontera artificial es una línea fronteriza definida por acuerdos políticos, sin considerar características geográficas. Puede causar tensiones si divide comunidades étnicas o culturales.",
+                q7: "Las fronteras en México, como la frontera con Estados Unidos, juegan un papel crucial en el comercio, la seguridad nacional y las relaciones diplomáticas.",
+                q8: "Los cambios en las fronteras pueden afectar la cohesión política, la economía regional y las relaciones diplomáticas, al alterar la distribución de recursos y la administración del territorio.",
+                q9: "Las fronteras sirven para proteger a un país de amenazas externas, controlar la inmigración y el comercio, y mantener la soberanía nacional.",
+                q10: "Las fronteras culturales pueden generar conflictos o cooperación según cómo se gestionen las diferencias étnicas, lingüísticas o religiosas entre los países vecinos.",
+                q11: "b",
+                q12: "b",
+                q13: "b",
+                q14: "b",
+                q15: "b",
+                q16: "b",
+                q17: "b",
+                q18: "b",
+                q19: "b",
+                q20: "c"
+            };
+    
+            let puntaje = 0;
+            let respuestasIncorrectas = [];
+    
+            // Comprobar las respuestas abiertas (q1 a q10)
+            for (let i = 1; i <= 10; i++) {
+                const respuesta = document.getElementById(`q${i}`).value.trim();
+                if (respuesta.toLowerCase() === respuestasCorrectas[`q${i}`]?.toLowerCase()) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Comprobar las respuestas de opción múltiple (q11 a q20)
+            for (let i = 11; i <= 20; i++) {
+                const respuesta = document.querySelector(`input[name="q${i}"]:checked`)?.value;
+                if (respuesta === respuestasCorrectas[`q${i}`]) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta opción múltiple ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Mostrar el puntaje y respuestas incorrectas al usuario
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = `<p>Tu puntaje es: ${puntaje} de 20</p>`;
+            
+            if (respuestasIncorrectas.length > 0) {
+                resultado.innerHTML += '<h3>Respuestas incorrectas:</h3><ul>';
+                respuestasIncorrectas.forEach(incorrecta => {
+                    resultado.innerHTML += `<li>${incorrecta}</li>`;
+                });
+                resultado.innerHTML += '</ul>';
+            }
+        }
+    
+        // Iniciar cronómetro al cargar la página
+        window.onload = iniciarCronometro;
+    </script>
+    
+</head>
+<body>
+    <header>
+        <h1>Cuestionario de Repaso</h1>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../materias.html">Materias</a></li>
+            </ul>
+        </nav>
+        <div id="cronometro">0m 0s</div> <!-- Cronómetro -->
+    </header>
+
+    <main>
+        <section>
+            <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
+            <h2>El poder de los Estados, Territorio y nacionalismos, Naciones sin Estado, Estados sin nación</h2>
+            <form id="quizForm" onsubmit="verificarRespuestas(event)">
+                <!-- 10 preguntas abiertas -->
+                <div>
+                    <label for="q1">1. ¿Cuáles son las principales categorías que definen el poder de los Estados en el contexto actual?</label><br>
+                    <input type="text" id="q1" name="q1" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q2">2. ¿Cómo se clasifica México en términos de poder global y qué características definen su posición?</label><br>
+                    <input type="text" id="q2" name="q2" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q3">3. ¿Qué factores son críticos para dimensionar el poder de los Estados en la actualidad?</label><br>
+                    <input type="text" id="q3" name="q3" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q4">4. ¿Cómo impacta el nacionalismo en la política territorial de los países?</label><br>
+                    <input type="text" id="q4" name="q4" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q5">5. ¿Qué diferencias existen entre una nación sin Estado y un Estado sin nación?</label><br>
+                    <input type="text" id="q5" name="q5" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q6">6. ¿Cómo influyen las potencias globales en la configuración del poder mundial?</label><br>
+                    <input type="text" id="q6" name="q6" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q7">7. ¿Qué impacto tiene el nacionalismo en la relación entre los Estados y sus territorios?</label><br>
+                    <input type="text" id="q7" name="q7" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q8">8. ¿Cómo afecta la relación entre territorio y nacionalismo a las naciones sin Estado?</label><br>
+                    <input type="text" id="q8" name="q8" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q9">9. ¿Cuáles son los criterios que definen a las potencias globales y su influencia?</label><br>
+                    <input type="text" id="q9" name="q9" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label for="q10">10. ¿Cómo se diferencia la categoría de un Estado emergente de la de una potencia establecida?</label><br>
+                    <input type="text" id="q10" name="q10" placeholder="Tu respuesta">
+                </div>
+                <div>
+                    <label>11. ¿Cuál de los siguientes factores no es relevante para dimensionar el poder de los Estados?</label><br>
+                    <input type="radio" id="q11a" name="q11" value="a">
+                    <label for="q11a">a) PIB</label><br>
+                    <input type="radio" id="q11b" name="q11" value="b">
+                    <label for="q11b">b) Número de lenguas habladas.</label><br>
+                    <input type="radio" id="q11c" name="q11" value="c">
+                    <label for="q11c">c) Capacidad militar.</label><br>
+                </div>
+                <div>
+                    <label>12. ¿En qué categoría se clasifica principalmente México en el contexto global?</label><br>
+                    <input type="radio" id="q12a" name="q12" value="a">
+                    <label for="q12a">a) Potencia global.</label><br>
+                    <input type="radio" id="q12b" name="q12" value="b">
+                    <label for="q12b">b) Potencia regional emergente.</label><br>
+                    <input type="radio" id="q12c" name="q12" value="c">
+                    <label for="q12c">c) Nación sin Estado.</label><br>
+                </div>
+                <div>
+                    <label>13. ¿Qué característica es fundamental para una potencia global?</label><br>
+                    <input type="radio" id="q13a" name="q13" value="a">
+                    <label for="q13a">a) Un sistema político democrático.</label><br>
+                    <input type="radio" id="q13b" name="q13" value="b">
+                    <label for="q13b">b) Influencia diplomática.</label><br>
+                    <input type="radio" id="q13c" name="q13" value="c">
+                    <label for="q13c">c) Una alta tasa de natalidad.</label><br>
+                </div>
+                <div>
+                    <label>14. ¿Cuál es una consecuencia común del nacionalismo en la política territorial?</label><br>
+                    <input type="radio" id="q14a" name="q14" value="a">
+                    <label for="q14a">a) Reducción de las barreras comerciales.</label><br>
+                    <input type="radio" id="q14b" name="q14" value="b">
+                    <label for="q14b">b) Fortalecimiento de la cohesión interna.</label><br>
+                    <input type="radio" id="q14c" name="q14" value="c">
+                    <label for="q14c">c) Disminución de la influencia cultural.</label><br>
+                </div>
+                <div>
+                    <label>15. ¿Qué diferencia clave existe entre una nación sin Estado y un Estado sin nación?</label><br>
+                    <input type="radio" id="q15a" name="q15" value="a">
+                    <label for="q15a">a) Una nación sin Estado tiene una identidad política homogénea.</label><br>
+                    <input type="radio" id="q15b" name="q15" value="b">
+                    <label for="q15b">b) Un Estado sin nación tiene una estructura política sin una identidad nacional homogénea.</label><br>
+                    <input type="radio" id="q15c" name="q15" value="c">
+                    <label for="q15c">c) Una nación sin Estado es una región autónoma.</label><br>
+                </div>
+                <div>
+                    <label>16. ¿Cómo impactan las potencias globales en la economía internacional?</label><br>
+                    <input type="radio" id="q16a" name="q16" value="a">
+                    <label for="q16a">a) Reduciendo el comercio internacional.</label><br>
+                    <input type="radio" id="q16b" name="q16" value="b">
+                    <label for="q16b">b) Estableciendo normas y políticas globales.</label><br>
+                    <input type="radio" id="q16c" name="q16" value="c">
+                    <label for="q16c">c) Fomentando conflictos regionales.</label><br>
+                </div>
+                <div>
+                    <label>17. ¿Qué papel juega el nacionalismo en la relación entre un Estado y su territorio?</label><br>
+                    <input type="radio" id="q17a" name="q17" value="a">
+                    <label for="q17a">a) Disminuye la importancia del territorio.</label><br>
+                    <input type="radio" id="q17b" name="q17" value="b">
+                    <label for="q17b">b) Refuerza la percepción del territorio como parte esencial de la identidad.</label><br>
+                    <input type="radio" id="q17c" name="q17" value="c">
+                    <label for="q17c">c) Facilita la integración regional.</label><br>
+                </div>
+                <div>
+                    <label>18. ¿Qué efecto tiene el nacionalismo en las naciones sin Estado?</label><br>
+                    <input type="radio" id="q18a" name="q18" value="a">
+                    <label for="q18a">a) Disminuye su deseo de independencia.</label><br>
+                    <input type="radio" id="q18b" name="q18" value="b">
+                    <label for="q18b">b) Aumenta su deseo de obtener autonomía o independencia.</label><br>
+                    <input type="radio" id="q18c" name="q18" value="c">
+                    <label for="q18c">c) Fortalece sus vínculos con los Estados vecinos.</label><br>
+                </div>
+                <div>
+                    <label>19. ¿Qué característica define mejor a una potencia establecida?</label><br>
+                    <input type="radio" id="q19a" name="q19" value="a">
+                    <label for="q19a">a) Crecimiento rápido en economía.</label><br>
+                    <input type="radio" id="q19b" name="q19" value="b">
+                    <label for="q19b">b) Influencia significativa en el ámbito internacional.</label><br>
+                    <input type="radio" id="q19c" name="q19" value="c">
+                    <label for="q19c">c) Una alta tasa de desarrollo rural.</label><br>
+                </div>
+                <div>
+                    <label>20. ¿Qué diferencia principal existe entre un Estado emergente y una potencia establecida?</label><br>
+                    <input type="radio" id="q20a" name="q20" value="a">
+                    <label for="q20a">a) La tasa de crecimiento económico.</label><br>
+                    <input type="radio" id="q20b" name="q20" value="b">
+                    <label for="q20b">b) La proyección cultural.</label><br>
+                    <input type="radio" id="q20c" name="q20" value="c">
+                    <label for="q20c">c) La presencia global consolidada.</label><br>
+                </div>
+                
+
+                <div>
+                    <button type="submit">Enviar respuestas</button>
+                </div>
+                <p id="resultado"></p>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materias de Repaso</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Estilos para el botón de regreso */
+        .btn-regreso {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .btn-regreso:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para el encabezado de aprendizajes esperados */
+        .aprendizajes {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .aprendizajes img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Materias de Repaso</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../materias.html">Materias</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
+        <section>
+            <h2>Selecciona un tema de repaso</h2>
+            <ul>
+                <li><a href="geografia/quiz1.html">Geografía Política, Geopolítica y sus corrientes teóricas, y su relación con la economía</a></li>
+                <li><a href="geografia/quiz2.html">El Estado: elementos e integración, Estado-nación Estado-región, Fronteras y soberanía</a></li>
+                <li><a href="geografia/quiz3.html">El poder de los Estados, Territorio y nacionalismos, Naciones sin Estado, Estados sin nación</a></li>
+                <li><a href="geografia/quiz4.html">Colonialismo: etapas, causas y consecuencias. Imperios: británico, francés, español y portugués</a></li>
+                
+            </ul>
+        </section>
+        
+        <!-- Nuevo contenido de Aprendizajes esperados -->
+        <section class="aprendizajes">
+            <h2>Aprendizajes esperados</h2>
+            <img src="geografia/eageografia1.png" >
+            <img src="geografia/eageografia2.png" >
+        </section>
+    </main>
+
+</body>
+</html>
