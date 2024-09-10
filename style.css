@@ -1,19 +1,24 @@
+/* Fuente moderna y estilo general */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif; /* Fuente Poppins moderna */
+    background-color: #f8f9fa;
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
 header {
-    background-color: #333;
+    background-color: #007bff;
     color: #fff;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
+    border-radius: 0 0 30px 30px; /* Bordes inferiores redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 header h1 {
     margin: 0;
+    font-weight: 500;
 }
 
 nav ul {
@@ -30,26 +35,62 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-weight: 500;
 }
 
 main {
-    padding: 20px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 main h2 {
-    color: #333;
+    color: #007bff;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+main p {
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 footer {
-    background-color: #333;
+    background-color: #007bff;
     color: #fff;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
+    border-radius: 30px 30px 0 0; /* Bordes superiores redondeados */
     position: fixed;
     width: 100%;
     bottom: 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
 
+footer p {
+    margin: 0;
+}
+
+/* Botón moderno */
+.button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 24px;
+    margin-top: 20px;
+    border-radius: 30px; /* Bordes completamente redondeados */
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para formularios, si los hay */
 form div {
     margin-bottom: 15px;
 }
@@ -60,18 +101,26 @@ form label {
 
 form input[type="text"] {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
+    border-radius: 30px; /* Bordes redondeados */
+    border: 1px solid #ccc;
     margin-top: 5px;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #333;
+    padding: 12px 24px;
+    background-color: #007bff;
     color: #fff;
     border: none;
+    border-radius: 30px; /* Bordes redondeados */
     cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #555;
+    background-color: #0056b3;
 }

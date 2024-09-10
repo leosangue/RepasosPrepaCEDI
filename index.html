@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repasos para Exámenes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
         /* Estilo para hacer la imagen responsiva */
@@ -11,13 +12,15 @@
             width: 100%;
             height: auto;
             max-width: 100%;
-            max-height: 100vh; /* Ajusta la imagen al alto de la ventana del navegador */
-            object-fit: contain; /* Asegura que la imagen se ajuste dentro de los límites sin deformarse */
+            max-height: 100vh;
+            object-fit: contain;
+            border-radius: 10px; /* Bordes redondeados en la imagen */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombras suaves */
         }
-        
+
         /* Estilo para añadir espacio adicional en el main */
         main {
-            padding-bottom: 60px; /* Ajusta el valor según el tamaño de tu footer */
+            padding-bottom: 60px;
         }
     </style>
 </head>
@@ -42,7 +45,7 @@
             <h2>Calendario de Exámenes</h2>
             <img src="calendario-1.png" alt="Calendario de Exámenes">
         </section>
-        <a href="materias.html">Materias</a>
+        <a href="materias.html" class="button">Ir a Materias</a>
     </main>
 
     <footer>
