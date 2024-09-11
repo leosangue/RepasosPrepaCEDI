@@ -6,7 +6,46 @@
     <title>Materias de Repaso</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilos para el botón de regreso */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
         .btn-regreso {
             display: inline-block;
             padding: 10px 20px;
@@ -17,11 +56,70 @@
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
+            margin: 20px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
         }
-        
+
         .btn-regreso:hover {
             background-color: #0056b3;
         }
+
+        main {
+            padding: 20px;
+        }
+
+        .materias-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .materia {
+            width: calc(33.333% - 20px);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .materia img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .materia:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .materia-description {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 15px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .materia:hover .materia-description {
+            opacity: 1;
+        }
+
+        .materia h3 {
+            margin: 0;
+        }
+
     </style>
 </head>
 <body>
@@ -39,17 +137,58 @@
         <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
         <section>
             <h2>Selecciona una Materia</h2>
-            <ul>
-                <li><a href="materias/frances.html">Francés (nivel 2)</a></li>
-                <li><a href="materias/humanidades.html">Humanidades</a></li>
-                <li><a href="materias/espanol.html">Español</a></li>
-                <li><a href="materias/geografia.html">Geografía</a></li>
-                <li><a href="materias/matematicas.html">Matemáticas</a></li>
-                <li><a href="#">Computación (Aún no disponible)</a></li>
-                <li><a href="#">Química (Aún no disponible)</a></li>
-            </ul>
+            <div class="materias-container">
+                <div class="materia">
+                    <img src="materias/imagen1.png" alt="Francés">
+                    <div class="materia-description">
+                        <h3>Francés (nivel 2)</h3>
+                        <p>Aprende sobre vocabulario y gramática del nivel 2.</p>
+                    </div>
+                </div>
+                <div class="materia">
+                    <img src="materias/imagen2.png" alt="Humanidades">
+                    <div class="materia-description">
+                        <h3>Humanidades</h3>
+                        <p>Explora temas de historia, filosofía y más.</p>
+                    </div>
+                </div>
+                <div class="materia">
+                    <img src="materias/imagen3.png" alt="Español">
+                    <div class="materia-description">
+                        <h3>Español</h3>
+                        <p>Estudia la gramática y literatura del español.</p>
+                    </div>
+                </div>
+                <div class="materia">
+                    <img src="materias/imagen4.png" alt="Geografía">
+                    <div class="materia-description">
+                        <h3>Geografía</h3>
+                        <p>Descubre los elementos geográficos y su importancia.</p>
+                    </div>
+                </div>
+                <div class="materia">
+                    <img src="materias/imagen5.png" alt="Matemáticas">
+                    <div class="materia-description">
+                        <h3>Matemáticas</h3>
+                        <p>Repasa conceptos básicos y avanzados de matemáticas.</p>
+                    </div>
+                </div>
+                <div class="materia">
+                    <img src="materias/imagen6.png" alt="Computación">
+                    <div class="materia-description">
+                        <h3>Computación (Aún no disponible)</h3>
+                        <p>Próximamente.</p>
+                    </div>
+                </div>
+                <div class="materia">
+                    <img src="materias/imagen7.png" alt="Química">
+                    <div class="materia-description">
+                        <h3>Química (Aún no disponible)</h3>
+                        <p>Próximamente.</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
-    
 </body>
 </html>
