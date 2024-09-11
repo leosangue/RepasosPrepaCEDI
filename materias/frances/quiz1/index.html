@@ -32,13 +32,13 @@
     </audio>
 
     <script>
-        const playButton = document.getElementById('playMusicButton');
         const audio = document.getElementById('backgroundMusic');
+        const playMusic = sessionStorage.getItem('playMusic');  // Verifica si debe sonar la música
 
-        playButton.addEventListener('click', () => {
-            audio.play();  // Inicia la reproducción de la música
-            playButton.style.display = 'none';  // Oculta el botón una vez que se ha hecho clic
-        });
+        if (playMusic === 'true') {
+            audio.play();  // Inicia la música si se activó en la página anterior
+            sessionStorage.removeItem('playMusic');  // Limpiar el estado
+        }
     </script>
     
 </body>

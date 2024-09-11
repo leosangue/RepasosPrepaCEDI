@@ -134,10 +134,17 @@
         </nav>
         <div id="cronometro">0m 0s</div> <!-- Cronómetro -->
     </header>
+    <button onclick="activateMusic()">Ir a la página con música</button>
 
+    <script>
+        function activateMusic() {
+            sessionStorage.setItem('playMusic', 'true');  // Guarda el estado
+            location.href = 'pagina-con-musica.html';  // Redirige a la nueva página
+        }
+    </script>
     <main>
         <section>
-            <a href="quiz1/index.html">Cuestionario</a>
+            
             <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
             <h2>Lexique du logement</h2>
             <form id="quizForm" onsubmit="verificarRespuestas(event)">
