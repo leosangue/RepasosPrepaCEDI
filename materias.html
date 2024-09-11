@@ -6,12 +6,12 @@
     <title>Materias de Repaso</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Estilos generales */
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-color: #f4f4f4;
         }
 
         header {
@@ -23,7 +23,6 @@
 
         header h1 {
             margin: 0;
-            font-size: 24px;
         }
 
         nav ul {
@@ -42,10 +41,6 @@
             text-decoration: none;
         }
 
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-
         .btn-regreso {
             display: inline-block;
             padding: 10px 20px;
@@ -56,12 +51,8 @@
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
-            margin: 20px;
-            position: absolute;
-            top: 20px;
-            left: 20px;
         }
-
+        
         .btn-regreso:hover {
             background-color: #0056b3;
         }
@@ -70,56 +61,63 @@
             padding: 20px;
         }
 
-        .materias-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+        section {
+            margin: 20px 0;
+        }
+
+        h2 {
+            margin-bottom: 20px;
         }
 
         .materia {
-            width: calc(33.333% - 20px);
-            margin-bottom: 20px;
             position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 300px; /* Ajustar según el diseño */
+            margin: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
         .materia img {
             width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .materia:hover img {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            object-fit: cover; /* Asegura que la imagen cubra el área del cuadro sin deformarse */
         }
 
         .materia-description {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.6);
             color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            border-radius: 15px;
             padding: 10px;
+            box-sizing: border-box;
+            transform: translateY(100%);
+            transition: transform 0.3s;
             text-align: center;
         }
 
         .materia:hover .materia-description {
-            opacity: 1;
+            transform: translateY(0);
         }
 
-        .materia h3 {
-            margin: 0;
+        .materia a {
+            display: block;
+            height: 100%;
+            width: 100%;
+            text-decoration: none;
+            color: inherit;
         }
 
+        /* Estilos del grid */
+        .materias-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
@@ -137,55 +135,69 @@
         <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
         <section>
             <h2>Selecciona una Materia</h2>
-            <div class="materias-container">
+            <div class="materias-grid">
                 <div class="materia">
-                    <img src="materias/materias/frances.jpeg" alt="Francés">
-                    <div class="materia-description">
-                        <h3>Francés (nivel 2)</h3>
-                        <p>Aprende sobre vocabulario y gramática del nivel 2.</p>
-                    </div>
+                    <a href="materias/frances.html">
+                        <img src="materias/materias/frances.jpeg" alt="Francés">
+                        <div class="materia-description">
+                            <h3>Francés (nivel 2)</h3>
+                            <p>Aprende sobre vocabulario y gramática del nivel 2.</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="materia">
-                    <img src="materias/materias/humanidades.jpg" alt="Humanidades">
-                    <div class="materia-description">
-                        <h3>Humanidades</h3>
-                        <p>Explora temas de historia, filosofía y más.</p>
-                    </div>
+                    <a href="materias/humanidades.html">
+                        <img src="materias/materias/humanidades.jpg" alt="Humanidades">
+                        <div class="materia-description">
+                            <h3>Humanidades</h3>
+                            <p>Explora temas de historia, filosofía y más.</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="materia">
-                    <img src="materias/materias/español.jpeg" alt="Español">
-                    <div class="materia-description">
-                        <h3>Español</h3>
-                        <p>Estudia la gramática y literatura del español.</p>
-                    </div>
+                    <a href="materias/espanol.html">
+                        <img src="materias/materias/español.jpeg" alt="Español">
+                        <div class="materia-description">
+                            <h3>Español</h3>
+                            <p>Estudia la gramática y literatura del español.</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="materia">
-                    <img src="materias/materias/geografia.jpeg" alt="Geografía">
-                    <div class="materia-description">
-                        <h3>Geografía</h3>
-                        <p>Descubre los elementos geográficos y su importancia.</p>
-                    </div>
+                    <a href="materias/geografia.html">
+                        <img src="materias/materias/geografia.jpeg" alt="Geografía">
+                        <div class="materia-description">
+                            <h3>Geografía</h3>
+                            <p>Descubre los elementos geográficos y su importancia.</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="materia">
-                    <img src="materias/materias/mate.jpg" alt="Matemáticas">
-                    <div class="materia-description">
-                        <h3>Matemáticas</h3>
-                        <p>Repasa conceptos básicos y avanzados de matemáticas.</p>
-                    </div>
+                    <a href="materias/matematicas.html">
+                        <img src="materias/materias/mate.jpg" alt="Matemáticas">
+                        <div class="materia-description">
+                            <h3>Matemáticas</h3>
+                            <p>Repasa conceptos básicos y avanzados de matemáticas.</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="materia">
-                    <img src="materias/materias/compu.webp" alt="Computación">
-                    <div class="materia-description">
-                        <h3>Computación (Aún no disponible)</h3>
-                        <p>Próximamente.</p>
-                    </div>
+                    <a href="#">
+                        <img src="materias/materias/compu.webp" alt="Computación">
+                        <div class="materia-description">
+                            <h3>Computación (Aún no disponible)</h3>
+                            <p>Próximamente.</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="materia">
-                    <img src="materias/materias/quimica.jpeg" alt="Química">
-                    <div class="materia-description">
-                        <h3>Química (Aún no disponible)</h3>
-                        <p>Próximamente.</p>
-                    </div>
+                    <a href="#">
+                        <img src="materias/materias/quimica.jpeg" alt="Química">
+                        <div class="materia-description">
+                            <h3>Química (Aún no disponible)</h3>
+                            <p>Próximamente.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
