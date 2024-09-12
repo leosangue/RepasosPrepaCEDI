@@ -138,6 +138,7 @@ function checkAnswer(button, isCorrect) {
 
 // Función para iniciar el temporizador
 // Función para iniciar el temporizador
+// Función para iniciar el temporizador
 function startTimer() {
     timer = 30;
     const timerElement = document.getElementById('timer');
@@ -149,15 +150,46 @@ function startTimer() {
             timer--;
             timerElement.textContent = `Tiempo restante: ${timer}`;
         } else {
-            // Si el tiempo llega a 0, marca la respuesta como incorrecta y pasa a la siguiente pregunta
+            // Si el tiempo llega a 0, marca la pregunta como incorrecta y pasa a la siguiente pregunta
             clearInterval(timerInterval); // Detener el temporizador
-            const incorrectOption = document.querySelectorAll('.option'); // Obtener todas las opciones
-            if (incorrectOption.length > 0) {
-                checkAnswer(incorrectOption[0], false); // Marca como incorrecta la primera opción, aunque no se selecciona realmente
-            }
+            
+            // Marcar la pregunta como incorrecta y avanzar a la siguiente
+            handleTimeout();
         }
     }, 1000);
 }
+
+// Función que se llama cuando el tiempo se agota
+function handleTimeout() {
+    // Deshabilitar todos los botones de opciones
+    const optionsButtons = document.querySelectorAll('.option');
+    optionsButtons.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.add('disabled');  // Añadir clase para deshabilitar visualmente los botones
+    });
+
+    // Mostrar la respuesta correcta
+    const correctOption = Array.from(document.getElementById('options').children)
+        .find(btn => btn.textContent === questions[questionIndex].options[questions[questionIndex].correct]);
+    
+    if (correctOption) {
+        correctOption.classList.add('correct');
+    }
+
+    // Añadir la pregunta a las incorrectas
+    incorrectAnswers.push({
+        question: document.getElementById('question-title').textContent,
+        selected: 'No respondida',
+        correct: questions[questionIndex].options[questions[questionIndex].correct]
+    });
+
+    // Avanzar a la siguiente pregunta
+    questionIndex++;
+    setTimeout(() => {
+        loadQuestion();
+    }, 1000); // Cambia de pregunta después de 1 segundo
+}
+
 
 
 // Función para detener el temporizador
