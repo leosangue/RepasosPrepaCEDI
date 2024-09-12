@@ -137,6 +137,7 @@ function checkAnswer(button, isCorrect) {
 
 
 // Función para iniciar el temporizador
+// Función para iniciar el temporizador
 function startTimer() {
     timer = 30;
     const timerElement = document.getElementById('timer');
@@ -148,10 +149,16 @@ function startTimer() {
             timer--;
             timerElement.textContent = `Tiempo restante: ${timer}`;
         } else {
-            checkAnswer(null, false); // Marca la respuesta como incorrecta cuando el tiempo se agota
+            // Si el tiempo llega a 0, marca la respuesta como incorrecta y pasa a la siguiente pregunta
+            clearInterval(timerInterval); // Detener el temporizador
+            const incorrectOption = document.querySelectorAll('.option'); // Obtener todas las opciones
+            if (incorrectOption.length > 0) {
+                checkAnswer(incorrectOption[0], false); // Marca como incorrecta la primera opción, aunque no se selecciona realmente
+            }
         }
     }, 1000);
 }
+
 
 // Función para detener el temporizador
 function stopTimer() {
