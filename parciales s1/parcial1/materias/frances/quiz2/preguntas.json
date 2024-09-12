@@ -1,0 +1,102 @@
+[
+    {
+        "question": "Complétez la phrase avec le comparatif approprié : “Paul est ____ (grand) que Pierre.”",
+        "options": ["plus grand", "le plus grand", "aussi grand"],
+        "correct": 0
+    },
+    {
+        "question": "Formulez une phrase en utilisant le superlatif relatif de 'intelligent' pour décrire Marie parmi ses amis.",
+        "options": ["Marie est la plus intelligente de ses amis.", "Marie est plus intelligente que ses amis.", "Marie est aussi intelligente que ses amis."],
+        "correct": 0
+    },
+    {
+        "question": "Utilisez le comparatif pour comparer la vitesse de deux voitures : “La voiture A est ____ (rapide) que la voiture B.”",
+        "options": ["plus rapide", "la plus rapide", "aussi rapide"],
+        "correct": 0
+    },
+    {
+        "question": "Donnez une phrase utilisant le superlatif absolu de 'bon' pour décrire un plat.",
+        "options": ["C'est le meilleur plat.", "C'est un bon plat.", "C'est le plus bon plat."],
+        "correct": 0
+    },
+    {
+        "question": "Créez une phrase en comparant deux villes en termes de taille : “Paris est ____ (grand) que Lyon.”",
+        "options": ["plus grand", "le plus grand", "aussi grand"],
+        "correct": 0
+    },
+    {
+        "question": "Décrivez un film en utilisant le superlatif relatif de 'intéressant' parmi tous les films que vous avez vus.",
+        "options": ["C'est le film le plus intéressant que j'ai vu.", "C'est un film intéressant.", "C'est plus intéressant que les autres films."],
+        "correct": 0
+    },
+    {
+        "question": "Utilisez le comparatif pour comparer le niveau de difficulté de deux cours : “Le cours de mathématiques est ____ (difficile) que le cours de français.”",
+        "options": ["plus difficile", "le plus difficile", "aussi difficile"],
+        "correct": 0
+    },
+    {
+        "question": "Écrivez une phrase comparant deux livres en utilisant le comparatif de 'bon.'",
+        "options": ["Ce livre est meilleur que l'autre.", "Ce livre est aussi bon que l'autre.", "Ce livre est le plus bon."],
+        "correct": 0
+    },
+    {
+        "question": "Exprimez une comparaison avec le superlatif absolu pour le confort d’une chaise.",
+        "options": ["C'est la chaise la plus confortable.", "C'est une chaise confortable.", "C'est la plus confort."],
+        "correct": 0
+    },
+    {
+        "question": "Utilisez le comparatif pour parler du coût de deux restaurants : “Le restaurant A est ____ (cher) que le restaurant B.”",
+        "options": ["plus cher", "le plus cher", "aussi cher"],
+        "correct": 0
+    },
+    {
+        "question": "Quelle est la forme correcte du comparatif pour 'gentil' ?",
+        "options": ["plus gentil", "le plus gentil", "aussi gentil"],
+        "correct": 0
+    },
+    {
+        "question": "Quel est le superlatif relatif de 'beau' ?",
+        "options": ["le plus beau", "plus beau", "aussi beau"],
+        "correct": 0
+    },
+    {
+        "question": "Complétez la phrase : “Ce gâteau est ____ que celui de Marie.”",
+        "options": ["meilleur", "le meilleur", "bien"],
+        "correct": 0
+    },
+    {
+        "question": "Quelle est la forme du superlatif absolu pour 'mauvais' ?",
+        "options": ["le plus mauvais", "pire", "très mauvais"],
+        "correct": 0
+    },
+    {
+        "question": "Quel est le comparatif de 'jeune' ?",
+        "options": ["le plus jeune", "plus jeune", "aussi jeune"],
+        "correct": 1
+    },
+    {
+        "question": "Quel est le superlatif relatif de 'rapide' ?",
+        "options": ["le plus rapide", "plus rapide", "aussi rapide"],
+        "correct": 0
+    },
+    {
+        "question": "Quelle est la forme correcte pour le comparatif de 'ancien' ?",
+        "options": ["plus ancien", "le plus ancien", "ancien"],
+        "correct": 0
+    },
+    {
+        "question": "Quelle est la forme correcte pour le superlatif de 'petit' ?",
+        "options": ["le plus petit", "plus petit", "aussi petit"],
+        "correct": 0
+    },
+    {
+        "question": "Complétez la phrase avec 'aussi ____' : “Marie est ____ gentille que Sophie.”",
+        "options": ["aussi", "plus", "le plus"],
+        "correct": 0
+    },
+    {
+        "question": "Complétez la phrase avec 'autant de ____' : “Elle a ____ livres que moi.”",
+        "options": ["autant de", "plus de", "moins de"],
+        "correct": 0
+    }
+]
