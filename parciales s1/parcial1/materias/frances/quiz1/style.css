@@ -14,10 +14,10 @@ body {
   max-width: 90vw; /* Asegura que la caja no sobrepase el 90% del ancho de la ventana */
   max-height: 90vh; /* Asegura que la caja no sobrepase el 90% de la altura de la ventana */
   text-align: center;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8); /* Blanco con un 80% de opacidad */
   padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
