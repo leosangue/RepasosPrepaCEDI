@@ -141,3 +141,8 @@ h1 {
 .back-button:hover {
   background-color: #0056b3;
 }
+
+#incorrect-questions {
+  max-height: 60vh;      /* Limitar la altura de la sección de preguntas incorrectas */
+  overflow-y: auto;      /* Hacer que aparezca un scroll si hay muchas preguntas */
+}
