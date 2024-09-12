@@ -140,7 +140,7 @@ function checkAnswer(button, isCorrect) {
 // Función para iniciar el temporizador
 // Función para iniciar el temporizador
 function startTimer() {
-    timer = 30;
+    timer = 20;
     const timerElement = document.getElementById('timer');
     if (timerElement) {
         timerElement.textContent = `Tiempo restante: ${timer}`;
