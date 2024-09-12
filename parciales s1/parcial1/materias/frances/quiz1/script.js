@@ -79,6 +79,7 @@ function loadQuestion() {
 }
 
 // Función para verificar la respuesta seleccionada
+// Función para verificar la respuesta seleccionada
 function checkAnswer(button, isCorrect) {
     if (button) {
         // Deshabilitar todos los botones para evitar múltiples clics
@@ -91,10 +92,15 @@ function checkAnswer(button, isCorrect) {
             }
         });
 
+        // Calcular el puntaje basado en el tiempo restante
+        const baseScore = 500;  // Puntaje mínimo si responde al final del tiempo
+        const maxScore = 1000;  // Puntaje máximo si responde inmediatamente
+        const scoreIncrement = baseScore + Math.floor((maxScore - baseScore) * (timer / 30));
+
         // Implementa la lógica para verificar si la respuesta es correcta
         if (isCorrect) {
             button.classList.add('correct');
-            score++;
+            score += scoreIncrement;  // Aumentar el puntaje basado en el tiempo
             correctAnswers++;
         } else {
             button.classList.add('incorrect');
@@ -125,6 +131,7 @@ function checkAnswer(button, isCorrect) {
         }, 1000); // Cambia de pregunta después de 1 segundo
     }
 }
+
 
 
 
