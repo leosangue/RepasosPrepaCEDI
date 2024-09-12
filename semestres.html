@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEMESTRES</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-regreso {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            position: absolute;
+            top: 120px;
+            left: 20px;
+        }
+
+        .btn-regreso:hover {
+            background-color: #0056b3;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin: 20px 0;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .materia {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 300px;
+            margin: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .materia img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .materia-description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            box-sizing: border-box;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .materia:hover .materia-description {
+            transform: translateY(0);
+        }
+
+        .materia a {
+            display: block;
+            height: 100%;
+            width: 100%;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .materias-grid {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SEMESTRES</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="semestres.html">Semestres</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
+        <section>
+            <br>
+            <h2>        </h2>
+            <div class="materias-grid">
+                <div class="materia">
+                    <a href="parciales s1/parciales s1.html">
+                        <img src="parciales s1/1.jpg" alt="Quiz 1">
+                        <div class="materia-description">
+                            <h3>PRIMER SEMESTRE</h3>
+                            <p>Parciales del primer semestre.</p>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+</body>
+</html>
