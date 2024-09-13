@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Repaso</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos para el cronómetro */
+        #cronometro {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+    <style>
+        /* Estilos para el botón de regreso */
+        .btn-regreso {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .btn-regreso:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        let tiempoInicio;
+        let intervalo;
+    
+        function iniciarCronometro() {
+            tiempoInicio = new Date();
+            intervalo = setInterval(actualizarCronometro, 1000);
+        }
+    
+        function actualizarCronometro() {
+            const ahora = new Date();
+            const tiempoTranscurrido = Math.floor((ahora - tiempoInicio) / 1000); // Tiempo en segundos
+            const minutos = Math.floor(tiempoTranscurrido / 60);
+            const segundos = tiempoTranscurrido % 60;
+            document.getElementById('cronometro').textContent = `${minutos}m ${segundos}s`;
+        }
+    
+        function detenerCronometro() {
+            clearInterval(intervalo);
+        }
+    
+        function verificarRespuestas(event) {
+            event.preventDefault(); // Evitar que la página se recargue al enviar el formulario
+            detenerCronometro(); // Detener el cronómetro al enviar
+    
+            // Respuestas correctas
+            const respuestasCorrectas = {
+            q1: "Solutions have particles less than 1 nanometer in size, colloids have particles between 1 nanometer and 1 micrometer, and suspensions have particles larger than 1 micrometer.",
+            q2: "A mixture is classified as a solution, colloid, or suspension based on the size of the particles and their distribution in the medium. Solutions have very small particles that dissolve completely, colloids have medium-sized particles that do not settle out, and suspensions have large particles that eventually settle out.",
+            q3: "Milk is considered a colloid because it contains fat droplets suspended in water. The fat droplets are larger than those in a solution but too small to settle out, fitting the definition of a colloid.",
+            q4: "Fog is considered an aerosol, which is a type of colloid where liquid droplets are dispersed in a gas.",
+            q5: "Temperature affects solubility because as temperature increases, the solubility of most solids in liquids increases, while the solubility of gases decreases.",
+            q6: "The nature of the solute and solvent affects solubility because solubility depends on the interactions between the solute and solvent particles. For example, polar solutes dissolve better in polar solvents.",
+            q7: "Adding more solute to a solution increases the boiling point because it requires more energy to overcome the additional solute particles and vaporize the solution.",
+            q8: "Sugar dissolves faster in hot water than in cold water because the increased temperature provides more energy to break the bonds between sugar molecules and the water molecules, speeding up the dissolution process.",
+            q9: "The size of solute particles affects the type of mixture formed: small particles form solutions, medium particles form colloids, and large particles form suspensions.",
+            q10: "When salt is added to water, the freezing point of the water decreases due to the disruption of the water's crystal structure, making it harder for the water to freeze.",
+            q11: "b",
+            q12: "b",
+            q13: "c",
+            q14: "a",
+            q15: "b",
+            q16: "b",
+            q17: "b",
+            q18: "b",
+            q19: "a",
+            q20: "b"
+        };
+
+
+
+
+    
+            let puntaje = 0;
+            let respuestasIncorrectas = [];
+    
+            // Comprobar las respuestas abiertas (q1 a q10)
+            for (let i = 1; i <= 10; i++) {
+                const respuesta = document.getElementById(`q${i}`).value.trim();
+                if (respuesta.toLowerCase() === respuestasCorrectas[`q${i}`]?.toLowerCase()) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Comprobar las respuestas de opción múltiple (q11 a q20)
+            for (let i = 11; i <= 20; i++) {
+                const respuesta = document.querySelector(`input[name="q${i}"]:checked`)?.value;
+                if (respuesta === respuestasCorrectas[`q${i}`]) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta opción múltiple ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Mostrar el puntaje y respuestas incorrectas al usuario
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = `<p>Tu puntaje es: ${puntaje} de 20</p>`;
+            
+            if (respuestasIncorrectas.length > 0) {
+                resultado.innerHTML += '<h3>Respuestas incorrectas:</h3><ul>';
+                respuestasIncorrectas.forEach(incorrecta => {
+                    resultado.innerHTML += `<li>${incorrecta}</li>`;
+                });
+                resultado.innerHTML += '</ul>';
+            }
+        }
+    
+        // Iniciar cronómetro al cargar la página
+        window.onload = iniciarCronometro;
+    </script>
+    
+</head>
+<body>
+    <header>
+        <h1>Cuestionario de Repaso</h1>
+        <nav>
+            <ul>
+                <li><a href="../../../../index.html">Inicio</a></li>
+                <li><a href="../../../../semestres.html">Semestres</a></li>
+            </ul>
+        </nav>
+        <div id="cronometro">0m 0s</div> <!-- Cronómetro -->
+    </header>
+    
+    
+    <main>
+        <section>
+            
+            <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
+            <h2>Change in matter, its properties, Density, elements/compounds/mixtures, pure substances/mixtures</h2>
+            <form id="quizForm" onsubmit="verificarRespuestas(event)">
+                <!-- 10 preguntas abiertas -->
+                <div>
+                    <label for="q1">1. What is the difference between a solution, a colloid, and a suspension based on particle size?</label><br>
+                    <input type="text" id="q1" name="q1" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q2">2. How can you classify a mixture as a solution, colloid, or suspension?</label><br>
+                    <input type="text" id="q2" name="q2" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q3">3. Explain why milk is considered a colloid.</label><br>
+                    <input type="text" id="q3" name="q3" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q4">4. What type of system is fog, and why?</label><br>
+                    <input type="text" id="q4" name="q4" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q5">5. How do temperature and solubility relate in a solution?</label><br>
+                    <input type="text" id="q5" name="q5" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q6">6. Describe how the nature of the solute and solvent affects solubility.</label><br>
+                    <input type="text" id="q6" name="q6" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q7">7. Explain how adding more solute affects the boiling point of a solution.</label><br>
+                    <input type="text" id="q7" name="q7" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q8">8. Why does sugar dissolve faster in hot water than in cold water?</label><br>
+                    <input type="text" id="q8" name="q8" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q9">9. How does the size of solute particles affect the type of mixture formed?</label><br>
+                    <input type="text" id="q9" name="q9" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q10">10. What happens to the freezing point of water when salt is added?</label><br>
+                    <input type="text" id="q10" name="q10" placeholder="Your answer">
+                </div>
+                
+                <div>
+                    <label>11. What happens when you add salt to water?</label><br>
+                    <input type="radio" id="q11a" name="q11" value="a">
+                    <label for="q11a">a) The freezing point increases</label><br>
+                    <input type="radio" id="q11b" name="q11" value="b">
+                    <label for="q11b">b) The freezing point decreases</label><br>
+                    <input type="radio" id="q11c" name="q11" value="c">
+                    <label for="q11c">c) The freezing point stays the same</label><br>
+                </div>
+                <div>
+                    <label>12. Which of the following is an example of a suspension?</label><br>
+                    <input type="radio" id="q12a" name="q12" value="a">
+                    <label for="q12a">a) Saltwater</label><br>
+                    <input type="radio" id="q12b" name="q12" value="b">
+                    <label for="q12b">b) Blood</label><br>
+                    <input type="radio" id="q12c" name="q12" value="c">
+                    <label for="q12c">c) Fog</label><br>
+                </div>
+                <div>
+                    <label>13. Which of these factors does NOT affect solubility?</label><br>
+                    <input type="radio" id="q13a" name="q13" value="a">
+                    <label for="q13a">a) Temperature</label><br>
+                    <input type="radio" id="q13b" name="q13" value="b">
+                    <label for="q13b">b) Nature of the solvent</label><br>
+                    <input type="radio" id="q13c" name="q13" value="c">
+                    <label for="q13c">c) Color of the solute</label><br>
+                </div>
+                <div>
+                    <label>14. What type of mixture is air?</label><br>
+                    <input type="radio" id="q14a" name="q14" value="a">
+                    <label for="q14a">a) Solution</label><br>
+                    <input type="radio" id="q14b" name="q14" value="b">
+                    <label for="q14b">b) Suspension</label><br>
+                    <input type="radio" id="q14c" name="q14" value="c">
+                    <label for="q14c">c) Colloid</label><br>
+                </div>
+                <div>
+                    <label>15. What happens to the solubility of gases in liquids when the temperature increases?</label><br>
+                    <input type="radio" id="q15a" name="q15" value="a">
+                    <label for="q15a">a) It increases</label><br>
+                    <input type="radio" id="q15b" name="q15" value="b">
+                    <label for="q15b">b) It decreases</label><br>
+                    <input type="radio" id="q15c" name="q15" value="c">
+                    <label for "q15c">c) It remains the same</label><br>
+                </div>
+                <div>
+                    <label>16. Which factor is most responsible for the solubility of sugar in water?</label><br>
+                    <input type="radio" id="q16a" name="q16" value="a">
+                    <label for="q16a">a) Size of the sugar crystals</label><br>
+                    <input type="radio" id="q16b" name="q16" value="b">
+                    <label for="q16b">b) Temperature of the water</label><br>
+                    <input type="radio" id="q16c" name="q16" value="c">
+                    <label for="q16c">c) Type of stirring</label><br>
+                </div>
+                <div>
+                    <label>17. What type of system is mayonnaise considered?</label><br>
+                    <input type="radio" id="q17a" name="q17" value="a">
+                    <label for="q17a">a) Suspension</label><br>
+                    <input type="radio" id="q17b" name="q17" value="b">
+                    <label for="q17b">b) Colloid</label><br>
+                    <input type="radio" id="q17c" name="q17" value="c">
+                    <label for="q17c">c) Solution</label><br>
+                </div>
+                <div>
+                    <label>18. What does the term "colligative properties" refer to?</label><br>
+                    <input type="radio" id="q18a" name="q18" value="a">
+                    <label for="q18a">a) Properties that depend on the identity of the solute</label><br>
+                    <input type="radio" id="q18b" name="q18" value="b">
+                    <label for="q18b">b) Properties that depend on the number of solute particles</label><br>
+                    <input type="radio" id="q18c" name="q18" value="c">
+                    <label for="q18c">c) Properties that change with pressure</label><br>
+                </div>
+                <div>
+                    <label>19. Which of the following is a property colligative effects can influence?</label><br>
+                    <input type="radio" id="q19a" name="q19" value="a">
+                    <label for="q19a">a) Boiling point elevation</label><br>
+                    <input type="radio" id="q19b" name="q19" value="b">
+                    <label for="q19b">b) Mass of the solvent</label><br>
+                    <input type="radio" id="q19c" name="q19" value="c">
+                    <label for="q19c">c) Density of the solute</label><br>
+                </div>
+                <div>
+                    <label>20. What happens to vapor pressure when solute is added to a solvent?</label><br>
+                    <input type="radio" id="q20a" name="q20" value="a">
+                    <label for="q20a">a) It increases</label><br>
+                    <input type="radio" id="q20b" name="q20" value="b">
+                    <label for="q20b">b) It decreases</label><br>
+                    <input type="radio" id="q20c" name="q20" value="c">
+                    <label for="q20c">c) It remains the same</label><br>
+                </div>                
+                                
+                
+                <div>
+                    <button type="submit">Enviar respuestas</button>
+                </div>
+                <p id="resultado"></p>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
