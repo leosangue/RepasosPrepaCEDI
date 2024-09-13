@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url(../../../../../background.jpg);
+            background-size: cover;           /* Hace que la imagen cubra toda la pantalla */
+            background-position: center;      /* Centra la imagen de fondo */
+            background-repeat: no-repeat;     /* Evita que la imagen se repita */
+            background-attachment: fixed;     /* Hace que la imagen de fondo se mantenga fija al hacer scroll */
+        }
+    </style>
+</head>
+<body>
+    <!-- Botón "Atrás" en la esquina superior izquierda -->
+    <a href="../quiz4arroz.html" class="back-button">Atrás</a>
+
+    <div class="question-counter" id="question-counter"></div> <!-- Contador de preguntas -->
+    <div class="container">
+        <h1 id="question-title">Pregunta 1: ¿Cuál es la capital de Francia?</h1>
+        <div id="timer">Tiempo restante: 30</div>
+        <div class="options" id="options">
+            <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </div>
+        <div id="score">Puntaje: 0</div>
+        <div id="incorrect-questions"></div>
+        <div id="results"></div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <audio id="backgroundMusic" loop>
+        <source src="music.mp3" type="audio/mp3">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+
+    <script>
+        const audio = document.getElementById('backgroundMusic');
+        const playMusic = sessionStorage.getItem('playMusic');  // Verifica si debe sonar la música
+
+        if (playMusic === 'true') {
+            audio.play();  // Inicia la música si se activó en la página anterior
+            sessionStorage.removeItem('playMusic');  // Limpiar el estado
+        }
+    </script>
+    
+</body>
+</html>

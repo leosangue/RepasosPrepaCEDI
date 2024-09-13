@@ -1,0 +1,102 @@
+[
+    {
+        "question": "What is the relationship between matter and energy in daily life?",
+        "options": ["Matter and energy are unrelated", "Matter can be converted into energy and vice versa", "Energy is a type of matter"],
+        "correct": 1
+    },
+    {
+        "question": "How do we experience energy transformation in everyday devices?",
+        "options": ["Energy is not transformed in devices", "Energy is transformed from one form to another, such as electrical to mechanical", "Devices create new energy forms"],
+        "correct": 1
+    },
+    {
+        "question": "Can you provide an example of how chemical energy is used in your environment?",
+        "options": ["Chemical energy is used in batteries", "Chemical energy is used in mechanical devices", "Chemical energy is used in sound systems"],
+        "correct": 0
+    },
+    {
+        "question": "How does the concept of conservation of energy apply to a specific activity you do daily?",
+        "options": ["Energy is lost in every activity", "Energy is conserved and transformed but not created or destroyed", "Energy can be created from nothing"],
+        "correct": 1
+    },
+    {
+        "question": "Describe the role of thermal energy in cooking or heating processes.",
+        "options": ["Thermal energy is irrelevant in cooking", "Thermal energy transfers heat to cook or heat substances", "Thermal energy is absorbed but not used in cooking"],
+        "correct": 1
+    },
+    {
+        "question": "How does mechanical energy work in household tools?",
+        "options": ["Mechanical energy is not used in tools", "Mechanical energy is transformed into other forms like kinetic energy in tools", "Mechanical energy is used to generate electricity directly"],
+        "correct": 1
+    },
+    {
+        "question": "What forms of energy can you observe in your home or surroundings?",
+        "options": ["Only electrical energy", "Multiple forms including thermal, mechanical, and electrical energy", "Only thermal energy"],
+        "correct": 1
+    },
+    {
+        "question": "How do energy transformations relate to the law of thermodynamics?",
+        "options": ["Energy transformations do not follow thermodynamics", "Energy transformations adhere to the law of conservation of energy", "Energy transformations increase total energy in a system"],
+        "correct": 1
+    },
+    {
+        "question": "What are the main differences between nuclear fusion and nuclear fission?",
+        "options": ["Fusion combines nuclei, while fission splits them", "Fusion splits nuclei, while fission combines them", "Both processes are identical"],
+        "correct": 0
+    },
+    {
+        "question": "How does radioactivity play a role in energy production?",
+        "options": ["Radioactivity is not involved in energy production", "Radioactivity involves the emission of particles that can be harnessed for energy", "Radioactivity increases energy without any production"],
+        "correct": 1
+    },
+    {
+        "question": "Which of the following best describes energy conservation?",
+        "options": ["Energy cannot be transformed", "Energy cannot be created or destroyed, only transformed", "Energy is only lost in transformations"],
+        "correct": 1
+    },
+    {
+        "question": "Which type of energy is released during nuclear fusion?",
+        "options": ["Thermal energy", "Nuclear energy", "Kinetic energy"],
+        "correct": 1
+    },
+    {
+        "question": "What is a common example of potential energy?",
+        "options": ["A moving car", "A book sitting on a shelf", "Heat from the sun"],
+        "correct": 1
+    },
+    {
+        "question": "What occurs during nuclear fission?",
+        "options": ["Atoms combine to form heavier atoms", "Atoms split to form smaller atoms", "Atoms release heat without changing"],
+        "correct": 1
+    },
+    {
+        "question": "How does the first law of thermodynamics apply to daily life?",
+        "options": ["Energy can be lost in simple actions", "Energy is conserved in all transformations", "Energy is only converted to heat"],
+        "correct": 1
+    },
+    {
+        "question": "Which of the following is an example of chemical energy?",
+        "options": ["The energy in a battery", "The energy from moving water", "The energy from the sun"],
+        "correct": 0
+    },
+    {
+        "question": "What type of energy transformation happens in a solar panel?",
+        "options": ["Kinetic to chemical", "Solar to electrical", "Nuclear to thermal"],
+        "correct": 1
+    },
+    {
+        "question": "What is the main product of nuclear fusion?",
+        "options": ["Energy", "New chemical elements", "Electromagnetic waves"],
+        "correct": 0
+    },
+    {
+        "question": "Which type of energy powers most modern vehicles?",
+        "options": ["Nuclear energy", "Chemical energy", "Mechanical energy"],
+        "correct": 1
+    },
+    {
+        "question": "What best describes nuclear radioactivity?",
+        "options": ["The spontaneous emission of particles from an unstable nucleus", "The release of energy from a stable nucleus", "The emission of light from an atom"],
+        "correct": 0
+    }
+]

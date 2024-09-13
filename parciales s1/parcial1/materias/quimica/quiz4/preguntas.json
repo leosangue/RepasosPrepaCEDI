@@ -1,0 +1,102 @@
+[
+    {
+        "question": "What is the difference between a solution, a colloid, and a suspension based on particle size?",
+        "options": ["Solution particles are larger than colloid particles", "Colloid particles are larger than suspension particles", "Solution particles are smaller than colloid and suspension particles"],
+        "correct": 2
+    },
+    {
+        "question": "How can you classify a mixture as a solution, colloid, or suspension?",
+        "options": ["By observing the size of particles", "By measuring the density of the mixture", "By the color of the mixture"],
+        "correct": 0
+    },
+    {
+        "question": "Explain why milk is considered a colloid.",
+        "options": ["Because it has visible particles floating", "Because its particles are too small to be seen with the naked eye", "Because it contains both dissolved and undissolved particles"],
+        "correct": 2
+    },
+    {
+        "question": "What type of system is fog, and why?",
+        "options": ["Fog is a suspension because it contains large droplets", "Fog is a colloid because it contains small droplets suspended in air", "Fog is a solution because it is uniformly mixed"],
+        "correct": 1
+    },
+    {
+        "question": "How do temperature and solubility relate in a solution?",
+        "options": ["Increasing temperature generally decreases solubility", "Increasing temperature generally increases solubility", "Temperature has no effect on solubility"],
+        "correct": 1
+    },
+    {
+        "question": "Describe how the nature of the solute and solvent affects solubility.",
+        "options": ["Solubility is affected by the solute's color and size", "Solubility is affected by the solvent's temperature and pressure", "Solubility depends on the chemical nature of the solute and solvent"],
+        "correct": 2
+    },
+    {
+        "question": "Explain how adding more solute affects the boiling point of a solution.",
+        "options": ["It lowers the boiling point", "It has no effect on the boiling point", "It raises the boiling point"],
+        "correct": 2
+    },
+    {
+        "question": "Why does sugar dissolve faster in hot water than in cold water?",
+        "options": ["Hot water has more dissolved gases", "Hot water has higher kinetic energy, which speeds up dissolution", "Sugar dissolves slower in hot water"],
+        "correct": 1
+    },
+    {
+        "question": "How does the size of solute particles affect the type of mixture formed?",
+        "options": ["Larger particles form solutions", "Smaller particles form suspensions", "Smaller particles form solutions and larger particles form suspensions or colloids"],
+        "correct": 2
+    },
+    {
+        "question": "What happens to the freezing point of water when salt is added?",
+        "options": ["It increases", "It decreases", "It remains the same"],
+        "correct": 1
+    },
+    {
+        "question": "What happens when you add salt to water?",
+        "options": ["The freezing point increases", "The freezing point decreases", "The freezing point stays the same"],
+        "correct": 1
+    },
+    {
+        "question": "Which of the following is an example of a suspension?",
+        "options": ["Saltwater", "Blood", "Fog"],
+        "correct": 1
+    },
+    {
+        "question": "Which of these factors does NOT affect solubility?",
+        "options": ["Temperature", "Nature of the solvent", "Color of the solute"],
+        "correct": 2
+    },
+    {
+        "question": "What type of mixture is air?",
+        "options": ["Solution", "Suspension", "Colloid"],
+        "correct": 0
+    },
+    {
+        "question": "What happens to the solubility of gases in liquids when the temperature increases?",
+        "options": ["It increases", "It decreases", "It remains the same"],
+        "correct": 1
+    },
+    {
+        "question": "Which factor is most responsible for the solubility of sugar in water?",
+        "options": ["Size of the sugar crystals", "Temperature of the water", "Type of stirring"],
+        "correct": 1
+    },
+    {
+        "question": "What type of system is mayonnaise considered?",
+        "options": ["Suspension", "Colloid", "Solution"],
+        "correct": 1
+    },
+    {
+        "question": "What does the term 'colligative properties' refer to?",
+        "options": ["Properties that depend on the identity of the solute", "Properties that depend on the number of solute particles", "Properties that change with pressure"],
+        "correct": 1
+    },
+    {
+        "question": "Which of the following is a property colligative effects can influence?",
+        "options": ["Boiling point elevation", "Mass of the solvent", "Density of the solute"],
+        "correct": 0
+    },
+    {
+        "question": "What happens to vapor pressure when solute is added to a solvent?",
+        "options": ["It increases", "It decreases", "It remains the same"],
+        "correct": 1
+    }
+]

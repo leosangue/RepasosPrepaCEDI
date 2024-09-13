@@ -1,0 +1,182 @@
+[
+    {
+        "question": "Explain the difference between a physical and a chemical change, and give an example of each.",
+        "options": [
+            "A physical change alters the substance's appearance without changing its composition, e.g., melting ice. A chemical change alters the substance's composition, e.g., burning wood.",
+            "A physical change changes the substance's composition, e.g., rusting iron. A chemical change only changes its appearance, e.g., chopping wood.",
+            "A physical change involves a chemical reaction, e.g., baking a cake. A chemical change does not involve a chemical reaction, e.g., dissolving sugar in water."
+        ],
+        "correct": 0
+    },
+    {
+        "question": "What is a nuclear change? Provide an example of how it affects matter.",
+        "options": [
+            "A nuclear change involves changes in the nucleus of an atom, e.g., radioactive decay.",
+            "A nuclear change involves changes in the chemical bonds of a substance, e.g., burning paper.",
+            "A nuclear change involves changes in the physical state of matter, e.g., freezing water."
+        ],
+        "correct": 0
+    },
+    {
+        "question": "How does the mass of an object relate to its weight?",
+        "options": [
+            "Mass is the amount of matter in an object, while weight is the force of gravity on that mass.",
+            "Mass and weight are the same and can be used interchangeably.",
+            "Mass measures the volume of an object, while weight measures its density."
+        ],
+        "correct": 0
+    },
+    {
+        "question": "Describe the difference between intensive and extensive properties of matter. Give one example for each.",
+        "options": [
+            "Intensive properties do not depend on the amount of substance, e.g., density. Extensive properties depend on the amount, e.g., mass.",
+            "Intensive properties depend on the amount of substance, e.g., volume. Extensive properties do not depend on the amount, e.g., temperature.",
+            "Intensive properties measure the temperature, e.g., boiling point. Extensive properties measure the energy, e.g., heat capacity."
+        ],
+        "correct": 0
+    },
+    {
+        "question": "How would you calculate the density of a material? Provide a formula and explain it.",
+        "options": [
+            "Density = Mass / Volume. It measures how much mass is contained in a given volume.",
+            "Density = Volume / Mass. It measures the space occupied by a given mass.",
+            "Density = Mass × Volume. It measures the total amount of matter in a given space."
+        ],
+        "correct": 0
+    },
+    {
+        "question": "What is the relationship between mass, volume, and density?",
+        "options": [
+            "Density is the ratio of mass to volume.",
+            "Density is the difference between mass and volume.",
+            "Density is the sum of mass and volume."
+        ],
+        "correct": 0
+    },
+    {
+        "question": "How would you distinguish a mixture from a compound? Give an example of each.",
+        "options": [
+            "A mixture is a physical blend of substances, e.g., salad. A compound is a chemical combination of substances, e.g., water.",
+            "A mixture is a chemical blend of substances, e.g., sugar water. A compound is a physical combination, e.g., iron filings.",
+            "A mixture is a single substance, e.g., salt. A compound is a combination of different elements, e.g., sulfur."
+        ],
+        "correct": 0
+    },
+    {
+        "question": "Describe the difference between a homogeneous and a heterogeneous mixture. Give an example of each.",
+        "options": [
+            "A homogeneous mixture has a uniform composition throughout, e.g., air. A heterogeneous mixture has distinguishable components, e.g., salad.",
+            "A homogeneous mixture has components that can be seen separately, e.g., sand and water. A heterogeneous mixture is uniform throughout, e.g., saltwater.",
+            "A homogeneous mixture is always solid, e.g., steel. A heterogeneous mixture is always liquid, e.g., milk."
+        ],
+        "correct": 0
+    },
+    {
+        "question": "What are some examples of common substances that can be classified as elements, compounds, or mixtures?",
+        "options": [
+            "Element: gold; Compound: water; Mixture: air.",
+            "Element: water; Compound: salt; Mixture: iron filings.",
+            "Element: salt; Compound: air; Mixture: gold."
+        ],
+        "correct": 0
+    },
+    {
+        "question": "How are physical changes in matter different from chemical and nuclear changes? Provide an example for each type of change.",
+        "options": [
+            "Physical changes alter appearance but not composition, e.g., melting ice. Chemical changes alter composition, e.g., rusting iron. Nuclear changes alter the nucleus, e.g., radioactive decay.",
+            "Physical changes alter composition, e.g., burning paper. Chemical changes do not alter composition, e.g., dissolving sugar in water. Nuclear changes are just another name for physical changes.",
+            "Physical changes are changes in state, e.g., freezing water. Chemical changes are changes in chemical bonds, e.g., cooking an egg. Nuclear changes are changes in chemical bonds, e.g., rusting iron."
+        ],
+        "correct": 0
+    },
+    {
+        "question": "What is a physical change?",
+        "options": [
+            "A change that alters the substance's composition",
+            "A change that alters the substance's appearance, not its composition",
+            "A change that involves nuclear reactions"
+        ],
+        "correct": 1
+    },
+    {
+        "question": "Which of the following is an example of a chemical change?",
+        "options": [
+            "Ice melting",
+            "Burning wood",
+            "Cutting paper"
+        ],
+        "correct": 1
+    },
+    {
+        "question": "Which property of matter is intensive?",
+        "options": [
+            "Volume",
+            "Mass",
+            "Density"
+        ],
+        "correct": 2
+    },
+    {
+        "question": "What is the correct formula to calculate density?",
+        "options": [
+            "Density = Mass / Volume",
+            "Density = Volume / Mass",
+            "Density = Mass × Volume"
+        ],
+        "correct": 0
+    },
+    {
+        "question": "Which of the following is an example of a compound?",
+        "options": [
+            "Oxygen gas",
+            "Water",
+            "Air"
+        ],
+        "correct": 1
+    },
+    {
+        "question": "What type of mixture is salt dissolved in water?",
+        "options": [
+            "Homogeneous",
+            "Heterogeneous",
+            "Elemental"
+        ],
+        "correct": 0
+    },
+    {
+        "question": "What is the unit of density in the metric system?",
+        "options": [
+            "g/mL",
+            "g/m",
+            "kg/L"
+        ],
+        "correct": 0
+    },
+    {
+        "question": "Which of the following is an extensive property?",
+        "options": [
+            "Temperature",
+            "Volume",
+            "Density"
+        ],
+        "correct": 1
+    },
+    {
+        "question": "Which of the following best describes a heterogeneous mixture?",
+        "options": [
+            "A mixture with uniform composition throughout",
+            "A mixture where the components are distinguishable and not uniform",
+            "A substance that cannot be separated into simpler substances"
+        ],
+        "correct": 1
+    },
+    {
+        "question": "Which of the following is classified as a pure element?",
+        "options": [
+            "Steel",
+            "Gold",
+            "Water"
+        ],
+        "correct": 1
+    }
+]
