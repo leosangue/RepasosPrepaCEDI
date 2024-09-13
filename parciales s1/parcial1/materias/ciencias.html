@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materias de Repaso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+    <style>
+        /* Estilos para el botón de regreso */
+        /* Estilos para el botón de regreso */
+        .btn-regreso {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            position: absolute;
+            top: 120px; /* Debajo del encabezado */
+            left: 20px; /* Alineado a la izquierda */
+        }
+
+        .btn-regreso:hover {
+            background-color: #0056b3;
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Poppins', sans-serif; /* Aplica la fuente Poppins */
+        }
+
+        .aprendizajes {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .aprendizajes img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MATERIA: QUÍMICA</h1>
+        <nav>
+            <ul>
+                <li><a href="../../../index.html">Inicio</a></li>
+                <li><a href="../../../semestres.html">Semestres</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <button class="btn-regreso" onclick="window.location.href='materias.html'">Atrás</button>
+        <section>
+            <h2>Selecciona un tema de repaso</h2>
+            
+            <a href="quimica/quiz1arroz.html">Chemistry: Definition</a><br>
+            <a href="quimica/">Lexique comparatif</a><br>
+            <a href="quimica/">Description d'hébergement</a><br>
+            <a href="quimica/">Prépositions de Lieu</a><br>
+                
+        </section>
+        <section class="aprendizajes">
+            <h2>Aprendizajes esperados</h2>
+            <img src="quimica/aeciencias1.png" alt="Aprendizajes esperados">
+            <img src="quimica/aeciencias2.png" alt="Aprendizajes esperados">
+            <img src="quimica/aeciencias3.png" alt="Aprendizajes esperados">
+            <img src="quimica/aeciencias4.png" alt="Aprendizajes esperados">
+        </section>
+    </main>
+</body>
+</html>

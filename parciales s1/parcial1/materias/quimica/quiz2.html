@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Repaso</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <style>
+        /* Estilos para el cronómetro */
+        #cronometro {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+    <style>
+        /* Estilos para el botón de regreso */
+        .btn-regreso {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .btn-regreso:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        let tiempoInicio;
+        let intervalo;
+    
+        function iniciarCronometro() {
+            tiempoInicio = new Date();
+            intervalo = setInterval(actualizarCronometro, 1000);
+        }
+    
+        function actualizarCronometro() {
+            const ahora = new Date();
+            const tiempoTranscurrido = Math.floor((ahora - tiempoInicio) / 1000); // Tiempo en segundos
+            const minutos = Math.floor(tiempoTranscurrido / 60);
+            const segundos = tiempoTranscurrido % 60;
+            document.getElementById('cronometro').textContent = `${minutos}m ${segundos}s`;
+        }
+    
+        function detenerCronometro() {
+            clearInterval(intervalo);
+        }
+    
+        function verificarRespuestas(event) {
+            event.preventDefault(); // Evitar que la página se recargue al enviar el formulario
+            detenerCronometro(); // Detener el cronómetro al enviar
+    
+            // Respuestas correctas
+            const respuestasCorrectas = {
+                q1: "plus grand",
+                q2: "Marie est la plus intelligente de ses amis.",
+                q3: "plus rapide",
+                q4: "Ce plat est excellent.",
+                q5: "plus grande",
+                q6: "C’est le film le plus intéressant que j’ai vu.",
+                q7: "plus difficile",
+                q8: "Ce livre est meilleur que l’autre.",
+                q9: "Cette chaise est très confortable.",
+                q10: "plus cher",
+                q11: "a",
+                q12: "a",
+                q13: "a",
+                q14: "a",
+                q15: "b",
+                q16: "a",
+                q17: "a",
+                q18: "a",
+                q19: "a",
+                q20: "a"
+            };
+    
+            let puntaje = 0;
+            let respuestasIncorrectas = [];
+    
+            // Comprobar las respuestas abiertas (q1 a q10)
+            for (let i = 1; i <= 10; i++) {
+                const respuesta = document.getElementById(`q${i}`).value.trim();
+                if (respuesta.toLowerCase() === respuestasCorrectas[`q${i}`]?.toLowerCase()) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Comprobar las respuestas de opción múltiple (q11 a q20)
+            for (let i = 11; i <= 20; i++) {
+                const respuesta = document.querySelector(`input[name="q${i}"]:checked`)?.value;
+                if (respuesta === respuestasCorrectas[`q${i}`]) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta opción múltiple ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Mostrar el puntaje y respuestas incorrectas al usuario
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = `<p>Tu puntaje es: ${puntaje} de 20</p>`;
+            
+            if (respuestasIncorrectas.length > 0) {
+                resultado.innerHTML += '<h3>Respuestas incorrectas:</h3><ul>';
+                respuestasIncorrectas.forEach(incorrecta => {
+                    resultado.innerHTML += `<li>${incorrecta}</li>`;
+                });
+                resultado.innerHTML += '</ul>';
+            }
+        }
+    
+        // Iniciar cronómetro al cargar la página
+        window.onload = iniciarCronometro;
+    </script>
+    
+</head>
+<body>
+    <header>
+        <h1>Cuestionario de Repaso</h1>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../materias.html">Materias</a></li>
+            </ul>
+        </nav>
+        <div id="cronometro">0m 0s</div> <!-- Cronómetro -->
+    </header>
+
+    <main>
+        <section>
+            <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
+            <h2>Lexique comparatif</h2>
+            <form id="quizForm" onsubmit="verificarRespuestas(event)">
+                <!-- 10 preguntas abiertas -->
+                <div>
+                    <label for="q1">1. Complétez la phrase avec le comparatif approprié : “Paul est ____ (grand) que Pierre.”</label><br>
+                    <input type="text" id="q1" name="q1" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q2">2. Formulez une phrase en utilisant le superlatif relatif de "intelligent" pour décrire Marie parmi ses amis.</label><br>
+                    <input type="text" id="q2" name="q2" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q3">3. Utilisez le comparatif pour comparer la vitesse de deux voitures : “La voiture A est ____ (rapide) que la voiture B.”</label><br>
+                    <input type="text" id="q3" name="q3" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q4">4. Donnez une phrase utilisant le superlatif absolu de “bon” pour décrire un plat.</label><br>
+                    <input type="text" id="q4" name="q4" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q5">5. Créez une phrase en comparant deux villes en termes de taille : “Paris est ____ (grand) que Lyon.”"</label><br>
+                    <input type="text" id="q5" name="q5" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q6">6. Décrivez un film en utilisant le superlatif relatif de “intéressant” parmi tous les films que vous avez vus.</label><br>
+                    <input type="text" id="q6" name="q6" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q7">7. Utilisez le comparatif pour comparer le niveau de difficulté de deux cours : “Le cours de mathématiques est ____ (difficile) que le cours de français.”</label><br>
+                    <input type="text" id="q7" name="q7" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q8">8. Écrivez une phrase comparant deux livres en utilisant le comparatif de “bon.”</label><br>
+                    <input type="text" id="q8" name="q8" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q9">9. Exprimez une comparaison avec le superlatif absolu pour le confort d’une chaise.</label><br>
+                    <input type="text" id="q9" name="q9" placeholder="Tu réponse">
+                </div>
+                <div>
+                    <label for="q10">10. Utilisez le comparatif pour parler du coût de deux restaurants : “Le restaurant A est ____ (cher) que le restaurant B.”</label><br>
+                    <input type="text" id="q10" name="q10" placeholder="Tu réponse">
+                </div>
+                <!-- 10 preguntas de opción múltiple -->
+                <div>
+                    <label>11. Quelle est la forme correcte du comparatif pour “gentil” ?</label><br>
+                    <input type="radio" id="q11a" name="q11" value="a">
+                    <label for="q11a">a) plus gentil</label><br>
+                    <input type="radio" id="q11b" name="q11" value="b">
+                    <label for="q11b">b) le plus gentil</label><br>
+                    <input type="radio" id="q11c" name="q11" value="c">
+                    <label for="q11c">c) aussi gentil</label><br>
+                </div>
+                <div>
+                    <label>12. Quel est le superlatif relatif de “beau” ?</label><br>
+                    <input type="radio" id="q12a" name="q12" value="a">
+                    <label for="q12a">a) le plus beau</label><br>
+                    <input type="radio" id="q12b" name="q12" value="b">
+                    <label for="q12b">b) plus beau</label><br>
+                    <input type="radio" id="q12c" name="q12" value="c">
+                    <label for="q12c">c) aussi beau</label><br>
+                </div>
+                <div>
+                    <label>13. Complétez la phrase : “Ce gâteau est ____ que celui de Marie.”</label><br>
+                    <input type="radio" id="q13a" name="q13" value="a">
+                    <label for="q13a">a) meilleur</label><br>
+                    <input type="radio" id="q13b" name="q13" value="b">
+                    <label for="q13b">b) le meilleur</label><br>
+                    <input type="radio" id="q13c" name="q13" value="c">
+                    <label for="q13c">c) bien</label><br>
+                </div>
+                <div>
+                    <label>14. Quelle est la forme du superlatif absolu pour “mauvais” ?</label><br>
+                    <input type="radio" id="q14a" name="q14" value="a">
+                    <label for="q14a">a) le plus mauvais</label><br>
+                    <input type="radio" id="q14b" name="q14" value="b">
+                    <label for="q14b">b) pire</label><br>
+                    <input type="radio" id="q14c" name="q14" value="c">
+                    <label for="q14c">c) très mauvais</label><br>
+                </div>
+                <div>
+                    <label>15. Quel est le comparatif de “jeune” ?</label><br>
+                    <input type="radio" id="q15a" name="q15" value="a">
+                    <label for="q15a">a) le plus jeune</label><br>
+                    <input type="radio" id="q15b" name="q15" value="b">
+                    <label for="q15b">b) plus jeune</label><br>
+                    <input type="radio" id="q15c" name="q15" value="c">
+                    <label for="q15c">c) aussi jeune</label><br>
+                </div>
+                <div>
+                    <label>16. Quel est le superlatif relatif de “rapide” ?</label><br>
+                    <input type="radio" id="q16a" name="q16" value="a">
+                    <label for="q16a">a) le plus rapide</label><br>
+                    <input type="radio" id="q16b" name="q16" value="b">
+                    <label for="q16b">b) plus rapide</label><br>
+                    <input type="radio" id="q16c" name="q16" value="c">
+                    <label for="q16c">c) aussi rapide</label><br>
+                </div>
+                <div>
+                    <label>17. Quelle est la forme correcte pour le comparatif de “ancien” ?</label><br>
+                    <input type="radio" id="q17a" name="q17" value="a">
+                    <label for="q17a">a) plus ancien</label><br>
+                    <input type="radio" id="q17b" name="q17" value="b">
+                    <label for="q17b">b) le plus ancien</label><br>
+                    <input type="radio" id="q17c" name="q17" value="c">
+                    <label for="q17c">c) ancien</label><br>
+                </div>
+                <div>
+                    <label>18. Quelle est la forme correcte pour le superlatif de “petit” ?</label><br>
+                    <input type="radio" id="q18a" name="q18" value="a">
+                    <label for="q18a">a) le plus petit</label><br>
+                    <input type="radio" id="q18b" name="q18" value="b">
+                    <label for="q18b">b) plus petit</label><br>
+                    <input type="radio" id="q18c" name="q18" value="c">
+                    <label for="q18c">c) aussi petit</label><br>
+                </div>
+                <div>
+                    <label>19. Complétez la phrase avec “aussi ____” : “Marie est ____ gentille que Sophie.”</label><br>
+                    <input type="radio" id="q19a" name="q19" value="a">
+                    <label for="q19a">a) aussi</label><br>
+                    <input type="radio" id="q19b" name="q19" value="b">
+                    <label for="q19b">b) plus</label><br>
+                    <input type="radio" id="q19c" name="q19" value="c">
+                    <label for="q19c">c) le plus</label><br>
+                </div>
+                <div>
+                    <label>20. Complétez la phrase avec “autant de ____” : “Elle a ____ livres que moi.”</label><br>
+                    <input type="radio" id="q20a" name="q20" value="a">
+                    <label for="q20a">a) autant de</label><br>
+                    <input type="radio" id="q20b" name="q20" value="b">
+                    <label for="q20b">b) plus de</label><br>
+                    <input type="radio" id="q20c" name="q20" value="c">
+                    <label for="q20c">c) moins de</label><br>
+                </div>
+                
+                <div>
+                    <button type="submit">Enviar respuestas</button>
+                </div>
+                <p id="resultado"></p>
+            </form>            
+                        
+        </section>
+    </main>
+</body>
+</html>
