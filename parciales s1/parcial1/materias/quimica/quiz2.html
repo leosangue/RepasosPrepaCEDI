@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuestionario de Repaso</title>
     <link rel="stylesheet" href="../../../../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400&display=swap" rel="stylesheet">
     <style>
         /* Estilos para el cronómetro */
         #cronometro {
@@ -60,27 +61,28 @@
     
             // Respuestas correctas
             const respuestasCorrectas = {
-                q1: "plus grand",
-                q2: "Marie est la plus intelligente de ses amis.",
-                q3: "plus rapide",
-                q4: "Ce plat est excellent.",
-                q5: "plus grande",
-                q6: "C’est le film le plus intéressant que j’ai vu.",
-                q7: "plus difficile",
-                q8: "Ce livre est meilleur que l’autre.",
-                q9: "Cette chaise est très confortable.",
-                q10: "plus cher",
-                q11: "a",
-                q12: "a",
-                q13: "a",
-                q14: "a",
-                q15: "b",
-                q16: "a",
-                q17: "a",
-                q18: "a",
-                q19: "a",
-                q20: "a"
-            };
+            q1: "Chemistry is the study of the composition, structure, properties, and changes of matter.",
+            q2: "Matter is anything that has mass and occupies space. Chemistry studies how matter behaves and interacts.",
+            q3: "The main components of matter are atoms and molecules.",
+            q4: "A physical change affects only the physical properties of a substance, like shape or state, while a chemical change results in the formation of new substances.",
+            q5: "The structure of a molecule affects its properties because different arrangements of atoms can lead to different physical and chemical behaviors.",
+            q6: "Understanding chemical reactions is important because they are the basis of many processes in everyday life, from cooking to the functioning of medicines.",
+            q7: "An example of a chemical change in daily life is the rusting of iron or the baking of bread.",
+            q8: "The composition of a substance, meaning the types and amounts of atoms it contains, determines its chemical and physical properties.",
+            q9: "Chemistry has significant implications for the environment, including understanding pollution, climate change, and developing sustainable solutions.",
+            q10: "Chemistry impacts the food industry in areas such as food preservation, flavor enhancement, and food safety.",
+            q11: "b",
+            q12: "b",
+            q13: "b",
+            q14: "b",
+            q15: "a",
+            q16: "b",
+            q17: "a",
+            q18: "b",
+            q19: "b",
+            q20: "b"
+        };
+
     
             let puntaje = 0;
             let respuestasIncorrectas = [];
@@ -128,157 +130,158 @@
         <h1>Cuestionario de Repaso</h1>
         <nav>
             <ul>
-                <li><a href="../../index.html">Inicio</a></li>
-                <li><a href="../../materias.html">Materias</a></li>
+                <li><a href="../../../../index.html">Inicio</a></li>
+                <li><a href="../../../../semestres.html">Semestres</a></li>
             </ul>
         </nav>
         <div id="cronometro">0m 0s</div> <!-- Cronómetro -->
     </header>
-
+    
+    
     <main>
         <section>
+            
             <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
-            <h2>Lexique comparatif</h2>
+            <h2>Matter and types of energy</h2>
             <form id="quizForm" onsubmit="verificarRespuestas(event)">
                 <!-- 10 preguntas abiertas -->
                 <div>
-                    <label for="q1">1. Complétez la phrase avec le comparatif approprié : “Paul est ____ (grand) que Pierre.”</label><br>
-                    <input type="text" id="q1" name="q1" placeholder="Tu réponse">
+                    <label for="q1">1. What is the relationship between matter and energy in daily life?</label><br>
+                    <input type="text" id="q1" name="q1" placeholder="Your answer">
                 </div>
                 <div>
-                    <label for="q2">2. Formulez une phrase en utilisant le superlatif relatif de "intelligent" pour décrire Marie parmi ses amis.</label><br>
-                    <input type="text" id="q2" name="q2" placeholder="Tu réponse">
+                    <label for="q2">2. How do we experience energy transformation in everyday devices?</label><br>
+                    <input type="text" id="q2" name="q2" placeholder="Your answer">
                 </div>
                 <div>
-                    <label for="q3">3. Utilisez le comparatif pour comparer la vitesse de deux voitures : “La voiture A est ____ (rapide) que la voiture B.”</label><br>
-                    <input type="text" id="q3" name="q3" placeholder="Tu réponse">
+                    <label for="q3">3. Can you provide an example of how chemical energy is used in your environment?</label><br>
+                    <input type="text" id="q3" name="q3" placeholder="Your answer">
                 </div>
                 <div>
-                    <label for="q4">4. Donnez une phrase utilisant le superlatif absolu de “bon” pour décrire un plat.</label><br>
-                    <input type="text" id="q4" name="q4" placeholder="Tu réponse">
+                    <label for="q4">4. How does the concept of conservation of energy apply to a specific activity you do daily?</label><br>
+                    <input type="text" id="q4" name="q4" placeholder="Your answer">
                 </div>
                 <div>
-                    <label for="q5">5. Créez une phrase en comparant deux villes en termes de taille : “Paris est ____ (grand) que Lyon.”"</label><br>
-                    <input type="text" id="q5" name="q5" placeholder="Tu réponse">
+                    <label for="q5">5. Describe the role of thermal energy in cooking or heating processes.</label><br>
+                    <input type="text" id="q5" name="q5" placeholder="Your answer">
                 </div>
                 <div>
-                    <label for="q6">6. Décrivez un film en utilisant le superlatif relatif de “intéressant” parmi tous les films que vous avez vus.</label><br>
-                    <input type="text" id="q6" name="q6" placeholder="Tu réponse">
+                    <label for="q6">6. How does mechanical energy work in household tools?</label><br>
+                    <input type="text" id="q6" name="q6" placeholder="Your answer">
                 </div>
                 <div>
-                    <label for="q7">7. Utilisez le comparatif pour comparer le niveau de difficulté de deux cours : “Le cours de mathématiques est ____ (difficile) que le cours de français.”</label><br>
-                    <input type="text" id="q7" name="q7" placeholder="Tu réponse">
+                    <label for="q7">7. What forms of energy can you observe in your home or surroundings?</label><br>
+                    <input type="text" id="q7" name="q7" placeholder="Your answer">
                 </div>
                 <div>
-                    <label for="q8">8. Écrivez une phrase comparant deux livres en utilisant le comparatif de “bon.”</label><br>
-                    <input type="text" id="q8" name="q8" placeholder="Tu réponse">
+                    <label for="q8">8. How do energy transformations relate to the law of thermodynamics?</label><br>
+                    <input type="text" id="q8" name="q8" placeholder="Your answer">
                 </div>
                 <div>
-                    <label for="q9">9. Exprimez une comparaison avec le superlatif absolu pour le confort d’une chaise.</label><br>
-                    <input type="text" id="q9" name="q9" placeholder="Tu réponse">
+                    <label for="q9">9. What are the main differences between nuclear fusion and nuclear fission?</label><br>
+                    <input type="text" id="q9" name="q9" placeholder="Your answer">
                 </div>
                 <div>
-                    <label for="q10">10. Utilisez le comparatif pour parler du coût de deux restaurants : “Le restaurant A est ____ (cher) que le restaurant B.”</label><br>
-                    <input type="text" id="q10" name="q10" placeholder="Tu réponse">
-                </div>
-                <!-- 10 preguntas de opción múltiple -->
-                <div>
-                    <label>11. Quelle est la forme correcte du comparatif pour “gentil” ?</label><br>
-                    <input type="radio" id="q11a" name="q11" value="a">
-                    <label for="q11a">a) plus gentil</label><br>
-                    <input type="radio" id="q11b" name="q11" value="b">
-                    <label for="q11b">b) le plus gentil</label><br>
-                    <input type="radio" id="q11c" name="q11" value="c">
-                    <label for="q11c">c) aussi gentil</label><br>
-                </div>
-                <div>
-                    <label>12. Quel est le superlatif relatif de “beau” ?</label><br>
-                    <input type="radio" id="q12a" name="q12" value="a">
-                    <label for="q12a">a) le plus beau</label><br>
-                    <input type="radio" id="q12b" name="q12" value="b">
-                    <label for="q12b">b) plus beau</label><br>
-                    <input type="radio" id="q12c" name="q12" value="c">
-                    <label for="q12c">c) aussi beau</label><br>
-                </div>
-                <div>
-                    <label>13. Complétez la phrase : “Ce gâteau est ____ que celui de Marie.”</label><br>
-                    <input type="radio" id="q13a" name="q13" value="a">
-                    <label for="q13a">a) meilleur</label><br>
-                    <input type="radio" id="q13b" name="q13" value="b">
-                    <label for="q13b">b) le meilleur</label><br>
-                    <input type="radio" id="q13c" name="q13" value="c">
-                    <label for="q13c">c) bien</label><br>
-                </div>
-                <div>
-                    <label>14. Quelle est la forme du superlatif absolu pour “mauvais” ?</label><br>
-                    <input type="radio" id="q14a" name="q14" value="a">
-                    <label for="q14a">a) le plus mauvais</label><br>
-                    <input type="radio" id="q14b" name="q14" value="b">
-                    <label for="q14b">b) pire</label><br>
-                    <input type="radio" id="q14c" name="q14" value="c">
-                    <label for="q14c">c) très mauvais</label><br>
-                </div>
-                <div>
-                    <label>15. Quel est le comparatif de “jeune” ?</label><br>
-                    <input type="radio" id="q15a" name="q15" value="a">
-                    <label for="q15a">a) le plus jeune</label><br>
-                    <input type="radio" id="q15b" name="q15" value="b">
-                    <label for="q15b">b) plus jeune</label><br>
-                    <input type="radio" id="q15c" name="q15" value="c">
-                    <label for="q15c">c) aussi jeune</label><br>
-                </div>
-                <div>
-                    <label>16. Quel est le superlatif relatif de “rapide” ?</label><br>
-                    <input type="radio" id="q16a" name="q16" value="a">
-                    <label for="q16a">a) le plus rapide</label><br>
-                    <input type="radio" id="q16b" name="q16" value="b">
-                    <label for="q16b">b) plus rapide</label><br>
-                    <input type="radio" id="q16c" name="q16" value="c">
-                    <label for="q16c">c) aussi rapide</label><br>
-                </div>
-                <div>
-                    <label>17. Quelle est la forme correcte pour le comparatif de “ancien” ?</label><br>
-                    <input type="radio" id="q17a" name="q17" value="a">
-                    <label for="q17a">a) plus ancien</label><br>
-                    <input type="radio" id="q17b" name="q17" value="b">
-                    <label for="q17b">b) le plus ancien</label><br>
-                    <input type="radio" id="q17c" name="q17" value="c">
-                    <label for="q17c">c) ancien</label><br>
-                </div>
-                <div>
-                    <label>18. Quelle est la forme correcte pour le superlatif de “petit” ?</label><br>
-                    <input type="radio" id="q18a" name="q18" value="a">
-                    <label for="q18a">a) le plus petit</label><br>
-                    <input type="radio" id="q18b" name="q18" value="b">
-                    <label for="q18b">b) plus petit</label><br>
-                    <input type="radio" id="q18c" name="q18" value="c">
-                    <label for="q18c">c) aussi petit</label><br>
-                </div>
-                <div>
-                    <label>19. Complétez la phrase avec “aussi ____” : “Marie est ____ gentille que Sophie.”</label><br>
-                    <input type="radio" id="q19a" name="q19" value="a">
-                    <label for="q19a">a) aussi</label><br>
-                    <input type="radio" id="q19b" name="q19" value="b">
-                    <label for="q19b">b) plus</label><br>
-                    <input type="radio" id="q19c" name="q19" value="c">
-                    <label for="q19c">c) le plus</label><br>
-                </div>
-                <div>
-                    <label>20. Complétez la phrase avec “autant de ____” : “Elle a ____ livres que moi.”</label><br>
-                    <input type="radio" id="q20a" name="q20" value="a">
-                    <label for="q20a">a) autant de</label><br>
-                    <input type="radio" id="q20b" name="q20" value="b">
-                    <label for="q20b">b) plus de</label><br>
-                    <input type="radio" id="q20c" name="q20" value="c">
-                    <label for="q20c">c) moins de</label><br>
+                    <label for="q10">10. How does radioactivity play a role in energy production?</label><br>
+                    <input type="text" id="q10" name="q10" placeholder="Your answer">
                 </div>
                 
+                <!-- Preguntas de opción múltiple -->
+                <div>
+                    <label>11. Which of the following best describes energy conservation?</label><br>
+                    <input type="radio" id="q11a" name="q11" value="a">
+                    <label for="q11a">a) Energy cannot be transformed</label><br>
+                    <input type="radio" id="q11b" name="q11" value="b">
+                    <label for="q11b">b) Energy cannot be created or destroyed, only transformed</label><br>
+                    <input type="radio" id="q11c" name="q11" value="c">
+                    <label for="q11c">c) Energy is only lost in transformations</label><br>
+                </div>
+                <div>
+                    <label>12. Which type of energy is released during nuclear fusion?</label><br>
+                    <input type="radio" id="q12a" name="q12" value="a">
+                    <label for="q12a">a) Thermal energy</label><br>
+                    <input type="radio" id="q12b" name="q12" value="b">
+                    <label for="q12b">b) Nuclear energy</label><br>
+                    <input type="radio" id="q12c" name="q12" value="c">
+                    <label for="q12c">c) Kinetic energy</label><br>
+                </div>
+                <div>
+                    <label>13. What is a common example of potential energy?</label><br>
+                    <input type="radio" id="q13a" name="q13" value="a">
+                    <label for="q13a">a) A moving car</label><br>
+                    <input type="radio" id="q13b" name="q13" value="b">
+                    <label for="q13b">b) A book sitting on a shelf</label><br>
+                    <input type="radio" id="q13c" name="q13" value="c">
+                    <label for="q13c">c) Heat from the sun</label><br>
+                </div>
+                <div>
+                    <label>14. What occurs during nuclear fission?</label><br>
+                    <input type="radio" id="q14a" name="q14" value="a">
+                    <label for="q14a">a) Atoms combine to form heavier atoms</label><br>
+                    <input type="radio" id="q14b" name="q14" value="b">
+                    <label for="q14b">b) Atoms split to form smaller atoms</label><br>
+                    <input type="radio" id="q14c" name="q14" value="c">
+                    <label for="q14c">c) Atoms release heat without changing</label><br>
+                </div>
+                <div>
+                    <label>15. How does the first law of thermodynamics apply to daily life?</label><br>
+                    <input type="radio" id="q15a" name="q15" value="a">
+                    <label for="q15a">a) Energy can be lost in simple actions</label><br>
+                    <input type="radio" id="q15b" name="q15" value="b">
+                    <label for="q15b">b) Energy is conserved in all transformations</label><br>
+                    <input type="radio" id="q15c" name="q15" value="c">
+                    <label for="q15c">c) Energy is only converted to heat</label><br>
+                </div>
+                <div>
+                    <label>16. Which of the following is an example of chemical energy?</label><br>
+                    <input type="radio" id="q16a" name="q16" value="a">
+                    <label for="q16a">a) The energy in a battery</label><br>
+                    <input type="radio" id="q16b" name="q16" value="b">
+                    <label for="q16b">b) The energy from moving water</label><br>
+                    <input type="radio" id="q16c" name="q16" value="c">
+                    <label for="q16c">c) The energy from the sun</label><br>
+                </div>
+                <div>
+                    <label>17. What type of energy transformation happens in a solar panel?</label><br>
+                    <input type="radio" id="q17a" name="q17" value="a">
+                    <label for="q17a">a) Kinetic to chemical</label><br>
+                    <input type="radio" id="q17b" name="q17" value="b">
+                    <label for="q17b">b) Solar to electrical</label><br>
+                    <input type="radio" id="q17c" name="q17" value="c">
+                    <label for="q17c">c) Nuclear to thermal</label><br>
+                </div>
+                <div>
+                    <label>18. What is the main product of nuclear fusion?</label><br>
+                    <input type="radio" id="q18a" name="q18" value="a">
+                    <label for="q18a">a) Energy</label><br>
+                    <input type="radio" id="q18b" name="q18" value="b">
+                    <label for="q18b">b) New chemical elements</label><br>
+                    <input type="radio" id="q18c" name="q18" value="c">
+                    <label for="q18c">c) Electromagnetic waves</label><br>
+                </div>
+                <div>
+                    <label>19. Which type of energy powers most modern vehicles?</label><br>
+                    <input type="radio" id="q19a" name="q19" value="a">
+                    <label for="q19a">a) Nuclear energy</label><br>
+                    <input type="radio" id="q19b" name="q19" value="b">
+                    <label for="q19b">b) Chemical energy</label><br>
+                    <input type="radio" id="q19c" name="q19" value="c">
+                    <label for="q19c">c) Mechanical energy</label><br>
+                </div>
+                <div>
+                    <label>20. What best describes nuclear radioactivity?</label><br>
+                    <input type="radio" id="q20a" name="q20" value="a">
+                    <label for="q20a">a) The spontaneous emission of particles from an unstable nucleus</label><br>
+                    <input type="radio" id="q20b" name="q20" value="b">
+                    <label for="q20b">b) The release of energy from a stable nucleus</label><br>
+                    <input type="radio" id="q20c" name="q20" value="c">
+                    <label for="q20c">c) The emission of light from an atom</label><br>
+                </div>
                 <div>
                     <button type="submit">Enviar respuestas</button>
                 </div>
                 <p id="resultado"></p>
-            </form>            
-                        
+            </form>
         </section>
     </main>
 </body>
