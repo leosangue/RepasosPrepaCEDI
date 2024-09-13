@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Repaso</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos para el cronómetro */
+        #cronometro {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+    <style>
+        /* Estilos para el botón de regreso */
+        .btn-regreso {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .btn-regreso:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        let tiempoInicio;
+        let intervalo;
+    
+        function iniciarCronometro() {
+            tiempoInicio = new Date();
+            intervalo = setInterval(actualizarCronometro, 1000);
+        }
+    
+        function actualizarCronometro() {
+            const ahora = new Date();
+            const tiempoTranscurrido = Math.floor((ahora - tiempoInicio) / 1000); // Tiempo en segundos
+            const minutos = Math.floor(tiempoTranscurrido / 60);
+            const segundos = tiempoTranscurrido % 60;
+            document.getElementById('cronometro').textContent = `${minutos}m ${segundos}s`;
+        }
+    
+        function detenerCronometro() {
+            clearInterval(intervalo);
+        }
+    
+        function verificarRespuestas(event) {
+            event.preventDefault(); // Evitar que la página se recargue al enviar el formulario
+            detenerCronometro(); // Detener el cronómetro al enviar
+    
+            // Respuestas correctas
+        const respuestasCorrectas = {
+            q1: "Matter and energy are interrelated in daily life through processes like the food we eat, which provides chemical energy for our bodies, and the fuel we use for transportation.",
+            q2: "We experience energy transformation in devices like batteries powering electronics (chemical to electrical) or light bulbs converting electrical energy to light and heat.",
+            q3: "An example of chemical energy in my environment is a car engine burning gasoline to power the vehicle.",
+            q4: "The conservation of energy applies to driving, where chemical energy in fuel is transformed into kinetic energy to move the car, but no energy is lost, just transformed.",
+            q5: "Thermal energy plays a crucial role in cooking, as heat from a stove or oven cooks food by transferring energy to it.",
+            q6: "Mechanical energy works in household tools like blenders or drills, where electrical energy is transformed into kinetic energy to perform work.",
+            q7: "Forms of energy observable at home include electrical energy in appliances, chemical energy in batteries, and thermal energy from heating systems.",
+            q8: "Energy transformations, such as electrical to thermal energy in a heater, are explained by the law of thermodynamics, which states that energy is conserved and only transformed.",
+            q9: "Nuclear fusion involves combining lighter atoms to form a heavier nucleus, while nuclear fission splits a heavier atom into lighter atoms, releasing energy.",
+            q10: "Radioactivity plays a role in energy production through nuclear fission, where unstable atoms decay and release energy used in nuclear power plants.",
+            q11: "b",
+            q12: "b",
+            q13: "b",
+            q14: "b",
+            q15: "b",
+            q16: "a",
+            q17: "b",
+            q18: "a",
+            q19: "b",
+            q20: "a"
+        };
+
+
+    
+            let puntaje = 0;
+            let respuestasIncorrectas = [];
+    
+            // Comprobar las respuestas abiertas (q1 a q10)
+            for (let i = 1; i <= 10; i++) {
+                const respuesta = document.getElementById(`q${i}`).value.trim();
+                if (respuesta.toLowerCase() === respuestasCorrectas[`q${i}`]?.toLowerCase()) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Comprobar las respuestas de opción múltiple (q11 a q20)
+            for (let i = 11; i <= 20; i++) {
+                const respuesta = document.querySelector(`input[name="q${i}"]:checked`)?.value;
+                if (respuesta === respuestasCorrectas[`q${i}`]) {
+                    puntaje++;
+                } else {
+                    respuestasIncorrectas.push(`${i}. Pregunta opción múltiple ${i} incorrecta. Respuesta correcta: "${respuestasCorrectas[`q${i}`]}"`);
+                }
+            }
+    
+            // Mostrar el puntaje y respuestas incorrectas al usuario
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = `<p>Tu puntaje es: ${puntaje} de 20</p>`;
+            
+            if (respuestasIncorrectas.length > 0) {
+                resultado.innerHTML += '<h3>Respuestas incorrectas:</h3><ul>';
+                respuestasIncorrectas.forEach(incorrecta => {
+                    resultado.innerHTML += `<li>${incorrecta}</li>`;
+                });
+                resultado.innerHTML += '</ul>';
+            }
+        }
+    
+        // Iniciar cronómetro al cargar la página
+        window.onload = iniciarCronometro;
+    </script>
+    
+</head>
+<body>
+    <header>
+        <h1>Cuestionario de Repaso</h1>
+        <nav>
+            <ul>
+                <li><a href="../../../../index.html">Inicio</a></li>
+                <li><a href="../../../../semestres.html">Semestres</a></li>
+            </ul>
+        </nav>
+        <div id="cronometro">0m 0s</div> <!-- Cronómetro -->
+    </header>
+    
+    
+    <main>
+        <section>
+            
+            <button class="btn-regreso" onclick="window.history.back()">Atrás</button>
+            <h2>Change in matter, its properties, Density, elements/compounds/mixtures, pure substances/mixtures</h2>
+            <form id="quizForm" onsubmit="verificarRespuestas(event)">
+                <!-- 10 preguntas abiertas -->
+                <div>
+                    <label for="q1">1. Explain the difference between a physical and a chemical change, and give an example of each.</label><br>
+                    <input type="text" id="q1" name="q1" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q2">2. What is a nuclear change? Provide an example of how it affects matter.</label><br>
+                    <input type="text" id="q2" name="q2" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q3">3. How does the mass of an object relate to its weight?</label><br>
+                    <input type="text" id="q3" name="q3" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q4">4. Describe the difference between intensive and extensive properties of matter. Give one example for each.</label><br>
+                    <input type="text" id="q4" name="q4" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q5">5. How would you calculate the density of a material? Provide a formula and explain it.</label><br>
+                    <input type="text" id="q5" name="q5" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q6">6. What is the relationship between mass, volume, and density?</label><br>
+                    <input type="text" id="q6" name="q6" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q7">7. How would you distinguish a mixture from a compound? Give an example of each.</label><br>
+                    <input type="text" id="q7" name="q7" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q8">8. Describe the difference between a homogeneous and a heterogeneous mixture. Give an example of each.</label><br>
+                    <input type="text" id="q8" name="q8" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q9">9. What are some examples of common substances that can be classified as elements, compounds, or mixtures?</label><br>
+                    <input type="text" id="q9" name="q9" placeholder="Your answer">
+                </div>
+                <div>
+                    <label for="q10">10. How are physical changes in matter different from chemical and nuclear changes? Provide an example for each type of change.</label><br>
+                    <input type="text" id="q10" name="q10" placeholder="Your answer">
+                </div>
+                
+                <div>
+                    <label>11. What is a physical change?</label><br>
+                    <input type="radio" id="q11a" name="q11" value="a">
+                    <label for="q11a">a) A change that alters the substance's composition</label><br>
+                    <input type="radio" id="q11b" name="q11" value="b">
+                    <label for="q11b">b) A change that alters the substance's appearance, not its composition</label><br>
+                    <input type="radio" id="q11c" name="q11" value="c">
+                    <label for="q11c">c) A change that involves nuclear reactions</label><br>
+                </div>
+                <div>
+                    <label>12. Which of the following is an example of a chemical change?</label><br>
+                    <input type="radio" id="q12a" name="q12" value="a">
+                    <label for="q12a">a) Ice melting</label><br>
+                    <input type="radio" id="q12b" name="q12" value="b">
+                    <label for="q12b">b) Burning wood</label><br>
+                    <input type="radio" id="q12c" name="q12" value="c">
+                    <label for="q12c">c) Cutting paper</label><br>
+                </div>
+                <div>
+                    <label>13. Which property of matter is intensive?</label><br>
+                    <input type="radio" id="q13a" name="q13" value="a">
+                    <label for="q13a">a) Volume</label><br>
+                    <input type="radio" id="q13b" name="q13" value="b">
+                    <label for="q13b">b) Mass</label><br>
+                    <input type="radio" id="q13c" name="q13" value="c">
+                    <label for="q13c">c) Density</label><br>
+                </div>
+                <div>
+                    <label>14. What is the correct formula to calculate density?</label><br>
+                    <input type="radio" id="q14a" name="q14" value="a">
+                    <label for="q14a">a) Density = Mass / Volume</label><br>
+                    <input type="radio" id="q14b" name="q14" value="b">
+                    <label for="q14b">b) Density = Volume / Mass</label><br>
+                    <input type="radio" id="q14c" name="q14" value="c">
+                    <label for="q14c">c) Density = Mass × Volume</label><br>
+                </div>
+                <div>
+                    <label>15. Which of the following is an example of a compound?</label><br>
+                    <input type="radio" id="q15a" name="q15" value="a">
+                    <label for="q15a">a) Oxygen gas</label><br>
+                    <input type="radio" id="q15b" name="q15" value="b">
+                    <label for="q15b">b) Water</label><br>
+                    <input type="radio" id="q15c" name="q15" value="c">
+                    <label for="q15c">c) Air</label><br>
+                </div>
+                <div>
+                    <label>16. What type of mixture is salt dissolved in water?</label><br>
+                    <input type="radio" id="q16a" name="q16" value="a">
+                    <label for="q16a">a) Homogeneous</label><br>
+                    <input type="radio" id="q16b" name="q16" value="b">
+                    <label for="q16b">b) Heterogeneous</label><br>
+                    <input type="radio" id="q16c" name="q16" value="c">
+                    <label for="q16c">c) Elemental</label><br>
+                </div>
+                <div>
+                    <label>17. What is the unit of density in the metric system?</label><br>
+                    <input type="radio" id="q17a" name="q17" value="a">
+                    <label for="q17a">a) g/mL</label><br>
+                    <input type="radio" id="q17b" name="q17" value="b">
+                    <label for="q17b">b) g/m</label><br>
+                    <input type="radio" id="q17c" name="q17" value="c">
+                    <label for="q17c">c) kg/L</label><br>
+                </div>
+                <div>
+                    <label>18. Which of the following is an extensive property?</label><br>
+                    <input type="radio" id="q18a" name="q18" value="a">
+                    <label for="q18a">a) Temperature</label><br>
+                    <input type="radio" id="q18b" name="q18" value="b">
+                    <label for="q18b">b) Volume</label><br>
+                    <input type="radio" id="q18c" name="q18" value="c">
+                    <label for="q18c">c) Density</label><br>
+                </div>
+                <div>
+                    <label>19. Which of the following best describes a heterogeneous mixture?</label><br>
+                    <input type="radio" id="q19a" name="q19" value="a">
+                    <label for="q19a">a) A mixture with uniform composition throughout</label><br>
+                    <input type="radio" id="q19b" name="q19" value="b">
+                    <label for="q19b">b) A mixture where the components are distinguishable and not uniform</label><br>
+                    <input type="radio" id="q19c" name="q19" value="c">
+                    <label for="q19c">c) A substance that cannot be separated into simpler substances</label><br>
+                </div>
+                <div>
+                    <label>20. Which of the following is classified as a pure element?</label><br>
+                    <input type="radio" id="q20a" name="q20" value="a">
+                    <label for="q20a">a) Steel</label><br>
+                    <input type="radio" id="q20b" name="q20" value="b">
+                    <label for="q20b">b) Gold</label><br>
+                    <input type="radio" id="q20c" name="q20" value="c">
+                    <label for="q20c">c) Water</label><br>
+                </div>                
+                
+                <div>
+                    <button type="submit">Enviar respuestas</button>
+                </div>
+                <p id="resultado"></p>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
