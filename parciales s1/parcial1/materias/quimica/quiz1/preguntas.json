@@ -1,0 +1,102 @@
+[
+    {
+        "question": "What is the definition of Chemistry?",
+        "options": ["The study of matter and its changes", "The study of living organisms", "The study of celestial bodies"],
+        "correct": 0
+    },
+    {
+        "question": "How is matter related to Chemistry?",
+        "options": ["Matter is a central subject in Chemistry", "Matter is unrelated to Chemistry", "Matter is studied in Biology"],
+        "correct": 0
+    },
+    {
+        "question": "What are the main components of matter?",
+        "options": ["Atoms and molecules", "Cells and tissues", "Planets and stars"],
+        "correct": 0
+    },
+    {
+        "question": "Explain the difference between physical and chemical changes in matter.",
+        "options": ["Physical changes alter appearance, chemical changes alter composition", "Both changes alter appearance", "Both changes alter composition"],
+        "correct": 0
+    },
+    {
+        "question": "How can the structure of a molecule affect its properties?",
+        "options": ["The structure determines the molecule's behavior and interactions", "The structure has no effect on properties", "The structure only affects the molecule's color"],
+        "correct": 0
+    },
+    {
+        "question": "Why is it important to understand chemical reactions in everyday life?",
+        "options": ["Understanding reactions helps with practical applications like cooking and cleaning", "Chemical reactions are not relevant in daily life", "Understanding reactions is only important in a laboratory setting"],
+        "correct": 0
+    },
+    {
+        "question": "Describe an example of a chemical change in your daily life.",
+        "options": ["Rusting of iron", "Melting of ice", "Boiling of water"],
+        "correct": 0
+    },
+    {
+        "question": "What role does the composition of a substance play in its behavior?",
+        "options": ["It determines how the substance reacts and interacts", "It only affects the color of the substance", "It does not affect the behavior of the substance"],
+        "correct": 0
+    },
+    {
+        "question": "What are the implications of Chemistry for the environment?",
+        "options": ["Chemistry impacts pollution and sustainability", "Chemistry has no effect on the environment", "Chemistry only affects industrial processes"],
+        "correct": 0
+    },
+    {
+        "question": "How does Chemistry impact the food industry?",
+        "options": ["Chemistry is used to develop and improve food preservation and flavor", "Chemistry has no role in food production", "Chemistry is only used in packaging food"],
+        "correct": 0
+    },
+    {
+        "question": "What is the primary focus of Chemistry?",
+        "options": ["The study of matter and its changes", "The study of plants and animals", "The study of space and planets"],
+        "correct": 0
+    },
+    {
+        "question": "What is a chemical reaction?",
+        "options": ["A process where substances change into new substances", "A process where only physical properties change", "A process where substances stay the same"],
+        "correct": 0
+    },
+    {
+        "question": "Which of the following is an example of a chemical property?",
+        "options": ["Reactivity with oxygen", "Color", "Texture"],
+        "correct": 0
+    },
+    {
+        "question": "How does heat affect chemical reactions?",
+        "options": ["It speeds them up", "It slows them down", "It has no effect"],
+        "correct": 0
+    },
+    {
+        "question": "What is the periodic table?",
+        "options": ["A chart that organizes elements by their properties", "A list of all compounds", "A chart of different physical processes"],
+        "correct": 0
+    },
+    {
+        "question": "What is a molecule?",
+        "options": ["A group of atoms bonded together", "A single atom", "An electron"],
+        "correct": 0
+    },
+    {
+        "question": "What does the pH scale measure?",
+        "options": ["The acidity or alkalinity of a substance", "The temperature of a substance", "The density of a substance"],
+        "correct": 0
+    },
+    {
+        "question": "Which of the following is an example of a chemical change?",
+        "options": ["Burning wood", "Melting ice", "Cutting paper"],
+        "correct": 0
+    },
+    {
+        "question": "How is Chemistry used in medicine?",
+        "options": ["To develop medications and treatments", "To create medical devices", "To design hospital buildings"],
+        "correct": 0
+    },
+    {
+        "question": "What is the role of catalysts in chemical reactions?",
+        "options": ["They speed up the reaction", "They slow down the reaction", "They change the end product of the reaction"],
+        "correct": 0
+    }
+]
